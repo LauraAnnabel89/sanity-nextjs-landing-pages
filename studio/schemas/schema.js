@@ -20,6 +20,7 @@ import simplePortableText from './objects/simplePortableText';
 
 // Landing page sections
 import hero from './objects/hero';
+import video from './objects/video'
 import imageSection from './objects/imageSection';
 import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
@@ -34,6 +35,7 @@ export default createSchema({
     embedHTML,
     figure,
     hero,
+    video,
     imageSection,
     internalLink,
     link,

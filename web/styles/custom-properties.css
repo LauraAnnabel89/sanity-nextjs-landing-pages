@@ -1,8 +1,13 @@
+/* @font-face {
+  font-family: 'Gilroy';
+  src: url('../lib/static/fonts/Gilroy-Regular.otf') format('otf');
+} */
+
 :root {
+  --font-family-sans: 'Gilroy', sans-serif;
   --wide-container: 60rem;
   --narrow-container: 40rem;
 
-  --font-family-sans: -apple-system, BlinkMacSystemFont, sans-serif;
 
   --color-black: #202123;
   --color-dark-gray: #32373e;

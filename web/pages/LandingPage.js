@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import NextSeo from 'next-seo'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
-import Layout from '../components/Layout'
+import HomeLayout from '../components/HomeLayout'
 import client from '../client'
 import RenderSections from '../components/RenderSections'
 
@@ -127,7 +127,7 @@ class LandingPage extends Component {
       : []
 
     return (
-      <Layout config={config}>
+      <HomeLayout config={config}>
         <NextSeo
           config={{
             title,
@@ -141,7 +141,7 @@ class LandingPage extends Component {
           }}
         />
         {content && <RenderSections sections={content} />}
-      </Layout>
+      </HomeLayout>
     )
   }
 }

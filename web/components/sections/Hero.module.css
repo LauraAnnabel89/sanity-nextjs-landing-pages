@@ -10,6 +10,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   padding-bottom: 2rem;
+  overflow: hidden;
+  height: 100vh;
 
   @media (--media-min-medium) {
     padding-bottom: 4rem;
@@ -28,8 +30,8 @@
 }
 
 .content {
-  width: 100%;
-  max-width: var(--width-small);
+  width: 100vw;
+  min-height: 100vh;
   padding: 0 1.5em;
   box-sizing: border-box;
   z-index: 1;
