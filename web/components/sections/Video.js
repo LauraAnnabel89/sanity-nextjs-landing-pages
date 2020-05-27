@@ -31,7 +31,7 @@ export default class Video extends React.Component {
   };
 
   render() {
-    const { poster, url, autoplay, muted, loop, ratio, controls } = this.props;
+    const { poster, url, autoplay, muted, loop, ratio } = this.props;
     const { playing, started } = this.state;
     if (!url) return null;
 
