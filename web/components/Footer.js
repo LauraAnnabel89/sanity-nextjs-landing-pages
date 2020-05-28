@@ -14,11 +14,19 @@ function Footer(props) {
   const { navItems, text, router, image, alt, caption, asset, sociallogos } = props;
   return (
     <div className={styles.root}>
+      <div className={styles.footerlogo}>
+        <img src="static/images/blacklogo.jpg" alt="Dawn Production Logo" />
+      </div>
       <div className={styles.text}>
         <SimpleBlockContent blocks={text} />
       </div>
-      <div className={styles.sociallogo}>
-        <img  />
+      <div className={styles.sociallogos}>
+        <a href="https://www.instagram.com/dawnmoretti/?hl=en" target="_blank">
+          <img src="static/images/instagram.jpg" alt="Instagram Logo" />
+        </a>
+        <a href="https://www.linkedin.com/in/dawn-moretti-95208714">
+          <img src="static/images/linkedin.jpg" alt="LinkedIn Logo" />
+        </a>
       </div>
       <nav>
         <ul className={styles.items}>
@@ -43,6 +51,11 @@ function Footer(props) {
             })}
         </ul>
       </nav>
+      <div className={styles.membershiplogos}>
+        <img src="static/images/aop.jpg" alt="AOP Logo" />
+        <img src="static/images/apa.jpg" alt="APA Logo" />
+        <img src="static/images/b.jpg" alt="B Logo" />
+      </div>
     </div>
   );
 }
