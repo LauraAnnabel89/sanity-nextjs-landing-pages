@@ -1,13 +1,20 @@
-/* @font-face {
-  font-family: 'Gilroy';
-  src: url('../lib/static/fonts/Gilroy-Regular.otf') format('otf');
-} */
+@font-face {
+  font-family: "Gilroy";
+  src: url("/static/fonts/Gilroy-Regular.otf");
+  font-display: auto;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Baskerville";
+  src: url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+}
 
 :root {
-  --font-family-sans: 'Gilroy', sans-serif;
+  --font-family-gilroy: "Gilroy", sans-serif;
+  --font-family-baskerville: "Baskerville", sans-serif;
   --wide-container: 60rem;
   --narrow-container: 40rem;
-
 
   --color-black: #202123;
   --color-dark-grey: #272727;

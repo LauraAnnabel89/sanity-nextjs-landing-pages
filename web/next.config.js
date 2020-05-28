@@ -16,6 +16,10 @@ const query = `
   }}
 }
 `
+
+
+
+
 const reduceRoutes = (obj, route) => {
   const {page = {}, slug = {}} = route
   const {_createdAt, _updatedAt} = page
