@@ -1,15 +1,14 @@
 @import '../styles/custom-properties.css';
 
-.root {
+.homeContainer {
   color: var(--color-black, #333);
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
   padding: 2rem 0;
 }
 
-.container {
-  overflow: hidden;
-  height: 100vh;
+.homeContainer footer {
+  display: none;
 }
 
 .items {

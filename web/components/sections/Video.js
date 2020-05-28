@@ -44,8 +44,8 @@ export default class Video extends React.Component {
     }
 
     return (
-      <div className={styles.root}>
-        <div className={styles.container}>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
           <ReactPlayer
             url={url}
             ref={this.ref}

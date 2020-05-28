@@ -22,7 +22,7 @@ function HomeLayout (props) {
       <Head>
         <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
       </Head>
-      <div className={styles.container}>
+      <div className={styles.homeContainer}>
         <Header title={title} navItems={mainNavigation} logo={logo} />
         <div className='content'>{children}</div>
       </div>

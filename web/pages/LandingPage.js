@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import NextSeo from 'next-seo'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
-import HomeLayout from '../components/HomeLayout'
+import HomeLayout from '../components/Layout'
 import client from '../client'
 import RenderSections from '../components/RenderSections'
 
