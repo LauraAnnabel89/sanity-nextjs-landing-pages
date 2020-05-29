@@ -76,7 +76,7 @@ class Header extends Component {
         <h1 className={styles.branding}>
           <Link
             href={{
-              pathname: "/LandingPage",
+              pathname: "/CustomPage",
               query: {
                 slug: "/",
               },
