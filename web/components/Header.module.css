@@ -138,6 +138,14 @@
   }
 }
 
+.navItem a[data-is-active="true"] {
+  text-decoration: underline;
+}
+
+.navItem a:hover {
+  color: var(--color-light-grey);
+}
+
 .showNavButton {
   appearance: none;
   border: none;
