@@ -4,7 +4,6 @@ import Head from "next/head";
 
 import { LogoJsonLd } from "next-seo";
 import Header from "./Header";
-import Footer from "./Footer";
 
 function HomeLayout(props) {
   const { config, children } = props;
@@ -14,15 +13,7 @@ function HomeLayout(props) {
     return <div>Missing config</div>;
   }
 
-  const {
-    title,
-    mainNavigation,
-    footerNavigation,
-    footerText,
-    logo,
-    url,
-    socialmedialogos,
-  } = config;
+  const { title, mainNavigation, logo, url, socialmedialogos } = config;
   const logoUrl = logo && logo.asset && logo.asset.url;
 
   return (
@@ -39,12 +30,9 @@ function HomeLayout(props) {
 }
 
 HomeLayout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node),
   config: PropTypes.shape({
     title: PropTypes.string,
     mainNavigation: PropTypes.arrayOf(PropTypes.object),
-    footerNavigation: PropTypes.arrayOf(PropTypes.object),
-    footerText: PropTypes.arrayOf(PropTypes.object),
     logo: PropTypes.shape({
       asset: PropTypes.shape({
         url: PropTypes.string,

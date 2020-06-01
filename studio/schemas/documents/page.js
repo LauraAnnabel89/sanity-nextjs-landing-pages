@@ -22,6 +22,7 @@ export default {
         { type: 'hero' },
         { type: 'video' },
         { type: 'imageSection' },
+        { type: 'fullbleedimage' },
         { type: 'mailchimp' },
         { type: 'textSection' }
       ]
