@@ -20,8 +20,10 @@ export default {
       title: 'Page sections',
       of: [
         { type: 'hero' },
+        { type: 'homePage' },
         { type: 'video' },
         { type: 'imageSection' },
+        { type: 'twoColumn' },
         { type: 'fullbleedimage' },
         { type: 'mailchimp' },
         { type: 'textSection' }

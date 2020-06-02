@@ -1,17 +1,20 @@
-@import '../../styles/custom-media.css';
-@import '../../styles/custom-properties.css';
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
 
 .root {
-  padding: 2rem 0;
+  padding: 1rem 0;
+
+  text-align: center;
 
   @media (--media-min-medium) {
-    padding: 4rem 0;
+    padding: 1rem 0;
   }
 }
 
 .article {
   width: 100%;
-  max-width: var(--width-small);
+  font-family: var(--font-family-baskerville);
+  max-width: var(--width-medium);
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
@@ -28,8 +31,12 @@
 .heading {
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
+  font-family: var(--font-family-gilroy);
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 300;
 }
 
-.label+.heading {
+.label + .heading {
   margin-top: 0.25em;
 }

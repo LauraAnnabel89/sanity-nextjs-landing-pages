@@ -21,7 +21,7 @@ function HomeLayout(props) {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       </Head>
-      <div className="container">
+      <div className="container" style={{ overflow: "hidden" }}>
         <Header title={title} navItems={mainNavigation} logo={logo} />
         <div className="content">{children}</div>
       </div>

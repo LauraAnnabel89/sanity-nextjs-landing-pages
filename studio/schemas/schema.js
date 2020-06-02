@@ -19,10 +19,12 @@ import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
 import video from './objects/video'
 import hero from './objects/hero'
+import homePage from './objects/homePage'
 import imageSection from './objects/imageSection'
 import fullbleedimage from './objects/fullbleedimage'
 import mailchimp from './objects/mailchimp'
 import textSection from './objects/textSection'
+import twoColumn from './objects/twoColumn'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,6 +36,8 @@ export default createSchema({
     embedHTML,
     figure,
     hero,
+    homePage,
+    twoColumn,
     video,
     imageSection,
     fullbleedimage,

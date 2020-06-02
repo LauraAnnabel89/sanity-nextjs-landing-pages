@@ -2,9 +2,9 @@
 @import "../styles/custom-properties.css";
 
 .root {
-  position: relative;
+  position: absolute;
   color: #202123;
-  color: var(--color-black, #000);
+  color: var(--color-white, #000);
   display: flex;
   margin: 0 auto;
   top: 0;
@@ -21,7 +21,7 @@
 .branding {
   font-size: inherit;
   font-weight: inherit;
-  text-transform: uppercase;
+
   margin: 0;
   padding: 0;
 
@@ -63,6 +63,7 @@
 .navItems {
   padding: 0;
   margin: 0;
+  text-transform: uppercase;
 
   @media (--media-min-medium) {
     display: flex;
@@ -144,6 +145,7 @@
 
 .navItem a:hover {
   color: var(--color-light-grey);
+  text-decoration: underline;
 }
 
 .showNavButton {
