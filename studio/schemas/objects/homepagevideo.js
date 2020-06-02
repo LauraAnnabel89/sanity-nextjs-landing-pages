@@ -2,8 +2,8 @@ import React from 'react'
 import { map } from 'lodash'
 
 export default {
-  name: 'video',
-  title: 'Video',
+  name: 'homepagevideo',
+  title: 'Homepage Video',
   type: 'object',
   fields: [
     {
@@ -41,7 +41,7 @@ export default {
     },
     prepare: selection => {
       const { url, poster } = selection
-      const title = 'Video'
+      const title = 'Homepage Video'
       const subtitle = url || 'Video URL Missing!'
       return {
         title,

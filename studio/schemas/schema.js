@@ -18,6 +18,7 @@ import link from './objects/link'
 import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
 import video from './objects/video'
+import homepagevideo from './objects/homepagevideo'
 import hero from './objects/hero'
 import homePage from './objects/homePage'
 import imageSection from './objects/imageSection'
@@ -39,6 +40,7 @@ export default createSchema({
     homePage,
     twoColumn,
     video,
+    homepagevideo,
     imageSection,
     fullbleedimage,
     internalLink,

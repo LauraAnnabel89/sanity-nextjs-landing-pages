@@ -4,27 +4,13 @@
 .root {
   composes: center from "../../styles/shared.module.css";
   position: relative;
-  background-color: var(--color-black, #000);
   color: var(--color-white, #fff);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background: none;
   padding-bottom: 2rem;
 
   @media (--media-min-medium) {
     padding-bottom: 4rem;
   }
-}
-
-.root::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  background-image: linear-gradient(#2220, #222e);
-  width: 100%;
-  height: 50%;
-  z-index: 0;
 }
 
 .content {
@@ -36,6 +22,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.image {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .title {

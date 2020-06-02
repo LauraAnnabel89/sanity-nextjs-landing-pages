@@ -30,7 +30,9 @@
     "react-mailchimp-form": "^1.0.1",
     "react-mailchimp-subscribe": "^2.1.0",
     "react-player": "^2.1.0",
-    "screenfull": "^5.0.2"
+    "react-slick": "^0.26.1",
+    "screenfull": "^5.0.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

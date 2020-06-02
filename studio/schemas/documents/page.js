@@ -22,6 +22,7 @@ export default {
         { type: 'hero' },
         { type: 'homePage' },
         { type: 'video' },
+        { type: 'homepagevideo' },
         { type: 'imageSection' },
         { type: 'twoColumn' },
         { type: 'fullbleedimage' },

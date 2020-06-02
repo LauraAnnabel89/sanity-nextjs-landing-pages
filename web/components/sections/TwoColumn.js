@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import imageUrlBuilder from "@sanity/image-url";
-import styles from "./ImageSection.module.css";
+import styles from "./TwoColumn.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
@@ -11,23 +11,24 @@ const builder = imageUrlBuilder(client);
 function ImageSection(props) {
   const { heading, label, text, image, cta } = props;
 
+  const images = props.image;
+
   if (!image) {
     return null;
   }
 
+  console.log(images);
+
   return (
     <div className={styles.root}>
       <figure className={styles.content}>
-        <img
-          src={builder.image(image).auto("format").width(2000).url()}
-          className={styles.image}
-          alt={heading}
-        />
-        <img
-          src={builder.image(image).auto("format").width(2000).url()}
-          className={styles.image}
-          alt={heading}
-        />
+        {images.map((image) => (
+          <img
+            src={builder.image(image).auto("format").width(2000).url()}
+            className={styles.image}
+            alt={heading}
+          />
+        ))}
       </figure>
     </div>
   );
