@@ -5,6 +5,8 @@ import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 import imageUrlBuilder from "@sanity/image-url";
+import AutoplaySlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
 
 const builder = imageUrlBuilder(client);
 
@@ -17,15 +19,18 @@ function Hero(props) {
       <div className={styles.content}>
         <h1 className={styles.title}>{heading}</h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
-
-        {images.map((image) => (
-          <img
-            className={styles.image}
-            src={builder.image(image).url()}
-            className={styles.image}
-            alt={heading}
-          />
-        ))}
+        <AutoplaySlider play={true} cancelOnInteraction={false} interval={6000}>
+          <div>
+            {images.map((image) => (
+              <img
+                className={styles.image}
+                src={builder.image(image).url()}
+                className={styles.image}
+                alt={heading}
+              />
+            ))}
+          </div>
+        </AutoplaySlider>
       </div>
     </div>
   );
