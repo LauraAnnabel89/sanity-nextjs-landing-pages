@@ -6,8 +6,7 @@ import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 import imageUrlBuilder from "@sanity/image-url";
 import AutoplaySlider from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
-
+import AwesomeSliderStyles from "react-awesome-slider/dist/styles.css";
 const builder = imageUrlBuilder(client);
 
 function Hero(props) {
@@ -19,7 +18,12 @@ function Hero(props) {
       <div className={styles.content}>
         <h1 className={styles.title}>{heading}</h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
-        <AutoplaySlider play={true} cancelOnInteraction={false} interval={6000}>
+        <AutoplaySlider
+          play={true}
+          cancelOnInteraction={false}
+          interval={6000}
+          style={AwesomeSliderStyles}
+        >
           <div>
             {images.map((image) => (
               <img

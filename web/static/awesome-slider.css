@@ -1,62 +1,3 @@
-@import "../../styles/custom-media.css";
-@import "../../styles/custom-properties.css";
-
-.root {
-  composes: center from "../../styles/shared.module.css";
-  position: relative;
-  color: var(--color-white, #fff);
-  background: none;
-  padding-bottom: 2rem;
-
-  @media (--media-min-medium) {
-    padding-bottom: 4rem;
-  }
-}
-
-.content {
-  width: 100vw;
-  min-height: 100vh;
-  padding: 0 1.5em;
-  box-sizing: border-box;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image {
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-}
-
-.title {
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  font-weight: 300;
-  font-size: var(--font-title2-size);
-  line-height: var(--font-title2-line-height);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  margin: 0;
-  padding: 0;
-
-  @media (--media-min-medium) {
-    font-size: var(--font-title1-size);
-    line-height: var(--font-title1-line-height);
-    padding-top: 0;
-  }
-}
-
-/* Awesome Slider */
-
 .awssld__container figure,
 .awssld__content,
 .awssld__box {
@@ -68,6 +9,10 @@
   left: 0;
 }
 
+.awssld {
+  border: 20px solid red !important;
+}
+
 .awssld__controls button,
 .awssld__bullets button {
   outline-color: 0;
@@ -76,7 +21,6 @@
 }
 
 .awssld {
-  --organic-arrow-thickness: 4px;
   --organic-arrow-height: 40px;
   --slider-height-percentage: 60%;
   --loader-bar-color: #851515;

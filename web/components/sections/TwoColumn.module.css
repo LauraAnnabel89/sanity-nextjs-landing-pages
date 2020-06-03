@@ -35,6 +35,7 @@
 .content {
   position: relative;
   margin: 0 1.5rem;
+  max-width: 70em;
   max-width: var(--width-medium);
 
   @nest & figcaption {
@@ -45,12 +46,19 @@
   @media (--media-min-medium) {
     margin: 0 auto;
     padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @nest & figcaption {
       position: absolute;
       top: 0;
     }
   }
+}
+
+.imageContainer {
+  margin: 0.75em;
 }
 
 .caption {

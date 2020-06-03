@@ -21,15 +21,17 @@ function ImageSection(props) {
 
   return (
     <div className={styles.root}>
-      <figure className={styles.content}>
+      <div className={styles.content}>
         {images.map((image) => (
-          <img
-            src={builder.image(image).auto("format").width(2000).url()}
-            className={styles.image}
-            alt={heading}
-          />
+          <figure className={styles.imageContainer}>
+            <img
+              src={builder.image(image).auto("format").width(2000).url()}
+              className={styles.image}
+              alt={heading}
+            />
+          </figure>
         ))}
-      </figure>
+      </div>
     </div>
   );
 }
