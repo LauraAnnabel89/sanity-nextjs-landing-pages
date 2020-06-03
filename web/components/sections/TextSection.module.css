@@ -14,10 +14,14 @@
 .article {
   width: 100%;
   font-family: var(--font-family-baskerville);
-  max-width: var(--width-medium);
+  max-width: var(--width-text-medium);
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .label {
@@ -33,10 +37,17 @@
   line-height: var(--font-title3-line-height);
   font-family: var(--font-family-gilroy);
   text-transform: uppercase;
-  text-decoration: underline;
   font-weight: 300;
+  width: object-fit;
+  border-bottom: 2px solid var(--color-black);
+  padding: 10px 25px;
 }
 
 .label + .heading {
   margin-top: 0.25em;
+}
+
+.TextSection p span {
+  text-decoration: underline;
+  font-weight: 600;
 }

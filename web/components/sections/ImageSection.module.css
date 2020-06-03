@@ -6,7 +6,7 @@
   padding: 2rem 0;
 
   @media (--media-min-large) {
-    padding: 4rem 0;
+    padding: 1rem 0;
   }
 }
 
@@ -44,7 +44,7 @@
 
   @media (--media-min-medium) {
     margin: 0 auto;
-    padding-top: 2rem;
+    padding-top: 1rem;
 
     @nest & figcaption {
       position: absolute;

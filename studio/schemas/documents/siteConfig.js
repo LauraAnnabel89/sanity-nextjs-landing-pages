@@ -34,23 +34,6 @@ export default {
         Rule.custom(lang => (bcp47.parse(lang) ? true : 'Please use a valid bcp47 code'))
     },
     {
-      title: 'Brand logo',
-      description: 'Best choice is to use an SVG where the color are set with currentColor',
-      name: 'logo',
-      type: 'image',
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
-          options: {
-            isHighlighted: true
-          }
-        }
-      ]
-    },
-    {
       title: 'Main navigation',
       name: 'mainNavigation',
       description: 'Select pages for the top menu',
@@ -67,27 +50,11 @@ export default {
       ]
     },
     {
-      title: 'Footer Site Logo',
-      name: 'footerlogo',
-      type: 'image',
-      fieldset: 'footer'
-    },
-    {
       name: 'footerText',
       type: 'simplePortableText',
       fieldset: 'footer'
     },
-    {
-      title: 'Social Media Logos',
-      name: 'socialmedialogos',
-      fieldset: 'footer',
-      type: 'array',
-      of: [
-        {
-          type: 'image'
-        }
-      ]
-    },
+
     {
       title: 'Footer navigation items',
       name: 'footerNavigation',
@@ -101,17 +68,6 @@ export default {
         {
           type: 'reference',
           to: [{ type: 'route' }]
-        }
-      ]
-    },
-    {
-      title: 'Membership Logos',
-      name: 'membershiplogos',
-      fieldset: 'footer',
-      type: 'array',
-      of: [
-        {
-          type: 'image'
         }
       ]
     }

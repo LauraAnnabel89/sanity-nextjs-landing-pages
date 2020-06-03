@@ -43,7 +43,8 @@
   /* Widths */
   --width-x-small: 20em;
   --width-small: 40em;
-  --width-medium: 70em;
+  --width-text-medium: 50em;
+  --width-medium: 60em;
   --width-large: 80em;
   --width-x-large: 100em;
 }

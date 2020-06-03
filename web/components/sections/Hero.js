@@ -5,12 +5,21 @@ import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 import imageUrlBuilder from "@sanity/image-url";
-import AutoplaySlider from "react-awesome-slider";
-import AwesomeSliderStyles from "react-awesome-slider/dist/styles.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css?raw";
+import "slick-carousel/slick/slick-theme.css?raw";
+
 const builder = imageUrlBuilder(client);
 
 function Hero(props) {
   const { heading, image, tagline, ctas } = props;
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   const images = props.image;
   return (
@@ -18,12 +27,7 @@ function Hero(props) {
       <div className={styles.content}>
         <h1 className={styles.title}>{heading}</h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
-        <AutoplaySlider
-          play={true}
-          cancelOnInteraction={false}
-          interval={6000}
-          style={AwesomeSliderStyles}
-        >
+        <Slider {...settings}>
           <div>
             {images.map((image) => (
               <img
@@ -34,7 +38,7 @@ function Hero(props) {
               />
             ))}
           </div>
-        </AutoplaySlider>
+        </Slider>
       </div>
     </div>
   );
