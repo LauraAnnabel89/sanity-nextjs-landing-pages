@@ -6,8 +6,8 @@ import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 import imageUrlBuilder from "@sanity/image-url";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css?raw";
-import "slick-carousel/slick/slick-theme.css?raw";
+// import "slick-carousel/slick/slick.css?raw";
+// import "slick-carousel/slick/slick-theme.css?raw";
 
 const builder = imageUrlBuilder(client);
 
@@ -27,18 +27,16 @@ function Hero(props) {
       <div className={styles.content}>
         <h1 className={styles.title}>{heading}</h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
-        <Slider {...settings}>
-          <div>
-            {images.map((image) => (
-              <img
-                className={styles.image}
-                src={builder.image(image).url()}
-                className={styles.image}
-                alt={heading}
-              />
-            ))}
-          </div>
-        </Slider>
+        <div>
+          {images.map((image) => (
+            <img
+              className={styles.image}
+              src={builder.image(image).url()}
+              className={styles.image}
+              alt={heading}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

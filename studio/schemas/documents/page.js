@@ -21,13 +21,13 @@ export default {
       of: [
         { type: 'hero' },
         { type: 'homePage' },
-        { type: 'video' },
         { type: 'homepagevideo' },
         { type: 'imageSection' },
-        { type: 'twoColumn' },
-        { type: 'fullbleedimage' },
         { type: 'mailchimp' },
-        { type: 'textSection' }
+        { type: 'twoColumn' },
+        { type: 'textSection' },
+        { type: 'textSectionThreeColumns' },
+        { type: 'video' }
       ]
     },
     {

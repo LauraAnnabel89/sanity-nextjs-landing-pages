@@ -13,19 +13,19 @@ import siteConfig from './documents/siteConfig'
 import cta from './objects/cta'
 import embedHTML from './objects/embedHTML'
 import figure from './objects/figure'
-import internalLink from './objects/internalLink'
-import link from './objects/link'
-import portableText from './objects/portableText'
-import simplePortableText from './objects/simplePortableText'
-import video from './objects/video'
-import homepagevideo from './objects/homepagevideo'
 import hero from './objects/hero'
 import homePage from './objects/homePage'
+import homepagevideo from './objects/homepagevideo'
 import imageSection from './objects/imageSection'
-import fullbleedimage from './objects/fullbleedimage'
+import internalLink from './objects/internalLink'
+import link from './objects/link'
 import mailchimp from './objects/mailchimp'
+import portableText from './objects/portableText'
+import simplePortableText from './objects/simplePortableText'
 import textSection from './objects/textSection'
+import textSectionThreeColumns from './objects/textSectionThreeColumns'
 import twoColumn from './objects/twoColumn'
+import video from './objects/video'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -38,11 +38,8 @@ export default createSchema({
     figure,
     hero,
     homePage,
-    twoColumn,
-    video,
     homepagevideo,
     imageSection,
-    fullbleedimage,
     internalLink,
     link,
     mailchimp,
@@ -51,6 +48,9 @@ export default createSchema({
     route,
     simplePortableText,
     siteConfig,
-    textSection
+    textSection,
+    textSectionThreeColumns,
+    twoColumn,
+    video
   ])
 })
