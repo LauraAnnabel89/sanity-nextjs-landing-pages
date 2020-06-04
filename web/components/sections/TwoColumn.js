@@ -17,8 +17,6 @@ function ImageSection(props) {
     return null;
   }
 
-  console.log(images);
-
   return (
     <div className={styles.root}>
       <div className={styles.content}>

@@ -1,8 +1,7 @@
 export default {
   name: 'textSectionThreeColumns',
   title: 'Text Section Three Columns',
-  type: 'object',
-
+  type: 'array',
   fields: [
     {
       name: 'headingColumnOne',
