@@ -19,15 +19,15 @@
 }
 
 .branding {
-  font-size: inherit;
-  font-weight: inherit;
-
+  font-size: 40px;
+  font-weight: 700;
   margin: 0;
   padding: 0;
+  letter-spacing: 0.3rem;
 
   @nest & > a {
     display: block;
-    padding: 1.5em;
+    padding: 1rem 0.5rem;
 
     @supports (padding-top: env(safe-area-inset-top)) {
       padding-left: calc(env(safe-area-inset-left) + 1.5rem);

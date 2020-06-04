@@ -6,7 +6,10 @@ export default {
   title: 'Site configuration',
   // https://www.sanity.io/docs/experimental/ui-affordances-for-actions
   __experimental_actions: [/* create, delete, */ 'update', 'publish'],
-  fieldsets: [{ name: 'footer', title: 'Footer' }],
+  fieldsets: [
+    { name: 'footer', title: 'Footer' },
+    { name: 'header', title: 'Header' }
+  ],
   fields: [
     {
       name: 'title',
@@ -36,9 +39,10 @@ export default {
     {
       title: 'Main navigation',
       name: 'mainNavigation',
+      fieldset: 'header',
       description: 'Select pages for the top menu',
       validation: Rule => [
-        Rule.max(5).warning('Are you sure you want more than 5 items?'),
+        Rule.max(7).warning('Are you sure you want more than 5 items?'),
         Rule.unique().error('You have duplicate menu items')
       ],
       type: 'array',
@@ -48,6 +52,12 @@ export default {
           to: [{ type: 'route' }]
         }
       ]
+    },
+    {
+      name: 'color',
+      type: 'array',
+      of: [{ type: 'string' }],
+      fieldset: 'header'
     },
     {
       name: 'footerText',

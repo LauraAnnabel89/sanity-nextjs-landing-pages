@@ -68,11 +68,17 @@ class Header extends Component {
   };
 
   render() {
-    const { title = "Missing title", navItems, router, logo } = this.props;
+    const { title = "Missing title", navItems, router, logo, white, black } = this.props;
     const { showNav } = this.state;
-
+    const reverseColour = this.props.white;
+    const defaultColour = this.props.black;
+    console.log(reverseColour);
     return (
-      <div className={styles.root} data-show-nav={showNav}>
+      <div
+        className={styles.root}
+        data-show-nav={showNav}
+        style={{ color: reverseColour && "#fffff" }}
+      >
         <h1 className={styles.branding}>
           <Link
             href={{
@@ -84,7 +90,7 @@ class Header extends Component {
             as="/"
             prefetch
           >
-            <a title={title}>{this.renderLogo(logo)}</a>
+            <a title={title}>DAWN</a>
           </Link>
         </h1>
         <nav className={styles.nav}>
