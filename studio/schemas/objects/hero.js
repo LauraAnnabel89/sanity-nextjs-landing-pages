@@ -23,6 +23,12 @@ export default {
       }
     },
     {
+      name: 'reverseColour',
+      description:
+        'Logo, navigation items and title are black by default, switch this on to make them white',
+      type: 'boolean'
+    },
+    {
       name: 'ctas',
       type: 'array',
       title: 'Call to actions',

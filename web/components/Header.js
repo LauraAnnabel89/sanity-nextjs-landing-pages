@@ -68,16 +68,15 @@ class Header extends Component {
   };
 
   render() {
-    const { title = "Missing title", navItems, router, logo, white, black } = this.props;
+    const { title = "Missing title", navItems, router, logo, reverseColour } = this.props;
     const { showNav } = this.state;
-    const reverseColour = this.props.white;
-    const defaultColour = this.props.black;
-    console.log(reverseColour);
+
+    console.log(this.props);
     return (
       <div
         className={styles.root}
         data-show-nav={showNav}
-        style={{ color: reverseColour && "#fffff" }}
+        style={{ color: reverseColour && "white" }}
       >
         <h1 className={styles.branding}>
           <Link
