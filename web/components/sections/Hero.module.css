@@ -34,6 +34,7 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+  /* animation: fade 2s infinite; */
 }
 
 .title {
@@ -54,15 +55,12 @@
     padding-top: 0;
   }
 }
-/* // <Slider {...settings}>
-//   <div>
-//     {images.map((image) => (
-//       <img
-//         className={styles.image}
-//         src={builder.image(image).url()}
-//         className={styles.image}
-//         alt={heading}
-//       />
-//     ))}
-//   </div>
-// </Slider> */
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
