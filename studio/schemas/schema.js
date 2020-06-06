@@ -16,6 +16,7 @@ import figure from './objects/figure'
 import hero from './objects/hero'
 import homePage from './objects/homePage'
 import homepagevideo from './objects/homepagevideo'
+import imageGrid from './objects/imageGrid'
 import imageSection from './objects/imageSection'
 import internalLink from './objects/internalLink'
 import link from './objects/link'
@@ -39,6 +40,7 @@ export default createSchema({
     hero,
     homePage,
     homepagevideo,
+    imageGrid,
     imageSection,
     internalLink,
     link,
