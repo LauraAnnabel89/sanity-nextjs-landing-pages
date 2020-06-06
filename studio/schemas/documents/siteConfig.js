@@ -39,10 +39,9 @@ export default {
     {
       title: 'Main navigation',
       name: 'mainNavigation',
-      fieldset: 'header',
       description: 'Select pages for the top menu',
       validation: Rule => [
-        Rule.max(7).warning('Are you sure you want more than 5 items?'),
+        Rule.max(7).warning('Are you sure you want more than 7 items?'),
         Rule.unique().error('You have duplicate menu items')
       ],
       type: 'array',
@@ -54,10 +53,10 @@ export default {
       ]
     },
     {
-      name: 'color',
-      type: 'array',
-      of: [{ type: 'string' }],
-      fieldset: 'header'
+      name: 'reverseColour',
+      description:
+        'Logo, navigation items and title are black by default, switch this on to make them white',
+      type: 'boolean'
     },
     {
       name: 'footerText',

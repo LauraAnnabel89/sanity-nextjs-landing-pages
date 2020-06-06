@@ -13,7 +13,7 @@ function HomeLayout(props) {
     return <div>Missing config</div>;
   }
 
-  const { title, mainNavigation, logo, url, socialmedialogos } = config;
+  const { title, mainNavigation, logo, url, socialmedialogos, reverseColour } = config;
   const logoUrl = logo && logo.asset && logo.asset.url;
 
   return (
@@ -22,7 +22,7 @@ function HomeLayout(props) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       </Head>
       <div className="container" style={{ overflow: "hidden" }}>
-        <Header title={title} navItems={mainNavigation} logo={logo} />
+        <Header title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
         <div className="content">{children}</div>
       </div>
     </>
