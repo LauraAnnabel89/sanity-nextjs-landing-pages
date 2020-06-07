@@ -22,6 +22,7 @@ export default {
         { type: 'hero' },
         { type: 'homePage' },
         { type: 'homepagevideo' },
+        { type: 'imageGrid' },
         { type: 'imageSection' },
         { type: 'mailchimp' },
         { type: 'twoColumn' },
