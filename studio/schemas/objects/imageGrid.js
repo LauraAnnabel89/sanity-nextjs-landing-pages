@@ -1,5 +1,5 @@
 export default {
-  type: 'array',
+  type: 'object',
   name: 'imageGrid',
   title: 'Image Grid',
   fields: [
