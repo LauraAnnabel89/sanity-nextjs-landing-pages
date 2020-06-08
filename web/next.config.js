@@ -35,6 +35,12 @@ const reduceRoutes = (obj, route) => {
   return obj;
 };
 
+// gatsby-config.js
+
+module.exports = {
+  plugins: [`gatsby-plugin-modal-routing`],
+};
+
 module.exports = withCSS({
   cssModules: true,
   cssLoaderOptions: {

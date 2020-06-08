@@ -19,7 +19,10 @@ export default {
       description: 'Use this to link between pages on the website',
       name: 'route',
       type: 'reference',
-      to: [{ type: 'route' }]
+      to: [{ type: 'route' }],
+      options: {
+        isHighlighted: true
+      }
     },
     {
       name: 'alt',
