@@ -4,15 +4,9 @@ export default {
   title: 'Image Grid',
   fields: [
     {
-      name: 'title',
-      type: 'array',
-      of: [{ name: 'title', type: 'string' }],
-      title: 'Title'
-    },
-    {
       name: 'image',
       type: 'array',
-      of: [{ name: 'image', type: 'image' }],
+      of: [{ type: 'figure' }],
       title: 'Image',
       options: {
         hotspot: true

@@ -9,7 +9,7 @@ import Cta from "../Cta";
 const builder = imageUrlBuilder(client);
 
 function ImageGrid(props) {
-  const { title, image, link } = props;
+  const { caption, image, link } = props;
 
   const images = props.image;
 
@@ -21,15 +21,15 @@ function ImageGrid(props) {
     <div className={styles.root}>
       <div className={styles.content}>
         {images.map((image) => (
-          <a href={link}>
+          <a href={image.link}>
             <figure className={styles.imageContainer}>
               <img
                 src={builder.image(image).auto("format").width(2000).url()}
                 className={styles.image}
-                alt={title}
+                alt={caption}
               />
+              <p className={styles.caption}>{image.caption}</p>
             </figure>
-            <p>{title}</p>
           </a>
         ))}
       </div>
