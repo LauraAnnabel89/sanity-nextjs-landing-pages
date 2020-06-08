@@ -71,7 +71,6 @@ class Header extends Component {
     const { title = "Missing title", navItems, router, logo, reverseColour } = this.props;
     const { showNav } = this.state;
 
-    console.log(this.props);
     return (
       <div
         className={styles.root}

@@ -17,9 +17,11 @@ export default {
     select: {
       media: 'image'
     },
-    prepare({ title, media }) {
+    prepare({ title, internalLink, caption, media }) {
       return {
         title,
+        caption,
+        internalLink,
         subtitle: 'Image Grid',
         media
       }

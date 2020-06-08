@@ -30,7 +30,6 @@ function Hero(props) {
         <div>
           {images.map((image) => (
             <>
-              {console.log(image)}
               <img
                 className={styles.image}
                 src={builder.image(image).url()}

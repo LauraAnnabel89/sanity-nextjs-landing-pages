@@ -19,6 +19,7 @@ export default {
       type: 'array',
       title: 'Page sections',
       of: [
+        { type: 'figure' },
         { type: 'hero' },
         { type: 'homePage' },
         { type: 'homepagevideo' },
