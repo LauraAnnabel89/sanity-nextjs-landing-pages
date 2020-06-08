@@ -29,12 +29,15 @@ function Hero(props) {
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
         <div>
           {images.map((image) => (
-            <img
-              className={styles.image}
-              src={builder.image(image).url()}
-              className={styles.image}
-              alt={heading}
-            />
+            <>
+              {console.log(image)}
+              <img
+                className={styles.image}
+                src={builder.image(image).url()}
+                className={styles.image}
+                alt={heading}
+              />
+            </>
           ))}
         </div>
       </div>

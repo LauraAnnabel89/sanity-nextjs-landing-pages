@@ -34,7 +34,10 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  /* animation: fade 2s infinite; */
+  /* animation: fade 5s infinite; */
+  position: absolute;
+  left: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .title {
@@ -59,6 +62,12 @@
 @keyframes fade {
   0% {
     opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
   }
   100% {
     opacity: 0;
