@@ -5,21 +5,11 @@ import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 import imageUrlBuilder from "@sanity/image-url";
-import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css?raw";
-// import "slick-carousel/slick/slick-theme.css?raw";
 
 const builder = imageUrlBuilder(client);
 
 function Hero(props) {
   const { heading, image, tagline, ctas } = props;
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
 
   const images = props.image;
   return (
@@ -28,16 +18,29 @@ function Hero(props) {
         <h1 className={styles.title}>{heading}</h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
         <div>
-          {images.map((image) => (
-            <>
-              <img
-                className={styles.image}
-                src={builder.image(image).url()}
-                className={styles.image}
-                alt={heading}
-              />
-            </>
-          ))}
+          {images.length > 1
+            ? images.map((image, index) => (
+                <img
+                  id={index}
+                  className={styles.image + styles.imageSlider}
+                  src={builder.image(image).url()}
+                  className={styles.image}
+                  alt={heading}
+                  style={{
+                    animationDelay: `${index * 10}s`, // delay animation for next images
+                    zIndex: `-${index + 2}`, // make images as layers, not same layer -1
+                  }}
+                />
+              ))
+            : images.map((image, index) => (
+                <img
+                  id={index}
+                  className={styles.image}
+                  src={builder.image(image).url()}
+                  className={styles.image}
+                  alt={heading}
+                />
+              ))}
         </div>
       </div>
     </div>
