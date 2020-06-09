@@ -17,7 +17,7 @@ export default {
     {
       title: 'Internal link',
       description: 'Use this to link between pages on the website',
-      name: 'route',
+      name: 'internalLink',
       type: 'reference',
       to: [{ type: 'route' }],
       options: {

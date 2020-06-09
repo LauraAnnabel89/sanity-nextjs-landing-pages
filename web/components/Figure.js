@@ -3,17 +3,27 @@ import PropTypes from "prop-types";
 import imageUrlBuilder from "@sanity/image-url";
 import styles from "./Figure.module.css";
 import client from "../client";
+import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
 function Figure({ node }) {
-  const { alt, caption, asset, internalLink } = node;
+  const { alt, caption, asset, internalLink, router } = node;
+
   if (!asset) {
     return undefined;
   }
+
+  const isActive = router.pathname === "/LandingPage" && router.query.slug === item.slug.current;
   return (
     <figure className={styles.content}>
-      <a href={internalLink}>
+      <Link
+        href={{
+          query: { slug: slug.current },
+        }}
+        as={`/${slug.current}`}
+        prefetch
+      >
         <img
           src={builder.image(asset).auto("format").width(2000).url()}
           className={styles.image}
@@ -28,7 +38,7 @@ function Figure({ node }) {
             </div>
           </figcaption>
         )}
-      </a>
+      </Link>
     </figure>
   );
 }
