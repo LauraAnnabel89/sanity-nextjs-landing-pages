@@ -5,7 +5,6 @@ import styles from "./ImageGrid.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
-import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
@@ -23,23 +22,16 @@ function ImageGrid(props) {
       <div className={styles.content}>
         {images.map((image) => (
           <>
-            {console.log(image)}
-            <Link
-              href={{
-                query: { slug: internalLink },
-              }}
-              as={`/${internalLink}`}
-              prefetch
-            >
-              <figure className={styles.imageContainer}>
+            <figure className={styles.imageContainer}>
+              <a href={image.internalLink}>
                 <img
                   src={builder.image(image).auto("format").width(2000).url()}
                   className={styles.image}
                   alt={image.caption}
                 />
                 <p className={styles.caption}>{image.caption}</p>
-              </figure>
-            </Link>
+              </a>
+            </figure>
           </>
         ))}
       </div>

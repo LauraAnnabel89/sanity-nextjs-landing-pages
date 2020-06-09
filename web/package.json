@@ -11,6 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@jesstelford/react-portal-universal": "^1.0.6",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.13",
     "@sanity/image-url": "^0.140.19",
@@ -32,6 +33,7 @@
     "react-mailchimp-form": "^1.0.1",
     "react-mailchimp-subscribe": "^2.1.0",
     "react-player": "^2.1.0",
+    "react-responsive-carousel": "^3.2.7",
     "react-slick": "^0.26.1",
     "react-slidez": "0.0.31",
     "screenfull": "^5.0.2",

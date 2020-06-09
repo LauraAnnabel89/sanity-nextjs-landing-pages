@@ -1,7 +1,7 @@
 // pages/modal-example.js
 
 import React from "react";
-import { Link } from "gatsby";
+import Link from "next/link";
 import { ModalRoutingContext } from "gatsby-plugin-modal-routing";
 
 const ModalExamplePage = () => (
