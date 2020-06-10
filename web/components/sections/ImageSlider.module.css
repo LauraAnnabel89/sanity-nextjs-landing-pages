@@ -1,17 +1,4 @@
 @import "../../styles/custom-media.css";
 @import "../../styles/custom-properties.css";
-
-.root {
-  position: relative;
-  padding: 2rem 0;
-
-  @media (--media-min-large) {
-    padding: 1rem 0;
-  }
-}
-
-.content {
-  position: relative;
-  margin: 0 1.5rem;
-  max-width: var(--width-medium);
-}
+/* @import "slick-carousel/slick/slick.css";*/
+/* @import "slick-carousel/slick/slick-theme.css"; */

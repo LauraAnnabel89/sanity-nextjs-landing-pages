@@ -5,9 +5,9 @@ import styles from "./ImageSlider.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
-import "slick-carousel/slick/slick.css?raw";
-// import "slick-carousel/slick/slick-theme.css?raw";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css?raw";
+import "slick-carousel/slick/slick-theme.css?raw";
 
 const builder = imageUrlBuilder(client);
 
@@ -34,7 +34,7 @@ function ImageSlider(props) {
         THIS WILL BE A SLIDER
         <Slider {...settings}>
           {images.map((image) => (
-            <>
+            <div>
               <figure className={styles.imageContainer}>
                 <a href={image.internalLink}>
                   <img
@@ -45,7 +45,7 @@ function ImageSlider(props) {
                   <p className={styles.caption}>{image.caption}</p>
                 </a>
               </figure>
-            </>
+            </div>
           ))}
         </Slider>
       </div>
