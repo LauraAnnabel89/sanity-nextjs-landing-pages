@@ -12,7 +12,7 @@ function Hero(props) {
   const { heading, image, tagline, ctas, reverseColour } = props;
   const images = props.image;
 
-  const slidePresentationTime = 3000; // 3s
+  const slidePresentationTime = 10000;
   const [currentSlide, setCurrentSlide] = useState(0); // set currrent slide index
   const sliderInterval = useRef(); // interval ref
 

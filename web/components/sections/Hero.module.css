@@ -34,6 +34,7 @@
   height: 100vh;
   object-fit: cover;
   opacity: 0;
+  transition: opacity 2s ease;
 }
 
 .activeImage {
@@ -45,8 +46,25 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  transition: opacity 1s ease;
   opacity: 1;
+  transition: opacity 2s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
 }
 
 .title {
