@@ -7,7 +7,7 @@ import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css?raw";
-import "slick-carousel/slick/slick-theme.css?raw";
+// import "slick-carousel/slick/slick-theme.css?raw";
 
 const builder = imageUrlBuilder(client);
 

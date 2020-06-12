@@ -30,7 +30,7 @@ const reduceRoutes = (obj, route) => {
     disallowRobot,
     _createdAt,
     _updatedAt,
-    page: "/LandingPage",
+    page: "/",
   };
   return obj;
 };
@@ -53,7 +53,7 @@ module.exports = withCSS({
       const nextRoutes = {
         // Routes imported from sanity
         ...routes.filter(({ slug }) => slug.current).reduce(reduceRoutes, {}),
-        "/": { page: "/CustomPage" },
+        "/custom-page": { page: "/CustomPage" },
       };
       return nextRoutes;
     });
