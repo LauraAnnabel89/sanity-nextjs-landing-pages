@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./Hero.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
+import HeroFade from "./HeroFade";
 import Cta from "../Cta";
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -21,29 +22,7 @@ function Hero(props) {
         </h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
         <div>
-          {images.length > 1
-            ? images.map((image, index) => (
-                <img
-                  id={index}
-                  className={styles.image + styles.imageSlider}
-                  src={builder.image(image).url()}
-                  className={styles.image}
-                  alt={heading}
-                  style={{
-                    animationDelay: `${index * 10}s`, // delay animation for next images
-                    zIndex: `-${index + 2}`, // make images as layers, not same layer -1
-                  }}
-                />
-              ))
-            : images.map((image, index) => (
-                <img
-                  id={index}
-                  className={styles.image}
-                  src={builder.image(image).url()}
-                  className={styles.image}
-                  alt={heading}
-                />
-              ))}
+          <HeroFade />
         </div>
       </div>
     </div>

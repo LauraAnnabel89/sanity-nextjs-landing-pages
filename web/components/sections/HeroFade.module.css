@@ -2,15 +2,11 @@
 @import "../../styles/custom-properties.css";
 
 .root {
-  composes: center from "../../styles/shared.module.css";
+  font-family: "Lato";
   position: relative;
-  color: var(--color-white, #fff);
+  color: #fff;
   background: none;
   padding-bottom: 2rem;
-
-  @media (--media-min-medium) {
-    padding-bottom: 1rem;
-  }
 }
 
 .content {
@@ -26,7 +22,6 @@
 
 .image {
   position: absolute;
-  z-index: -1;
   left: 0;
   top: 0;
   overflow: hidden;
@@ -34,13 +29,12 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  position: absolute;
-  left: 0;
+  transition: opacity 1s ease;
+  opacity: 0;
 }
 
-.imageSlider {
+.active {
   position: absolute;
-  z-index: -1;
   left: 0;
   top: 0;
   overflow: hidden;
@@ -48,9 +42,8 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  animation: fade 5s infinite;
+  transition: opacity 1s ease;
+  opacity: 1;
 }
 
 .title {
@@ -59,24 +52,7 @@
   letter-spacing: 2px;
   position: relative;
   font-weight: 300;
-  font-size: var(--font-title2-size);
-  line-height: var(--font-title2-line-height);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
-
-  @media (--media-min-medium) {
-    font-size: var(--font-title1-size);
-    line-height: var(--font-title1-line-height);
-    padding-top: 0;
-  }
-}
-
-@keyframes fade {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
