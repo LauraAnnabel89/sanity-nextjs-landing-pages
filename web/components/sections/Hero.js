@@ -9,13 +9,16 @@ import imageUrlBuilder from "@sanity/image-url";
 const builder = imageUrlBuilder(client);
 
 function Hero(props) {
-  const { heading, image, tagline, ctas } = props;
+  const { heading, image, tagline, ctas, reverseColour } = props;
 
+  console.log(props);
   const images = props.image;
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        <h1 className={styles.title}>{heading}</h1>
+        <h1 className={styles.title} style={{ color: reverseColour && "black" }}>
+          {heading}
+        </h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
         <div>
           {images.length > 1

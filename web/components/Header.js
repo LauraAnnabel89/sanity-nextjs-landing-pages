@@ -75,7 +75,7 @@ class Header extends Component {
       <div
         className={styles.root}
         data-show-nav={showNav}
-        style={{ color: reverseColour && "white" }}
+        style={{ color: reverseColour && "black" }}
       >
         <h1 className={styles.branding}>
           <Link
@@ -108,7 +108,12 @@ class Header extends Component {
                       as={`/${slug.current}`}
                       prefetch
                     >
-                      <a data-is-active={isActive ? "true" : "false"}>{title}</a>
+                      <a
+                        data-is-active={isActive ? "true" : "false"}
+                        style={{ borderBottom: reverseColour && "none" }}
+                      >
+                        {title}
+                      </a>
                     </Link>
                   </li>
                 );

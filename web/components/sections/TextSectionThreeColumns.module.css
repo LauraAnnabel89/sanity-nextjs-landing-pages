@@ -18,14 +18,14 @@
   font-family: var(--font-family-baskerville);
   max-width: 50em;
   max-width: 50em;
-  max-width: var(--width-text-large);
+  max-width: var(--width-medium);
   margin: 0 auto;
-  padding: 0 1.5rem;
   box-sizing: border-box;
-  text-align: left;
+  text-align: center;
 
   @media (--media-min-medium) {
     display: flex;
+    text-align: left;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -36,7 +36,6 @@
 .column {
   max-height: 275px;
   overflow-y: scroll;
-  margin-left: 40px;
   @media (--media-min-medium) {
     min-width: 230px;
   }
@@ -63,7 +62,7 @@
 .copy p {
   padding: 0;
   margin: 0;
-  font-size: var(--font-small-size);
+  font-size: var(--font-micro-size);
 }
 
 .label {
@@ -75,7 +74,7 @@
 }
 
 .heading h3 {
-  font-size: var(--font-large-size);
+  font-size: var(--font-base-size);
   line-height: var(--font-title3-line-height);
   font-family: var(--font-family-gilroy);
   text-transform: uppercase;

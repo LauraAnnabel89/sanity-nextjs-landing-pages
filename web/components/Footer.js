@@ -56,6 +56,7 @@ function Footer(props) {
         <img src="static/images/apa.jpg" alt="APA Logo" />
         <img src="static/images/b.jpg" alt="B Logo" />
       </div>
+      <div className={styles.copyright}>&copy; DAWN Production 2020.</div>
     </div>
   );
 }

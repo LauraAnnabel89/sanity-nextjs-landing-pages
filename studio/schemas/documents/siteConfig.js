@@ -55,7 +55,7 @@ export default {
     {
       name: 'reverseColour',
       description:
-        'Logo, navigation items and title are black by default, switch this on to make them white',
+        'Logo and navigation items are white by default, switch this on to make them black',
       type: 'boolean'
     },
     {
