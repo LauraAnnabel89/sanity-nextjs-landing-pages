@@ -37,6 +37,18 @@
   transition: opacity 2s ease;
 }
 
+.staticImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
 .activeImage {
   position: absolute;
   left: 0;
