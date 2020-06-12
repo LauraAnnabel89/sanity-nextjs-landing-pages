@@ -51,6 +51,7 @@ function Hero(props) {
                 <>
                   <img
                     id={index}
+                    key={index}
                     className={styles.staticImage}
                     src={builder.image(image).url()}
                     alt={heading}

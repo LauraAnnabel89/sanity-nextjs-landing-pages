@@ -16,7 +16,6 @@ const query = `
   }}
 }
 `;
-
 const reduceRoutes = (obj, route) => {
   const { page = {}, slug = {} } = route;
   const { _createdAt, _updatedAt } = page;
@@ -30,15 +29,9 @@ const reduceRoutes = (obj, route) => {
     disallowRobot,
     _createdAt,
     _updatedAt,
-    page: "/",
+    page: "/LandingPage",
   };
   return obj;
-};
-
-// gatsby-config.js
-
-module.exports = {
-  plugins: [`gatsby-plugin-modal-routing`],
 };
 
 module.exports = withCSS({
