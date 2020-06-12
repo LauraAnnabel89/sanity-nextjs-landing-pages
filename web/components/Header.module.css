@@ -100,7 +100,10 @@
   @nest & > a {
     display: block;
     position: relative;
-    padding: 1.5rem 0.5rem;
+    padding: 1.5rem 0rem 0.1rem;
+    height: 30px;
+    margin: 0 0.5rem;
+    transition: all 1s ease;
 
     @media (--media-max-medium) {
       padding: 1rem 1.5rem;
@@ -140,12 +143,12 @@
 }
 
 .navItem a[data-is-active="true"] {
-  text-decoration: underline;
+  border-bottom: 1px solid var(--color-white);
 }
 
 .navItem a:hover {
   color: var(--color-light-grey);
-  text-decoration: underline;
+  border-bottom: 1px solid var(--color-white);
 }
 
 .showNavButton {
