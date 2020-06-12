@@ -46,9 +46,9 @@
   @media (--media-min-medium) {
     margin: 0 auto;
     padding-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-gap: 1em;
 
     @nest & figcaption {
       position: absolute;
@@ -58,7 +58,7 @@
 }
 
 .imageContainer {
-  margin: 0.75em;
+  margin: 0;
 }
 
 .caption {
