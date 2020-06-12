@@ -26,7 +26,6 @@
 
 .image {
   position: absolute;
-  z-index: -1;
   left: 0;
   top: 0;
   overflow: hidden;
@@ -34,13 +33,11 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  position: absolute;
-  left: 0;
+  opacity: 0;
 }
 
-.imageSlider {
+.activeImage {
   position: absolute;
-  z-index: -1;
   left: 0;
   top: 0;
   overflow: hidden;
@@ -48,9 +45,8 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  animation: fade 5s infinite;
+  transition: opacity 1s ease;
+  opacity: 1;
 }
 
 .title {
@@ -69,14 +65,5 @@
     font-size: var(--font-title1-size);
     line-height: var(--font-title1-line-height);
     padding-top: 0;
-  }
-}
-
-@keyframes fade {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }

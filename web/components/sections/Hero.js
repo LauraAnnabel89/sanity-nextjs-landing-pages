@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./Hero.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
-import HeroFade from "./HeroFade";
 import Cta from "../Cta";
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -11,9 +10,22 @@ const builder = imageUrlBuilder(client);
 
 function Hero(props) {
   const { heading, image, tagline, ctas, reverseColour } = props;
-
-  console.log(props);
   const images = props.image;
+
+  const slidePresentationTime = 3000; // 3s
+  const [currentSlide, setCurrentSlide] = useState(0); // set currrent slide index
+  const sliderInterval = useRef(); // interval ref
+
+  useEffect(() => {
+    let sliderInterval = setInterval(() => {
+      setCurrentSlide((currentSlide + 1) % images.length); // change current slide to next after 3s
+    }, slidePresentationTime);
+
+    return () => {
+      clearInterval(sliderInterval);
+    };
+  });
+
   return (
     <div className={styles.root}>
       <div className={styles.content}>
@@ -22,7 +34,30 @@ function Hero(props) {
         </h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
         <div>
-          <HeroFade />
+          {images.length > 1
+            ? images.map((image, index) => (
+                <img
+                  id={index}
+                  src={builder.image(image).url()}
+                  alt={heading}
+                  key={index}
+                  className={index === currentSlide ? styles.activeImage : styles.image}
+                  style={{
+                    zIndex: `-${index + 1}`,
+                  }}
+                />
+              ))
+            : images.map((image, index) => (
+                <>
+                  <img
+                    id={index}
+                    className={styles.image}
+                    src={builder.image(image).url()}
+                    className={styles.image}
+                    alt={heading}
+                  />
+                </>
+              ))}
         </div>
       </div>
     </div>
