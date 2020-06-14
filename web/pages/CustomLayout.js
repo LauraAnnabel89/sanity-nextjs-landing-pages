@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import NextSeo from "next-seo";
 import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
-import Layout from "../components/Layout";
+import HomeLayout from "../components/HomeLayout";
 import client from "../client";
 import RenderSections from "../components/RenderSections";
 
@@ -27,7 +27,7 @@ const pageQuery = groq`
 }
 `;
 
-class LandingPage extends Component {
+class CustomPage extends Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
@@ -115,23 +115,9 @@ class LandingPage extends Component {
       : [];
 
     return (
-      <Layout config={config}>
-        <NextSeo
-          config={{
-            title,
-            titleTemplate: `${config.title} | %s`,
-            description,
-            canonical: config.url && `${config.url}/${slug}`,
-            openGraph: {
-              images: openGraphImages,
-            },
-            noindex: disallowRobots,
-          }}
-        />
-        {content && <RenderSections sections={content} />}
-      </Layout>
+      <HomeLayout config={config}>{content && <RenderSections sections={content} />}</HomeLayout>
     );
   }
 }
 
-export default LandingPage;
+export default CustomPage;
