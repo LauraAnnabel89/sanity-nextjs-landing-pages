@@ -16,7 +16,6 @@ const query = `
   }}
 }
 `;
-
 const reduceRoutes = (obj, route) => {
   const { page = {}, slug = {} } = route;
   const { _createdAt, _updatedAt } = page;
@@ -47,7 +46,7 @@ module.exports = withCSS({
       const nextRoutes = {
         // Routes imported from sanity
         ...routes.filter(({ slug }) => slug.current).reduce(reduceRoutes, {}),
-        "/": { page: "/CustomPage" },
+        "/custom-page": { page: "/CustomPage" },
       };
       return nextRoutes;
     });

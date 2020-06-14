@@ -68,15 +68,19 @@ class Header extends Component {
   };
 
   render() {
-    const { title = "Missing title", navItems, router, logo } = this.props;
+    const { title = "Missing title", navItems, router, logo, reverseColour } = this.props;
     const { showNav } = this.state;
 
     return (
-      <div className={styles.root} data-show-nav={showNav}>
+      <div
+        className={styles.root}
+        data-show-nav={showNav}
+        style={{ color: reverseColour && "black" }}
+      >
         <h1 className={styles.branding}>
           <Link
             href={{
-              pathname: "/CustomPage",
+              pathname: "/",
               query: {
                 slug: "/",
               },
@@ -84,7 +88,7 @@ class Header extends Component {
             as="/"
             prefetch
           >
-            <a title={title}>{this.renderLogo(logo)}</a>
+            <a title={title}>DAWN</a>
           </Link>
         </h1>
         <nav className={styles.nav}>
@@ -104,7 +108,12 @@ class Header extends Component {
                       as={`/${slug.current}`}
                       prefetch
                     >
-                      <a data-is-active={isActive ? "true" : "false"}>{title}</a>
+                      <a
+                        data-is-active={isActive ? "true" : "false"}
+                        style={{ borderBottom: reverseColour && "none" }}
+                      >
+                        {title}
+                      </a>
                     </Link>
                   </li>
                 );

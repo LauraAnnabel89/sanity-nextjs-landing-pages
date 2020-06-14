@@ -2,9 +2,9 @@
 @import "../styles/custom-properties.css";
 
 .root {
-  position: relative;
+  position: absolute;
   color: #202123;
-  color: var(--color-black, #000);
+  color: var(--color-white, #000);
   display: flex;
   margin: 0 auto;
   top: 0;
@@ -19,15 +19,15 @@
 }
 
 .branding {
-  font-size: inherit;
-  font-weight: inherit;
-  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 700;
   margin: 0;
   padding: 0;
+  letter-spacing: 0.3rem;
 
   @nest & > a {
     display: block;
-    padding: 1.5em;
+    padding: 1rem 0.5rem;
 
     @supports (padding-top: env(safe-area-inset-top)) {
       padding-left: calc(env(safe-area-inset-left) + 1.5rem);
@@ -63,6 +63,7 @@
 .navItems {
   padding: 0;
   margin: 0;
+  text-transform: uppercase;
 
   @media (--media-min-medium) {
     display: flex;
@@ -71,7 +72,7 @@
   }
 
   @supports (padding-top: env(safe-area-inset-top)) {
-    padding-right: calc(env(safe-area-inset-right) + 1rem);
+    padding-right: calc(env(safe-area-inset-right) + 2rem);
   }
 
   @media (--media-max-medium) {
@@ -99,7 +100,10 @@
   @nest & > a {
     display: block;
     position: relative;
-    padding: 1.5rem 0.5rem;
+    padding: 1.5rem 0rem 0.1rem;
+    height: 30px;
+    margin: 0 0.5rem;
+    transition: all 1s ease;
 
     @media (--media-max-medium) {
       padding: 1rem 1.5rem;
@@ -139,11 +143,12 @@
 }
 
 .navItem a[data-is-active="true"] {
-  text-decoration: underline;
+  border-bottom: 1px solid var(--color-white);
 }
 
 .navItem a:hover {
   color: var(--color-light-grey);
+  border-bottom: 1px solid var(--color-white);
 }
 
 .showNavButton {

@@ -28,7 +28,8 @@
   }
 }
 
-.text {
+.text,
+.copyright {
   text-align: center;
   font-family: var(--font-family-baskerville);
 
@@ -39,6 +40,12 @@
   @nest & a {
     color: inherit;
   }
+}
+
+.copyright {
+  font-size: var(--font-micro-size);
+  font-family: var(--font-family-gilroy);
+  padding-top: 1rem;
 }
 
 .footerlogo {

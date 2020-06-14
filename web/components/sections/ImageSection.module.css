@@ -1,12 +1,12 @@
 @import "../../styles/custom-media.css";
-@import '../../styles/custom-properties.css';
+@import "../../styles/custom-properties.css";
 
 .root {
   position: relative;
   padding: 2rem 0;
 
-  @media (--media-min-medium) {
-    padding: 4rem 0;
+  @media (--media-min-large) {
+    padding: 1rem 0;
   }
 }
 
@@ -44,7 +44,7 @@
 
   @media (--media-min-medium) {
     margin: 0 auto;
-    padding-top: 2rem;
+    padding-top: 1rem;
 
     @nest & figcaption {
       position: absolute;
