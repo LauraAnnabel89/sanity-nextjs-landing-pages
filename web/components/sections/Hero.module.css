@@ -28,8 +28,8 @@
 }
 
 .content {
-  width: 100%;
-  max-width: var(--width-small);
+  width: 100vw;
+  min-height: 100vh;
   padding: 0 1.5em;
   box-sizing: border-box;
   z-index: 1;

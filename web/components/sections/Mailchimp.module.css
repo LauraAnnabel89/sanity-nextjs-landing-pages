@@ -1,11 +1,12 @@
 @import "../../styles/custom-media.css";
-@import '../../styles/custom-properties.css';
+@import "../../styles/custom-properties.css";
 
 .root {
   padding: 2rem 0;
+  background: var(--color-light-grey);
 
   @media (--media-min-medium) {
-    padding: 4rem 0;
+    padding: 1.5rem 0;
   }
 }
 
@@ -22,6 +23,9 @@
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
   margin: 0 0 0.5rem;
+  color: var(--color-dark-grey);
+
+  text-transform: uppercase;
 
   @media (--media-min-medium) {
     font-size: var(--font-title2-size);
@@ -30,7 +34,10 @@
 }
 
 .subtitle {
+  font-family: var(--font-family-baskerville);
   text-align: center;
+  color: var(--color-dark-grey);
+
   margin: 0.5rem 0 1.5rem;
 }
 
@@ -38,9 +45,10 @@
   display: grid;
 
   @media (--media-min-medium) {
-    min-width: 34rem;
+    width: 25rem;
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 70% 30%;
+    margin: 0 auto;
   }
 }
 
@@ -48,13 +56,15 @@
   -webkit-font-smoothing: inherit;
   font: inherit;
   display: block;
-  border: 1px solid var(--color-black, #000);
+  border: none;
   flex-grow: 1;
   padding: 1rem;
+  height: 2.5em;
   width: 100%;
   max-width: 100%;
   border-radius: 0;
   box-sizing: border-box;
+  font-family: var(--font-family-baskerville);
 
   @media (--media-min-medium) {
     padding: 1em;
@@ -67,8 +77,10 @@
   background: none;
   margin-top: 1rem;
   display: block;
-  padding: 1em;
-  border: 1px solid var(--color-black, #000);
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
 
   @media (--media-min-medium) {
     margin-top: 0;

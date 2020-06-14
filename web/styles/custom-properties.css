@@ -1,16 +1,25 @@
+@font-face {
+  font-family: "Gilroy";
+  src: url("/static/fonts/Gilroy-Regular.otf");
+  font-display: auto;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Baskerville";
+  src: url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+}
+
 :root {
+  --font-family-gilroy: "Gilroy", sans-serif;
+  --font-family-baskerville: "Baskerville", sans-serif;
   --wide-container: 60rem;
   --narrow-container: 40rem;
 
-  --font-family-sans: -apple-system, BlinkMacSystemFont, sans-serif;
-
   --color-black: #202123;
-  --color-dark-gray: #32373e;
-  --color-gray: #697a90;
-  --color-light-gray: #b4bcc7;
-  --color-very-light-gray: #e7ebed;
+  --color-dark-grey: #272727;
   --color-white: #fff;
-  --color-accent: #156dff;
+  --color-light-grey: #f0efef;
 
   /* Typography */
   --unit: 16;

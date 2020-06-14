@@ -1,4 +1,4 @@
-@import '../styles/custom-properties.css';
+@import "../styles/custom-properties.css";
 
 .root {
   color: var(--color-black, #333);
@@ -11,21 +11,26 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 0 0 3rem;
+  margin: 0;
   padding: 0;
 }
 
 .item {
   @nest & > a {
+    font-size: var(--font-micro-size);
+    font-family: var(--font-family-gilroy);
     display: block;
     text-decoration: none;
     color: inherit;
     padding: 1.5rem 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 }
 
 .text {
   text-align: center;
+  font-family: var(--font-family-baskerville);
 
   @nest & p {
     margin: 1rem 0;
@@ -33,5 +38,25 @@
 
   @nest & a {
     color: inherit;
+  }
+}
+
+.footerlogo {
+  max-width: 75px;
+  margin: 0 auto;
+
+  @nest & img {
+    width: 100%;
+  }
+}
+
+.sociallogos,
+.membershiplogos {
+  display: flex;
+  justify-content: center;
+
+  @nest & img {
+    margin: 0 10px;
+    max-height: 25px;
   }
 }
