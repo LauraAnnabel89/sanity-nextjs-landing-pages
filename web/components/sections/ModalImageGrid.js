@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import imageUrlBuilder from "@sanity/image-url";
-import styles from "./ImageGrid.module.css";
+import styles from "./ModalImage.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 const builder = imageUrlBuilder(client);
 
-function ImageGrid(props) {
+function ModalImage(props) {
   const { caption, image, internalLink } = props;
   const router = useRouter();
 
@@ -23,7 +23,7 @@ function ImageGrid(props) {
     <div className={styles.root}>
       <div className={styles.content}>
         {images.map((image, index) => (
-          <a href="/lighthouses">
+          >
             <div className={styles.imageContainer}>
               <img
                 src={builder.image(image).auto("format").width(2000).url()}
@@ -33,14 +33,14 @@ function ImageGrid(props) {
               />
               <p className={styles.caption}>{image.caption}</p>
             </div>
-          </a>
+      
         ))}
       </div>
     </div>
   );
 }
 
-ImageGrid.propTypes = {
+ModalImage.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
   text: PropTypes.array,
@@ -54,4 +54,4 @@ ImageGrid.propTypes = {
   cta: PropTypes.object,
 };
 
-export default ImageGrid;
+export default ModalImage;
