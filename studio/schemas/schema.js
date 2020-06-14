@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Document types
 import page from './documents/page'
+import location from './documents/location'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
 
@@ -13,16 +14,21 @@ import siteConfig from './documents/siteConfig'
 import cta from './objects/cta'
 import embedHTML from './objects/embedHTML'
 import figure from './objects/figure'
+import hero from './objects/hero'
+import homePage from './objects/homePage'
+import homepagevideo from './objects/homepagevideo'
+import imageGrid from './objects/imageGrid'
+import imageSection from './objects/imageSection'
+import imageSlider from './objects/imageSlider'
 import internalLink from './objects/internalLink'
 import link from './objects/link'
+import mailchimp from './objects/mailchimp'
 import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
-import video from './objects/video'
-import hero from './objects/hero'
-import imageSection from './objects/imageSection'
-import fullbleedimage from './objects/fullbleedimage'
-import mailchimp from './objects/mailchimp'
 import textSection from './objects/textSection'
+import textSectionThreeColumns from './objects/textSectionThreeColumns'
+import twoColumn from './objects/twoColumn'
+import video from './objects/video'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,17 +40,23 @@ export default createSchema({
     embedHTML,
     figure,
     hero,
-    video,
+    homePage,
+    homepagevideo,
+    imageGrid,
     imageSection,
-    fullbleedimage,
+    imageSlider,
     internalLink,
     link,
+    location,
     mailchimp,
     page,
     portableText,
     route,
     simplePortableText,
     siteConfig,
-    textSection
+    textSection,
+    textSectionThreeColumns,
+    twoColumn,
+    video
   ])
 })

@@ -1,7 +1,7 @@
 export default {
-  name: 'page',
+  name: 'locations',
   type: 'document',
-  title: 'Page',
+  title: 'Location',
   fieldsets: [
     {
       title: 'SEO & metadata',
@@ -13,6 +13,15 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title'
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96
+      }
     },
     {
       name: 'content',
@@ -32,27 +41,11 @@ export default {
         { type: 'textSectionThreeColumns' },
         { type: 'video' }
       ]
-    },
-    {
-      name: 'description',
-      type: 'text',
-      title: 'Description',
-      description: 'This description populates meta-tags on the webpage',
-      fieldset: 'metadata'
-    },
-    {
-      name: 'openGraphImage',
-      type: 'image',
-      title: 'Open Graph Image',
-      description: 'Image for sharing previews on Facebook, Twitter etc.',
-      fieldset: 'metadata'
     }
   ],
-
   preview: {
     select: {
-      title: 'title',
-      media: 'openGraphImage'
+      title: 'title'
     }
   }
 }

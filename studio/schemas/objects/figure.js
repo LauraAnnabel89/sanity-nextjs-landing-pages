@@ -15,6 +15,16 @@ export default {
       }
     },
     {
+      title: 'Internal link',
+      description: 'Use this to link between pages on the website',
+      name: 'internalLink',
+      type: 'reference',
+      to: [{ type: 'route' }],
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       name: 'alt',
       type: 'string',
       title: 'Alternative text',
@@ -27,7 +37,8 @@ export default {
   preview: {
     select: {
       imageUrl: 'asset.url',
-      title: 'caption'
+      title: 'caption',
+      link: 'internalLink'
     }
   }
 }

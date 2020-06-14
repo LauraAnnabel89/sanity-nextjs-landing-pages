@@ -8,12 +8,14 @@ const imagePreview = ({ value }) => {
   return (
     <div>
       <figure key={value._key}>
-        <img
-          src={urlFor(value.imageUrl)
-            .width(400)
-            .url()}
-        />
-        <figcaption>{value.title}</figcaption>
+        <a href={value.internalLink}>
+          <img
+            src={urlFor(value.imageUrl)
+              .width(400)
+              .url()}
+          />
+          <figcaption>{value.title}</figcaption>
+        </a>
       </figure>
     </div>
   )

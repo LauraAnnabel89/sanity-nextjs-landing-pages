@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'hero',
-  title: 'Hero',
+  name: 'homePage',
+  title: 'Homepage',
   fields: [
     {
       name: 'heading',
@@ -14,18 +14,12 @@ export default {
       title: 'Tagline'
     },
     {
-      name: 'image',
-      type: 'array',
-      of: [{ type: 'image' }],
-      title: 'Image',
+      name: 'backgroundImage',
+      type: 'image',
+      title: 'Background image',
       options: {
         hotspot: true
       }
-    },
-    {
-      name: 'reverseColour',
-      description: 'Title is white by default, switch this on to make it black',
-      type: 'boolean'
     },
     {
       name: 'ctas',
@@ -42,12 +36,12 @@ export default {
   preview: {
     select: {
       title: 'heading',
-      media: 'image'
+      media: 'backgroundImage'
     },
     prepare({ title, media }) {
       return {
         title,
-        subtitle: 'Hero section',
+        subtitle: 'Homepage section',
         media
       }
     }
