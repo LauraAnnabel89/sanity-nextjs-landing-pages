@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import NextSeo from "next-seo";
 import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
-import Layout from "../components/Layout";
+import CustomLayout from "../components/CustomLayout";
 import client from "../client";
 import RenderSections from "../components/RenderSections";
 
@@ -115,7 +115,7 @@ class LandingPage extends Component {
       : [];
 
     return (
-      <Layout config={config}>
+      <CustomLayout config={config}>
         <NextSeo
           config={{
             title,
@@ -129,7 +129,7 @@ class LandingPage extends Component {
           }}
         />
         {content && <RenderSections sections={content} />}
-      </Layout>
+      </CustomLayout>
     );
   }
 }
