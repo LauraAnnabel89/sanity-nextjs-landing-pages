@@ -1,0 +1,91 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.root {
+  padding: 1rem 0;
+
+  text-align: center;
+
+  @media (--media-min-medium) {
+    padding: 1rem 0;
+  }
+}
+
+.article {
+  width: 100%;
+  font-family: "Baskerville", sans-serif;
+  font-family: "Baskerville", sans-serif;
+  font-family: var(--font-family-baskerville);
+  max-width: 50em;
+  max-width: 50em;
+  max-width: var(--width-medium);
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+
+  @media (--media-min-medium) {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 300px;
+  }
+}
+
+.column {
+  max-height: 275px;
+  overflow-y: scroll;
+  @media (--media-min-medium) {
+    min-width: 230px;
+    margin-left: 0.2rem;
+  }
+}
+
+.column::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.column::-webkit-scrollbar:vertical {
+  width: 6px;
+}
+
+.column::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.column::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 1px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.copy p {
+  padding: 0;
+  margin: 0;
+  font-size: var(--font-micro-size);
+}
+
+.label {
+  font-size: var(--font-micro-size);
+  line-height: var(--font-micro-line-height);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 1em;
+}
+
+.heading h3 {
+  font-size: var(--font-base-size);
+  line-height: var(--font-title3-line-height);
+  font-family: var(--font-family-gilroy);
+  text-transform: uppercase;
+  font-weight: normal;
+  width: object-fit;
+}
+
+.column {
+}
+
+.label + .heading {
+  margin-top: 0.25em;
+}

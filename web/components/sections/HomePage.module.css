@@ -1,0 +1,58 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.root {
+  composes: center from "../../styles/shared.module.css";
+  position: relative;
+  background-color: var(--color-black, #000);
+  color: var(--color-white, #fff);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding-bottom: 2rem;
+
+  @media (--media-min-medium) {
+    padding-bottom: 4rem;
+  }
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-image: linear-gradient(#2220, #222e);
+  width: 100%;
+  height: 50%;
+  z-index: 0;
+}
+
+.content {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0 1.5em;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 300;
+  font-size: var(--font-title2-size);
+  line-height: var(--font-title2-line-height);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+
+  @media (--media-min-medium) {
+    font-size: var(--font-title1-size);
+    line-height: var(--font-title1-line-height);
+    padding-top: 0;
+  }
+}

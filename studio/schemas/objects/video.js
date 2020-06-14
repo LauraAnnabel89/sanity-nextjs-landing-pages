@@ -1,17 +1,16 @@
 import React from 'react'
-// import { TiVideoOutline } from 'react-icons/ti'
 import { map } from 'lodash'
 
 export default {
   name: 'video',
   title: 'Video',
   type: 'object',
-  // icon: TiVideoOutline,
   fields: [
     {
       name: 'url',
       title: 'Video Link',
-      description: 'Enter the URL for the video\nSupports videos from: YouTube, Facebook, SoundCloud, Streamable, Vidme, Vimeo, Wistia, Twitch, DailyMotion',
+      description:
+        'Enter the URL for the video\nSupports videos from: YouTube, Facebook, SoundCloud, Streamable, Vidme, Vimeo, Wistia, Twitch, DailyMotion',
       type: 'url'
     },
     {
@@ -23,20 +22,22 @@ export default {
     {
       name: 'autoplay',
       title: 'Autoplay',
-      description: 'If selected the video will autoplay and loop but it will be muted, use this if you want to present a background video',
+      description:
+        'If selected the video will autoplay and loop but it will be muted, use this if you want to present a background video',
       type: 'boolean'
     },
     {
       name: 'ratio',
       title: 'Custom aspect ratio',
-      description: 'Insert the percentage of height relative to width here for a custom aspect ratio (eg: 16:9 is 9/16 = 56.25%), leave empty for the nominal ratio',
+      description:
+        'Insert the percentage of height relative to width here for a custom aspect ratio (eg: 16:9 is 9/16 = 56.25%), leave empty for the nominal ratio',
       type: 'string'
-    },
+    }
   ],
   preview: {
     select: {
       url: 'url',
-      poster: 'poster',
+      poster: 'poster'
     },
     prepare: selection => {
       const { url, poster } = selection
@@ -45,7 +46,7 @@ export default {
       return {
         title,
         subtitle,
-        media: poster || undefined,
+        media: poster || undefined
       }
     }
   }

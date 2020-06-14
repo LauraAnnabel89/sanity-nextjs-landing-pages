@@ -6,7 +6,10 @@ export default {
   title: 'Site configuration',
   // https://www.sanity.io/docs/experimental/ui-affordances-for-actions
   __experimental_actions: [/* create, delete, */ 'update', 'publish'],
-  fieldsets: [{ name: 'footer', title: 'Footer' }],
+  fieldsets: [
+    { name: 'footer', title: 'Footer' },
+    { name: 'header', title: 'Header' }
+  ],
   fields: [
     {
       name: 'title',
@@ -34,28 +37,11 @@ export default {
         Rule.custom(lang => (bcp47.parse(lang) ? true : 'Please use a valid bcp47 code'))
     },
     {
-      title: 'Brand logo',
-      description: 'Best choice is to use an SVG where the color are set with currentColor',
-      name: 'logo',
-      type: 'image',
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
-          options: {
-            isHighlighted: true
-          }
-        }
-      ]
-    },
-    {
       title: 'Main navigation',
       name: 'mainNavigation',
       description: 'Select pages for the top menu',
       validation: Rule => [
-        Rule.max(5).warning('Are you sure you want more than 5 items?'),
+        Rule.max(7).warning('Are you sure you want more than 7 items?'),
         Rule.unique().error('You have duplicate menu items')
       ],
       type: 'array',
@@ -67,27 +53,17 @@ export default {
       ]
     },
     {
-      title: 'Footer Site Logo',
-      name: 'footerlogo',
-      type: 'image',
-      fieldset: 'footer'
+      name: 'reverseColour',
+      description:
+        'Logo and navigation items are white by default, switch this on to make them black',
+      type: 'boolean'
     },
     {
       name: 'footerText',
       type: 'simplePortableText',
       fieldset: 'footer'
     },
-    {
-      title: 'Social Media Logos',
-      name: 'socialmedialogos',
-      fieldset: 'footer',
-      type: 'array',
-      of: [
-        {
-          type: 'image'
-        }
-      ]
-    },
+
     {
       title: 'Footer navigation items',
       name: 'footerNavigation',
@@ -101,17 +77,6 @@ export default {
         {
           type: 'reference',
           to: [{ type: 'route' }]
-        }
-      ]
-    },
-    {
-      title: 'Membership Logos',
-      name: 'membershiplogos',
-      fieldset: 'footer',
-      type: 'array',
-      of: [
-        {
-          type: 'image'
         }
       ]
     }

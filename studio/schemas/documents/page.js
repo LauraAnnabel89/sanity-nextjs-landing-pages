@@ -19,12 +19,18 @@ export default {
       type: 'array',
       title: 'Page sections',
       of: [
+        { type: 'figure' },
         { type: 'hero' },
-        { type: 'video' },
+        { type: 'homePage' },
+        { type: 'homepagevideo' },
+        { type: 'imageGrid' },
         { type: 'imageSection' },
-        { type: 'fullbleedimage' },
+        { type: 'imageSlider' },
         { type: 'mailchimp' },
-        { type: 'textSection' }
+        { type: 'twoColumn' },
+        { type: 'textSection' },
+        { type: 'textSectionThreeColumns' },
+        { type: 'video' }
       ]
     },
     {

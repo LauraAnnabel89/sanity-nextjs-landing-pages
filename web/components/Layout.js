@@ -22,6 +22,7 @@ function Layout(props) {
     logo,
     url,
     socialmedialogos,
+    reverseColour,
   } = config;
   const logoUrl = logo && logo.asset && logo.asset.url;
 
@@ -31,7 +32,7 @@ function Layout(props) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       </Head>
       <div className="container">
-        <Header title={title} navItems={mainNavigation} logo={logo} />
+        <Header title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
         <div className="content">{children}</div>
         <Footer navItems={footerNavigation} socialLogos={socialmedialogos} text={footerText} />
         {logoUrl && url && <LogoJsonLd url={url} logo={logoUrl} />}

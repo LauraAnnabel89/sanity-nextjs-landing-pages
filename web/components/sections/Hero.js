@@ -1,36 +1,64 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
 import styles from "./Hero.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
+import imageUrlBuilder from "@sanity/image-url";
 
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
-}
+const builder = imageUrlBuilder(client);
 
 function Hero(props) {
-  const { heading, backgroundImage, tagline, ctas } = props;
+  const { heading, image, tagline, ctas, reverseColour } = props;
+  const images = props.image;
 
-  const style = backgroundImage
-    ? {
-        backgroundImage: `url("${urlFor(backgroundImage).width(2000).auto("format").url()}")`,
-      }
-    : {};
+  const slidePresentationTime = 10000;
+  const [currentSlide, setCurrentSlide] = useState(0); // set currrent slide index
+  const sliderInterval = useRef(); // interval ref
+
+  useEffect(() => {
+    let sliderInterval = setInterval(() => {
+      setCurrentSlide((currentSlide + 1) % images.length); // change current slide to next after 3s
+    }, slidePresentationTime);
+
+    return () => {
+      clearInterval(sliderInterval);
+    };
+  });
 
   return (
-    <div className={styles.root} style={style}>
+    <div className={styles.root}>
       <div className={styles.content}>
-        <h1 className={styles.title}>{heading}</h1>
+        <h1 className={styles.title} style={{ color: reverseColour && "black" }}>
+          {heading}
+        </h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
-        {ctas && (
-          <div className={styles.ctas}>
-            {ctas.map((cta) => (
-              <Cta {...cta} key={cta._key} />
-            ))}
-          </div>
-        )}
+        <div>
+          {images.length > 1
+            ? images.map((image, index) => (
+                <img
+                  id={index}
+                  src={builder.image(image).url()}
+                  alt={heading}
+                  key={index}
+                  className={index === currentSlide ? styles.activeImage : styles.image}
+                  style={{
+                    zIndex: `-${index + 1}`,
+                  }}
+                />
+              ))
+            : images.map((image, index) => (
+                <>
+                  <img
+                    id={index}
+                    key={index}
+                    className={styles.staticImage}
+                    src={builder.image(image).url()}
+                    alt={heading}
+                  />
+                </>
+              ))}
+        </div>
       </div>
     </div>
   );

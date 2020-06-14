@@ -1,5 +1,6 @@
 const withCSS = require("@zeit/next-css");
 const client = require("./client");
+// const withTM = require("next-transpile-modules");
 
 const isProduction = process.env.NODE_ENV === "production";
 const query = `
@@ -16,7 +17,6 @@ const query = `
   }}
 }
 `;
-
 const reduceRoutes = (obj, route) => {
   const { page = {}, slug = {} } = route;
   const { _createdAt, _updatedAt } = page;
@@ -36,18 +36,20 @@ const reduceRoutes = (obj, route) => {
 };
 
 module.exports = withCSS({
+  // transpileModules: ["react-slick", "slick-carousel"],
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: 1,
     localIdentName: isProduction ? "[hash:base64:5]" : "[name]__[local]___[hash:base64:5]",
   },
+
   exportPathMap: function () {
     return client.fetch(query).then((res) => {
       const { routes = [] } = res;
       const nextRoutes = {
         // Routes imported from sanity
         ...routes.filter(({ slug }) => slug.current).reduce(reduceRoutes, {}),
-        "/": { page: "/CustomPage" },
+        "/custom-page": { page: "/CustomPage" },
       };
       return nextRoutes;
     });
