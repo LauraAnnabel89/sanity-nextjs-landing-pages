@@ -18,6 +18,12 @@
     "lerna": "^3.9.0"
   },
   "dependencies": {
-    "react-player": "^2.1.0"
+    "autoprefixer": "^9.8.0",
+    "cssnano": "^4.1.10",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "react-player": "^2.1.0",
+    "sugarss": "^2.0.0"
   }
 }
