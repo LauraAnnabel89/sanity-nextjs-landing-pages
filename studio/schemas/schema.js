@@ -23,6 +23,7 @@ import imageSlider from './objects/imageSlider'
 import internalLink from './objects/internalLink'
 import link from './objects/link'
 import mailchimp from './objects/mailchimp'
+import modalImageGrid from './objects/modalImageGrid'
 import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
 import textSection from './objects/textSection'
@@ -49,6 +50,7 @@ export default createSchema({
     link,
     location,
     mailchimp,
+    modalImageGrid,
     page,
     portableText,
     route,
