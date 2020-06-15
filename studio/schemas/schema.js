@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Document types
+import locations from './documents/locations'
 import page from './documents/page'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
@@ -47,6 +48,7 @@ export default createSchema({
     imageSlider,
     internalLink,
     link,
+    locations,
     mailchimp,
     modalImageGrid,
     page,

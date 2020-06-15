@@ -5,7 +5,7 @@ import Head from "next/head";
 import { LogoJsonLd } from "next-seo";
 import Header from "./Header";
 
-function LocationPageLayout(props) {
+function LocationsPageLayout(props) {
   const { config, children } = props;
 
   if (!config) {
@@ -18,7 +18,7 @@ function LocationPageLayout(props) {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       </Head>
-      <div className="container" style={{ overflow: "hidden" }}>
+      <div className="container">
         This is a locations page
         <div className="content">{children}</div>
       </div>
@@ -26,7 +26,7 @@ function LocationPageLayout(props) {
   );
 }
 
-LocationPageLayout.propTypes = {
+LocationsPageLayout.propTypes = {
   config: PropTypes.shape({
     title: PropTypes.string,
     mainNavigation: PropTypes.arrayOf(PropTypes.object),
@@ -39,4 +39,4 @@ LocationPageLayout.propTypes = {
   }),
 };
 
-export default LocationPageLayout;
+export default LocationsPageLayout;
