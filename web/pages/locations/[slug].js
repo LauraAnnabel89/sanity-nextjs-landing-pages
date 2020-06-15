@@ -1,11 +1,12 @@
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import NextSeo from "next-seo";
 import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
-import HomeLayout from "../components/HomeLayout";
-import client from "../client";
-import RenderSections from "../components/RenderSections";
+import Layout from "../../components/Layout";
+import client from "../../client";
+import RenderSections from "../../components/RenderSections";
 
 const builder = imageUrlBuilder(client);
 const pageQuery = groq`
@@ -27,7 +28,7 @@ const pageQuery = groq`
 }
 `;
 
-class CustomPage extends Component {
+class Locations extends Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
@@ -114,10 +115,8 @@ class CustomPage extends Component {
         ]
       : [];
 
-    return (
-      <HomeLayout config={config}>{content && <RenderSections sections={content} />}</HomeLayout>
-    );
+    return <Layout config={config}>{content && <RenderSections sections={content} />}</Layout>;
   }
 }
 
-export default CustomPage;
+export default Locations;
