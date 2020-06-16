@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import imageUrlBuilder from "@sanity/image-url";
-import styles from "./TwoColumn.module.css";
+import styles from "./ThreeColumn.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 
 const builder = imageUrlBuilder(client);
 
-function TwoColumn(props) {
+function ThreeColumn(props) {
   const { heading, label, text, image, cta } = props;
 
   const images = props.image;
@@ -34,7 +34,7 @@ function TwoColumn(props) {
   );
 }
 
-TwoColumn.propTypes = {
+ThreeColumn.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
   text: PropTypes.array,
@@ -48,4 +48,4 @@ TwoColumn.propTypes = {
   cta: PropTypes.object,
 };
 
-export default TwoColumn;
+export default ThreeColumn;

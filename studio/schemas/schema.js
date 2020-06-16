@@ -14,6 +14,7 @@ import siteConfig from './documents/siteConfig'
 import cta from './objects/cta'
 import embedHTML from './objects/embedHTML'
 import figure from './objects/figure'
+import fourColumn from './objects/fourColumn'
 import hero from './objects/hero'
 import homePage from './objects/homePage'
 import homepagevideo from './objects/homepagevideo'
@@ -28,6 +29,7 @@ import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
 import textSection from './objects/textSection'
 import textSectionThreeColumns from './objects/textSectionThreeColumns'
+import threeColumn from './objects/threeColumn'
 import twoColumn from './objects/twoColumn'
 import video from './objects/video'
 
@@ -40,6 +42,7 @@ export default createSchema({
     cta,
     embedHTML,
     figure,
+    fourColumn,
     hero,
     homePage,
     homepagevideo,
@@ -58,6 +61,7 @@ export default createSchema({
     siteConfig,
     textSection,
     textSectionThreeColumns,
+    threeColumn,
     twoColumn,
     video
   ])
