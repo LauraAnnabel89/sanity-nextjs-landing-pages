@@ -5,12 +5,13 @@ import styles from "./ImageGrid.module.css";
 import client from "../../client";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const builder = imageUrlBuilder(client);
 
 function ImageGrid(props) {
-  const { caption, image, internalLink } = props;
+  const { caption, image, slug } = props;
   const router = useRouter();
 
   const images = props.image;
@@ -22,18 +23,21 @@ function ImageGrid(props) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        {images.map((image, index) => (
-          <a href="/lighthouses">
-            <div className={styles.imageContainer}>
-              <img
-                src={builder.image(image).auto("format").width(2000).url()}
-                className={styles.image}
-                alt={image.caption}
-                key={index}
-              />
-              <p className={styles.caption}>{image.caption}</p>
-            </div>
-          </a>
+        {images.map((image, index, slug) => (
+          <>
+            {console.log(image, index, slug)}
+            <Link href="/locations/[slug]" as={`/locations/${slug}`}>
+              <div className={styles.imageContainer}>
+                <img
+                  src={builder.image(image).auto("format").width(2000).url()}
+                  className={styles.image}
+                  alt={image.caption}
+                  key={index}
+                />
+                <p className={styles.caption}>{image.caption}</p>
+              </div>
+            </Link>
+          </>
         ))}
       </div>
     </div>

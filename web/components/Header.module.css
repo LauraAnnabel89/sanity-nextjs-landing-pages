@@ -87,6 +87,17 @@
 
     @nest .root[data-show-nav="true"] & {
       display: block;
+      background-color: var(--color-white, #000);
+      color: var(--color-black, #fff);
+      overflow: hidden;
+      min-height: 100vh;
+      min-width: 100vw;
+      z-index: 4;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
   }
 }
