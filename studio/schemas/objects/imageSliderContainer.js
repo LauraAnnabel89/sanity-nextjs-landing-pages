@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'imageSlider',
-  title: 'Image Slider',
+  name: 'imageSliderContainer',
+  title: 'Image Slider Container',
   fields: [
     {
       name: 'image',
@@ -22,7 +22,7 @@ export default {
         title,
         caption,
         internalLink,
-        subtitle: 'Image Slider',
+        subtitle: 'Image Slider Container',
         media
       }
     }

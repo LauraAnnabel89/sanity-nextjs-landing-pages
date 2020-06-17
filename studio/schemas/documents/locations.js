@@ -34,7 +34,7 @@ export default {
         { type: 'homepagevideo' },
         { type: 'imageGrid' },
         { type: 'imageSection' },
-        { type: 'imageSlider' },
+        { type: 'imageSliderContainer' },
         { type: 'mailchimp' },
         { type: 'twoColumn' },
         { type: 'textSection' },
