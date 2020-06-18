@@ -25,7 +25,6 @@ function ImageGrid(props) {
       <div className={styles.content}>
         {images.map((image, index, slug) => (
           <>
-            {console.log(image, index, slug)}
             <Link href="/locations/[slug]" as={`/locations/${slug}`}>
               <div className={styles.imageContainer}>
                 <img
