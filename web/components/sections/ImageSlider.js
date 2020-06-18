@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { css, jsx } from "@emotion/core";
 import ImageSliderContent from "./ImageSliderContent";
 import ImageSlide from "./ImageSlide";
@@ -40,6 +40,7 @@ const ImageSlider = () => {
     translate: 0,
     transition: 0.45,
     activeIndex: 0,
+    autoPlay: 4,
   });
 
   const { translate, transition, activeIndex } = state;
@@ -75,6 +76,21 @@ const ImageSlider = () => {
       translate: (activeIndex - 1) * size.width,
     });
   };
+
+  const autoPlayRef = useRef();
+
+  useEffect(() => {
+    autoPlayRef.current = nextSlide;
+  });
+
+  useEffect(() => {
+    const play = () => {
+      autoPlayRef.current();
+    };
+
+    const interval = setInterval(play, state.autoPlay * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const images = [
     "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
