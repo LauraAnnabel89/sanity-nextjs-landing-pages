@@ -26,7 +26,7 @@ export default {
         { type: 'homepagevideo' },
         { type: 'imageGrid' },
         { type: 'imageSection' },
-        { type: 'imageSliderContainer' },
+        { type: 'imageSlider' },
         { type: 'mailchimp' },
         { type: 'modalImageGrid' },
         { type: 'textSection' },

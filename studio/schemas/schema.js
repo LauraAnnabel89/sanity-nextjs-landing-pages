@@ -20,7 +20,7 @@ import homePage from './objects/homePage'
 import homepagevideo from './objects/homepagevideo'
 import imageGrid from './objects/imageGrid'
 import imageSection from './objects/imageSection'
-import imageSliderContainer from './objects/imageSliderContainer'
+import imageSlider from './objects/imageSlider'
 import internalLink from './objects/internalLink'
 import link from './objects/link'
 import mailchimp from './objects/mailchimp'
@@ -48,7 +48,7 @@ export default createSchema({
     homepagevideo,
     imageGrid,
     imageSection,
-    imageSliderContainer,
+    imageSlider,
     internalLink,
     link,
     location,

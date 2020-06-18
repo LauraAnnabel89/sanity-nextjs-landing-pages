@@ -27,7 +27,7 @@ export default {
       name: 'content',
       type: 'array',
       title: 'Page sections',
-      of: [{ type: 'imageGrid' }, { type: 'imageSliderContainer' }]
+      of: [{ type: 'imageGrid' }, { type: 'imageSlider' }]
     }
   ],
 

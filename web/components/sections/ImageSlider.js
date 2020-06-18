@@ -5,9 +5,22 @@ import ImageSliderContent from "./ImageSliderContent";
 import ImageSlide from "./ImageSlide";
 import Arrow from "./Arrow";
 import Dots from "./Dots";
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../../client";
 
-const ImageSlider = () => {
+const builder = imageUrlBuilder(client);
+
+const ImageSlider = (props) => {
+  const { caption, image } = props;
+
+  const images = props.image;
+
   const size = useWindowSize();
+  const transitionRef = useRef();
+
+  const firstSlide = images[0];
+  const secondSlide = images[1];
+  const lastSlide = images[images.length - 1];
 
   function useWindowSize() {
     const isClient = typeof window === "object";
@@ -39,65 +52,66 @@ const ImageSlider = () => {
   const [state, setState] = useState({
     translate: 0,
     transition: 0.45,
-    activeIndex: 0,
-    autoPlay: 4,
+    activeSlide: 0,
+    _slides: [lastSlide, firstSlide, secondSlide],
   });
 
-  const { translate, transition, activeIndex } = state;
+  const { translate, transition, activeSlide, _slides } = state;
 
   const nextSlide = () => {
-    if (activeIndex === images.length - 1) {
+    if (activeSlide === images.length - 1) {
       return setState({
         ...state,
         translate: 0,
-        activeIndex: 0,
+        activeSlide: 0,
       });
     }
 
     setState({
       ...state,
-      activeIndex: activeIndex + 1,
-      translate: (activeIndex + 1) * size.width,
+      activeSlide: activeSlide + 1,
+      translate: (activeSlide + 1) * size.width,
     });
   };
 
   const prevSlide = () => {
-    if (activeIndex === 0) {
+    if (activeSlide === 0) {
       return setState({
         ...state,
         translate: (images.length - 1) * size.width,
-        activeIndex: images.length - 1,
+        activeSlide: images.length - 1,
       });
     }
 
     setState({
       ...state,
-      activeIndex: activeIndex - 1,
-      translate: (activeIndex - 1) * size.width,
+      activeSlide: activeSlide - 1,
+      translate: (activeSlide - 1) * size.width,
     });
   };
 
-  const autoPlayRef = useRef();
-
   useEffect(() => {
-    autoPlayRef.current = nextSlide;
+    transitionRef.current = smoothTransition;
   });
 
-  useEffect(() => {
-    const play = () => {
-      autoPlayRef.current();
-    };
+  const smoothTransition = () => {
+    let _slides = [];
 
-    const interval = setInterval(play, state.autoPlay * 1000);
-    return () => clearInterval(interval);
-  }, []);
+    // We're at the last slide.
+    if (activeSlide === slides.length - 1)
+      _slides = [slides[slides.length - 2], lastSlide, firstSlide];
+    // We're back at the first slide. Just reset to how it was on initial render
+    else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide];
+    // Create an array of the previous last slide, and the next two slides that follow it.
+    else _slides = slides.slice(activeSlide - 1, activeSlide + 2);
 
-  const images = [
-    "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    "https://images.unsplash.com/photo-1470341223622-1019832be824?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2288&q=80",
-    "https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2094&q=80",
-    "https://images.unsplash.com/photo-1534161308652-fdfcf10f62c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2174&q=80",
-  ];
+    setState({
+      ...state,
+      _slides,
+      transition: 0,
+      translate: size.width,
+    });
+  };
 
   return (
     <div css={ImageSliderCSS}>
@@ -107,20 +121,23 @@ const ImageSlider = () => {
         width={size.width * images.length}
       >
         {images.map((image, i) => (
-          <ImageSlide key={image + i} content={image}></ImageSlide>
+          <ImageSlide
+            key={image + i}
+            content={builder.image(image).auto("format").width(2000).url()}
+          ></ImageSlide>
         ))}
       </ImageSliderContent>
       <Arrow direction="left" handleClick={prevSlide} />
       <Arrow direction="right" handleClick={nextSlide} />
-      <Dots slides={images} activeIndex={activeIndex} />
+      <Dots slides={images} activeSlide={activeSlide} />
     </div>
   );
 };
 
 const ImageSliderCSS = css`
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  height: 500px;
+  width: 750px;
   margin: 0 auto;
   overflow: hidden;
 `;
