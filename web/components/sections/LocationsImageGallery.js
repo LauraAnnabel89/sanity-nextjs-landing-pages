@@ -17,12 +17,18 @@ const LocationsImageGallery = (props) => {
 
   const images = props.image;
 
+  const [state, setState] = useState({
+    translate: 0,
+    transition: 0.45,
+    activeSlide: 0,
+  });
+
+  const [showSlider, setShowSlider] = useState(false);
+
+  const { translate, transition, activeSlide, _slides } = state;
+
   const size = useWindowSize();
   const transitionRef = useRef();
-
-  const firstSlide = images[0];
-  const secondSlide = images[1];
-  const lastSlide = images[images.length - 1];
 
   function useWindowSize() {
     const isClient = typeof window === "object";
@@ -46,19 +52,10 @@ const LocationsImageGallery = (props) => {
 
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
-    }, []); // Empty array ensures that effect is only run on mount and unmount
+    }, []);
 
     return windowSize;
   }
-
-  const [state, setState] = useState({
-    translate: 0,
-    transition: 0.45,
-    activeSlide: 0,
-    _slides: [lastSlide, firstSlide, secondSlide],
-  });
-
-  const { translate, transition, activeSlide, _slides } = state;
 
   const nextSlide = () => {
     if (activeSlide === images.length - 1) {
@@ -92,59 +89,54 @@ const LocationsImageGallery = (props) => {
     });
   };
 
-  useEffect(() => {
-    transitionRef.current = smoothTransition;
-  });
+  const show = () => {
+    setShowSlider(true);
+  };
 
-  const smoothTransition = () => {
-    let _slides = [];
-
-    // We're at the last slide.
-    if (activeSlide === slides.length - 1)
-      _slides = [slides[slides.length - 2], lastSlide, firstSlide];
-    // We're back at the first slide. Just reset to how it was on initial render
-    else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide];
-    // Create an array of the previous last slide, and the next two slides that follow it.
-    else _slides = slides.slice(activeSlide - 1, activeSlide + 2);
-
-    setState({
-      ...state,
-      _slides,
-      transition: 0,
-      translate: size.width,
-    });
+  const hide = () => {
+    setShowSlider(false);
   };
 
   return (
-    <div className={styles.LocationsImageGallery}>
-      {images.map((image, index) => (
-        <div className={styles.imageContainer}>
-          <img
-            src={builder.image(image).auto("format").width(2000).url()}
-            className={styles.image}
-            alt={image.caption}
-            key={index}
-          />
-          <p className={styles.caption}>{image.caption}</p>
-        </div>
-      ))}
-      <div css={ImageSliderCSS}>
-        <ImageSliderContent
-          translate={translate}
-          transition={transition}
-          width={size.width * images.length}
-        >
-          {images.map((image, index) => (
-            <ImageSlide
-              key={image + index}
-              content={builder.image(image).auto("format").width(2000).url()}
-            ></ImageSlide>
-          ))}
-        </ImageSliderContent>
-        <Arrow direction="left" handleClick={prevSlide} />
-        <Arrow direction="right" handleClick={nextSlide} />
-        <Dots slides={images} activeSlide={activeSlide} />
+    <div className={styles.root}>
+      <div className={styles.imageGridContainer}>
+        {images.map((image, index) => (
+          <div className={styles.imageContainer} onClick={show}>
+            <img
+              src={builder.image(image).auto("format").width(2000).url()}
+              className={styles.image}
+              alt={image.caption}
+              key={index}
+            />
+            <p className={styles.caption}>{image.caption}</p>
+          </div>
+        ))}
       </div>
+
+      {showSlider && (
+        <div className={styles.imageGalleryContainer}>
+          <div css={ImageSliderCSS}>
+            <ImageSliderContent
+              translate={translate}
+              transition={transition}
+              width={size.width * images.length}
+            >
+              {images.map((image, index) => (
+                <ImageSlide
+                  key={image + index}
+                  content={builder.image(image).auto("format").width(2000).url()}
+                ></ImageSlide>
+              ))}
+            </ImageSliderContent>
+            <Arrow direction="left" handleClick={prevSlide} />
+            <Arrow direction="right" handleClick={nextSlide} />
+            <Dots slides={images} activeSlide={activeSlide} />
+          </div>
+          <a href="" onClick={hide}>
+            Show Thumbnails
+          </a>
+        </div>
+      )}
     </div>
   );
 };
