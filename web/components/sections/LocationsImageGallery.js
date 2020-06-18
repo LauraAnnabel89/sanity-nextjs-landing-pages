@@ -89,8 +89,9 @@ const LocationsImageGallery = (props) => {
     });
   };
 
-  const show = () => {
+  const show = (index) => {
     setShowSlider(true);
+    setState(index);
   };
 
   const hide = () => {
@@ -101,7 +102,7 @@ const LocationsImageGallery = (props) => {
     <div className={styles.root}>
       <div className={styles.imageGridContainer}>
         {images.map((image, index) => (
-          <div className={styles.imageContainer} onClick={show}>
+          <div className={styles.imageContainer} onClick={() => show(index)}>
             <img
               src={builder.image(image).auto("format").width(2000).url()}
               className={styles.image}
