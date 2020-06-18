@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { css, jsx } from "@emotion/core";
 import ImageSliderContent from "./ImageSliderContent";
+import styles from "./ImageGrid.module.css";
+import ImageGrid from "./ImageGrid";
 import ImageSlide from "./ImageSlide";
 import Arrow from "./Arrow";
 import Dots from "./Dots";
@@ -10,7 +12,7 @@ import client from "../../client";
 
 const builder = imageUrlBuilder(client);
 
-const ImageSlider = (props) => {
+const LocationsImageGallery = (props) => {
   const { caption, image } = props;
 
   const images = props.image;
@@ -114,22 +116,35 @@ const ImageSlider = (props) => {
   };
 
   return (
-    <div css={ImageSliderCSS}>
-      <ImageSliderContent
-        translate={translate}
-        transition={transition}
-        width={size.width * images.length}
-      >
-        {images.map((image, index) => (
-          <ImageSlide
-            key={image + index}
-            content={builder.image(image).auto("format").width(2000).url()}
-          ></ImageSlide>
-        ))}
-      </ImageSliderContent>
-      <Arrow direction="left" handleClick={prevSlide} />
-      <Arrow direction="right" handleClick={nextSlide} />
-      <Dots slides={images} activeSlide={activeSlide} />
+    <div className={styles.LocationsImageGallery}>
+      {images.map((image, index) => (
+        <div className={styles.imageContainer}>
+          <img
+            src={builder.image(image).auto("format").width(2000).url()}
+            className={styles.image}
+            alt={image.caption}
+            key={index}
+          />
+          <p className={styles.caption}>{image.caption}</p>
+        </div>
+      ))}
+      <div css={ImageSliderCSS}>
+        <ImageSliderContent
+          translate={translate}
+          transition={transition}
+          width={size.width * images.length}
+        >
+          {images.map((image, index) => (
+            <ImageSlide
+              key={image + index}
+              content={builder.image(image).auto("format").width(2000).url()}
+            ></ImageSlide>
+          ))}
+        </ImageSliderContent>
+        <Arrow direction="left" handleClick={prevSlide} />
+        <Arrow direction="right" handleClick={nextSlide} />
+        <Dots slides={images} activeSlide={activeSlide} />
+      </div>
     </div>
   );
 };
@@ -141,4 +156,4 @@ const ImageSliderCSS = css`
   margin: 0 auto;
   overflow: hidden;
 `;
-export default ImageSlider;
+export default LocationsImageGallery;

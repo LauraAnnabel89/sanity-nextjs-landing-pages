@@ -29,6 +29,7 @@ export default {
         { type: 'imageSlider' },
         { type: 'mailchimp' },
         { type: 'modalImageGrid' },
+        { type: 'locationsImageGallery' },
         { type: 'textSection' },
         { type: 'textSectionThreeColumns' },
         { type: 'threeColumn' },
