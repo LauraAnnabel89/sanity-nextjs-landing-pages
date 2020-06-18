@@ -4,6 +4,7 @@ import { css, jsx } from "@emotion/core";
 import ImageSliderContent from "./ImageSliderContent";
 import ImageSlide from "./ImageSlide";
 import Arrow from "./Arrow";
+import Dots from "./Dots";
 
 const ImageSlider = () => {
   const size = useWindowSize();
@@ -95,6 +96,7 @@ const ImageSlider = () => {
       </ImageSliderContent>
       <Arrow direction="left" handleClick={prevSlide} />
       <Arrow direction="right" handleClick={nextSlide} />
+      <Dots slides={images} activeIndex={activeIndex} />
     </div>
   );
 };
