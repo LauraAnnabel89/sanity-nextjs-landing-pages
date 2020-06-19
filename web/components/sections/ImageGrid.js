@@ -23,18 +23,23 @@ function ImageGrid(props) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        {images.map((image, index, slug) => (
-          <Link href="/locations/[slug]" as={`/locations/${slug}`}>
-            <div className={styles.imageContainer}>
-              <img
-                src={builder.image(image).auto("format").width(2000).url()}
-                className={styles.image}
-                alt={image.caption}
-                key={index}
-              />
-              <p className={styles.caption}>{image.caption}</p>
-            </div>
-          </Link>
+        {images.map((image, index, slug, caption) => (
+          <>
+            <Link href={`/locations/[slug]`} as={`/locations/${slug}`}>
+              <div
+                className={styles.imageContainer}
+                onClick={() => console.log("clicked", slug, caption)}
+              >
+                <img
+                  src={builder.image(image).auto("format").width(2000).url()}
+                  className={styles.image}
+                  alt={image.caption}
+                  key={index}
+                />
+                <p className={styles.caption}>{image.caption}</p>
+              </div>
+            </Link>
+          </>
         ))}
       </div>
     </div>

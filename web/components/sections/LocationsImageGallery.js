@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { css, jsx } from "@emotion/core";
 import ImageSliderContent from "./ImageSliderContent";
-import styles from "./ImageGrid.module.css";
+import styles from "./LocationsImageGallery.module.css";
 import ImageGrid from "./ImageGrid";
 import ImageSlide from "./ImageSlide";
 import Arrow from "./Arrow";
@@ -24,6 +24,7 @@ const LocationsImageGallery = (props) => {
   });
 
   const [showSlider, setShowSlider] = useState(false);
+  const [showGrid, setShowGrid] = useState(true);
 
   const { translate, transition, activeSlide, _slides } = state;
 
@@ -89,30 +90,33 @@ const LocationsImageGallery = (props) => {
     });
   };
 
-  const show = (index) => {
+  const show = () => {
     setShowSlider(true);
-    setState(index);
+    setShowGrid(false);
   };
 
   const hide = () => {
     setShowSlider(false);
+    setShowGrid(true);
   };
 
   return (
     <div className={styles.root}>
-      <div className={styles.imageGridContainer}>
-        {images.map((image, index) => (
-          <div className={styles.imageContainer} onClick={() => show(index)}>
-            <img
-              src={builder.image(image).auto("format").width(2000).url()}
-              className={styles.image}
-              alt={image.caption}
-              key={index}
-            />
-            <p className={styles.caption}>{image.caption}</p>
-          </div>
-        ))}
-      </div>
+      {showGrid && (
+        <div className={styles.imageGridContainer}>
+          {images.map((image, index) => (
+            <div className={styles.imageContainer} onClick={show}>
+              <img
+                src={builder.image(image).auto("format").width(2000).url()}
+                className={styles.image}
+                alt={image.caption}
+                key={index}
+              />
+              <p className={styles.caption}>{image.caption}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       {showSlider && (
         <div className={styles.imageGalleryContainer}>

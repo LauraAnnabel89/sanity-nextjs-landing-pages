@@ -41,7 +41,6 @@ class Locations extends Component {
   };
 
   static async getInitialProps(context) {
-    // It's important to default the slug so that it doesn't return "undefined"
     const { slug = "" } = context.query;
     if (!context.query) {
       console.error("no query");
@@ -52,7 +51,7 @@ class Locations extends Component {
     }
     return await client.fetch(
       `
-        *[_type == "post" && slug.current == $slug][0]
+        *[_type == "locations" && slug.current == $slug][0]
       `,
       { slug }
     );
@@ -71,6 +70,7 @@ class Locations extends Component {
 
     return (
       <LocationsPageLayout config={config}>
+        {console.log(slug)}
         {content && <RenderSections sections={content} />}
       </LocationsPageLayout>
     );

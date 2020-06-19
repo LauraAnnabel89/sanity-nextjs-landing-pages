@@ -99,7 +99,11 @@ class Header extends Component {
                 const isActive =
                   router.pathname === "/LandingPage" && router.query.slug === slug.current;
                 return (
-                  <li key={_id} className={styles.navItem}>
+                  <li
+                    key={_id}
+                    className={styles.navItem}
+                    onClick={() => console.log("clicked", slug)}
+                  >
                     <Link
                       href={{
                         pathname: "/LandingPage",

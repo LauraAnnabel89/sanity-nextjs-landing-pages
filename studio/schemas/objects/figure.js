@@ -15,6 +15,11 @@ export default {
       }
     },
     {
+      name: 'id',
+      title: 'ID',
+      type: 'slug'
+    },
+    {
       title: 'Internal link',
       description: 'Use this to link between pages on the website',
       name: 'internalLink',
