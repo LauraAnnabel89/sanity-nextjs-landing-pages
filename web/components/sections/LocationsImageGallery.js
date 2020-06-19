@@ -134,7 +134,7 @@ const LocationsImageGallery = (props) => {
               {images.map((image, index, caption) => (
                 <ImageSlide
                   key={image + index}
-                  content={builder.image(image).auto("format").width(2000).url()}
+                  content={builder.image(image).auto("format").url()}
                 ></ImageSlide>
               ))}
             </ImageSliderContent>
