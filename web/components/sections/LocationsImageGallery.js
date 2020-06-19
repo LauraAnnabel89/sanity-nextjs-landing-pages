@@ -102,19 +102,22 @@ const LocationsImageGallery = (props) => {
 
   return (
     <div className={styles.root}>
+      <div className={styles.header}>X</div>
       {showGrid && (
-        <div className={styles.imageGridContainer}>
-          {images.map((image, index) => (
-            <div className={styles.imageContainer} onClick={show}>
-              <img
-                src={builder.image(image).auto("format").width(2000).url()}
-                className={styles.image}
-                alt={image.caption}
-                key={index}
-              />
-              <p className={styles.caption}>{image.caption}</p>
-            </div>
-          ))}
+        <div className={styles.imageGrid}>
+          <div className={styles.imageGridContainer}>
+            {images.map((image, index, caption) => (
+              <div className={styles.imageContainer} onClick={show}>
+                <img
+                  src={builder.image(image).auto("format").width(2000).url()}
+                  className={styles.image}
+                  alt={image.caption}
+                  key={index}
+                />
+                <p className={styles.caption}>{image.caption}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -126,7 +129,7 @@ const LocationsImageGallery = (props) => {
               transition={transition}
               width={size.width * images.length}
             >
-              {images.map((image, index) => (
+              {images.map((image, index, caption) => (
                 <ImageSlide
                   key={image + index}
                   content={builder.image(image).auto("format").width(2000).url()}
@@ -135,11 +138,15 @@ const LocationsImageGallery = (props) => {
             </ImageSliderContent>
             <Arrow direction="left" handleClick={prevSlide} />
             <Arrow direction="right" handleClick={nextSlide} />
-            <Dots slides={images} activeSlide={activeSlide} />
           </div>
-          <a href="" onClick={hide}>
-            Show Thumbnails
-          </a>
+          <div className={styles.infoBar}>
+            <p>
+              {image.slug}/{images.caption}
+            </p>
+            <a href="" onClick={hide}>
+              Show Thumbnails
+            </a>
+          </div>
         </div>
       )}
     </div>
@@ -148,8 +155,9 @@ const LocationsImageGallery = (props) => {
 
 const ImageSliderCSS = css`
   position: relative;
-  height: 500px;
-  width: 750px;
+  height: 80vh;
+  width: 60em;
+  max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
 `;

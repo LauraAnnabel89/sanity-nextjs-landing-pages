@@ -10,11 +10,9 @@ const Arrow = ({ direction, handleClick }) => (
       position: absolute;
       top: 50%;
       ${direction === "right" ? `right: 25px` : `left: 25px`};
-      height: 50px;
-      width: 50px;
+      height: 20px;
+      width: 20px;
       justify-content: center;
-      background: white;
-      border-radius: 50%;
       cursor: pointer;
       align-items: center;
       transition: transform ease-in 0.1s;
@@ -22,6 +20,7 @@ const Arrow = ({ direction, handleClick }) => (
         transform: scale(1.1);
       }
       img {
+        width: 100%;
         transform: translateX(${direction === "left" ? "-2" : "2"}px);
         &:focus {
           outline: 0;
@@ -30,9 +29,9 @@ const Arrow = ({ direction, handleClick }) => (
     `}
   >
     {direction === "right" ? (
-      <img src="https://raw.githubusercontent.com/DZuz14/react-hooks-image-slider/master/src/img/right-arrow.svg" />
+      <img src="static/images/rightarrow.png" />
     ) : (
-      <img src="https://raw.githubusercontent.com/DZuz14/react-hooks-image-slider/master/src/img/left-arrow.svg" />
+      <img src="static/images/leftarrow.png" />
     )}
   </div>
 );
