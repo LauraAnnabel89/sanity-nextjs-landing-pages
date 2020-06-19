@@ -180,6 +180,23 @@
 .hamburgerIcon {
   font-size: calc(var(--font-base-line-height) * 1.5rem);
   display: block;
+  cursor: pointer;
+
+  @media (--media-min-medium) {
+    display: none;
+  }
+}
+
+.closeIcon {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--color-black);
+  padding: 1.5em;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
 
   @media (--media-min-medium) {
     display: none;

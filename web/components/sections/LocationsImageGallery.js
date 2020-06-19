@@ -102,7 +102,9 @@ const LocationsImageGallery = (props) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.header}>X</div>
+      <div className={styles.header}>
+        <a href="/locations">X</a>
+      </div>
       {showGrid && (
         <div className={styles.imageGrid}>
           <div className={styles.imageGridContainer}>
