@@ -20,6 +20,7 @@ export default {
       title: 'Page sections',
       of: [
         { type: 'figure' },
+        { type: 'fourColumn' },
         { type: 'hero' },
         { type: 'homePage' },
         { type: 'homepagevideo' },
@@ -28,9 +29,11 @@ export default {
         { type: 'imageSlider' },
         { type: 'mailchimp' },
         { type: 'modalImageGrid' },
-        { type: 'twoColumn' },
+        { type: 'locationsImageGallery' },
         { type: 'textSection' },
         { type: 'textSectionThreeColumns' },
+        { type: 'threeColumn' },
+        { type: 'twoColumn' },
         { type: 'video' }
       ]
     },

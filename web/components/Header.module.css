@@ -87,6 +87,17 @@
 
     @nest .root[data-show-nav="true"] & {
       display: block;
+      background-color: var(--color-white, #000);
+      color: var(--color-black, #fff);
+      overflow: hidden;
+      min-height: 100vh;
+      min-width: 100vw;
+      z-index: 4;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
   }
 }
@@ -169,6 +180,23 @@
 .hamburgerIcon {
   font-size: calc(var(--font-base-line-height) * 1.5rem);
   display: block;
+  cursor: pointer;
+
+  @media (--media-min-medium) {
+    display: none;
+  }
+}
+
+.closeIcon {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--color-black);
+  padding: 1.5em;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
 
   @media (--media-min-medium) {
     display: none;

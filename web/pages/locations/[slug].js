@@ -41,18 +41,19 @@ class Locations extends Component {
   };
 
   static async getInitialProps(context) {
-    // It's important to default the slug so that it doesn't return "undefined"
     const { slug = "" } = context.query;
     if (!context.query) {
       console.error("no query");
       return;
     }
-    if (slug && slug !== "/") {
+    if (slug && slug !== "/locations/[slug]") {
+
       return client.fetch(pageQuery, { slug }).then((res) => ({ ...res.page, slug }));
     }
     return await client.fetch(
       `
-        *[_type == "post" && slug.current == $slug][0]
+        *[_type == "locations" && slug.current == $slug][0]
+
       `,
       { slug }
     );
@@ -71,7 +72,7 @@ class Locations extends Component {
 
     return (
       <LocationsPageLayout config={config}>
-        {content && <RenderSections sections={content} />}
+        {content && <RenderSections sections={content} slug={this.props.slug} />}
       </LocationsPageLayout>
     );
   }
