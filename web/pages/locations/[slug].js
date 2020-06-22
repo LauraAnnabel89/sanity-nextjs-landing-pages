@@ -47,11 +47,13 @@ class Locations extends Component {
       return;
     }
     if (slug && slug !== "/locations/[slug]") {
+
       return client.fetch(pageQuery, { slug }).then((res) => ({ ...res.page, slug }));
     }
     return await client.fetch(
       `
         *[_type == "locations" && slug.current == $slug][0]
+
       `,
       { slug }
     );

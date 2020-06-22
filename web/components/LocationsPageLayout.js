@@ -18,7 +18,7 @@ function LocationsPageLayout(props) {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       </Head>
-      <div className="container" style={{ overflow: "hidden" }}>
+      <div className="container">
         <div className="content">{children}</div>
       </div>
     </>

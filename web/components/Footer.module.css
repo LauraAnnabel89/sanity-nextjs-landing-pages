@@ -17,13 +17,13 @@
 
 .item {
   @nest & > a {
-    font-size: var(--font-micro-size);
+    font-size: 10px;
     font-family: var(--font-family-gilroy);
     display: block;
     text-decoration: none;
     color: inherit;
     padding: 1.5rem 0.5rem;
-    font-weight: 600;
+    font-weight: 300;
     text-transform: uppercase;
   }
 }
