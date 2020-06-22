@@ -19,6 +19,15 @@
   }
 }
 
+.imageSlider {
+  position: relative;
+  height: 80vh;
+  width: 60em;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .infoBar {
   display: flex;
   justify-content: space-between;
