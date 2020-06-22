@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import React, { useState, useEffect, useRef } from "react";
 import { css, jsx } from "@emotion/core";
 import ImageSliderContent from "./ImageSliderContent";
@@ -91,9 +90,9 @@ const LocationsImageGallery = (props) => {
   };
 
   const show = (index) => {
-    console.log(index, state, activeSlide);
     setShowGrid(false);
-    setState({ ...state, activeSlide: index, setShowSlider: true });
+    setShowSlider(true);
+    setState({ activeSlide: index });
   };
 
   const hide = () => {
@@ -126,7 +125,7 @@ const LocationsImageGallery = (props) => {
 
       {showSlider && (
         <div className={styles.imageGalleryContainer}>
-          <div css={ImageSliderCSS}>
+          <div className={styles.imageSlider}>
             <ImageSliderContent
               translate={translate}
               transition={transition}
@@ -158,12 +157,4 @@ const LocationsImageGallery = (props) => {
   );
 };
 
-const ImageSliderCSS = css`
-  position: relative;
-  height: 80vh;
-  width: 60em;
-  max-width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-`;
 export default LocationsImageGallery;
