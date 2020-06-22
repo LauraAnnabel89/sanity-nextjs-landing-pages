@@ -11,7 +11,8 @@ import { useRouter } from "next/router";
 const builder = imageUrlBuilder(client);
 
 function ImageGrid(props) {
-  const { caption, image, slug } = props;
+  const { image } = props;
+
   const router = useRouter();
 
   const images = props.image;
@@ -23,24 +24,34 @@ function ImageGrid(props) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        {images.map((image, index, slug, caption) => (
-          <>
-            <Link href={`/locations/[slug]`} as={`/locations/${slug}`}>
-              <div
-                className={styles.imageContainer}
-                onClick={() => console.log("clicked", slug, caption)}
+        {images.map((image) => {
+          const { slug, index, caption } = image;
+          {
+            console.log("locations", image);
+          }
+
+          return (
+            <>
+              <Link
+                href={{
+                  pathname: "/locations/[slug]",
+                }}
+                as="locations/[slug]"
+                prefetch
               >
-                <img
-                  src={builder.image(image).auto("format").width(2000).url()}
-                  className={styles.image}
-                  alt={image.caption}
-                  key={index}
-                />
-                <p className={styles.caption}>{image.caption}</p>
-              </div>
-            </Link>
-          </>
-        ))}
+                <div className={styles.imageContainer}>
+                  <img
+                    src={builder.image(image).auto("format").width(2000).url()}
+                    className={styles.image}
+                    alt={image.caption}
+                    key={index}
+                  />
+                  <p className={styles.caption}>{image.caption}</p>
+                </div>
+              </Link>
+            </>
+          );
+        })}
       </div>
     </div>
   );

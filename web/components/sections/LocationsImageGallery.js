@@ -90,9 +90,10 @@ const LocationsImageGallery = (props) => {
     });
   };
 
-  const show = () => {
-    setShowSlider(true);
+  const show = (index) => {
+    console.log(index, state, activeSlide);
     setShowGrid(false);
+    setState({ ...state, activeSlide: index, setShowSlider: true });
   };
 
   const hide = () => {
@@ -109,7 +110,7 @@ const LocationsImageGallery = (props) => {
         <div className={styles.imageGrid}>
           <div className={styles.imageGridContainer}>
             {images.map((image, index, caption) => (
-              <div className={styles.imageContainer} onClick={show}>
+              <div className={styles.imageContainer} onClick={() => show(index)}>
                 <img
                   src={builder.image(image).auto("format").width(2000).url()}
                   className={styles.image}
@@ -132,20 +133,22 @@ const LocationsImageGallery = (props) => {
               width={size.width * images.length}
             >
               {images.map((image, index, caption) => (
-                <ImageSlide
-                  key={image + index}
-                  content={builder.image(image).auto("format").url()}
-                ></ImageSlide>
+                <>
+                  <ImageSlide
+                    key={image + index}
+                    content={builder.image(image).auto("format").url()}
+                  ></ImageSlide>
+                </>
               ))}
             </ImageSliderContent>
             <Arrow direction="left" handleClick={prevSlide} />
             <Arrow direction="right" handleClick={nextSlide} />
           </div>
           <div className={styles.infoBar}>
-            <p>
-              {image.slug}/{images.caption}
+            <p className={styles.infoCaption}>
+              Locations / <span>{image.caption}</span>
             </p>
-            <a href="" onClick={hide}>
+            <a href="" onClick={hide} className={styles.infoThumbnails}>
               Show Thumbnails
             </a>
           </div>

@@ -46,7 +46,7 @@ class Locations extends Component {
       console.error("no query");
       return;
     }
-    if (slug && slug !== "/") {
+    if (slug && slug !== "/locations/[slug]") {
       return client.fetch(pageQuery, { slug }).then((res) => ({ ...res.page, slug }));
     }
     return await client.fetch(
@@ -70,8 +70,7 @@ class Locations extends Component {
 
     return (
       <LocationsPageLayout config={config}>
-        {console.log(slug)}
-        {content && <RenderSections sections={content} />}
+        {content && <RenderSections sections={content} slug={this.props.slug} />}
       </LocationsPageLayout>
     );
   }
