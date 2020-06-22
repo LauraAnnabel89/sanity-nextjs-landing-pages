@@ -33,6 +33,7 @@ import textSectionThreeColumns from './objects/textSectionThreeColumns'
 import threeColumn from './objects/threeColumn'
 import twoColumn from './objects/twoColumn'
 import video from './objects/video'
+import videoGrid from './objects/videoGrid'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -65,6 +66,7 @@ export default createSchema({
     textSectionThreeColumns,
     threeColumn,
     twoColumn,
-    video
+    video,
+    videoGrid
   ])
 })
