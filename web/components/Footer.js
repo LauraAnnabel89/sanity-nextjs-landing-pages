@@ -42,7 +42,6 @@ function Footer(props) {
                       query: { slug: item.slug.current },
                     }}
                     as={`/${item.slug.current}`}
-                    prefetch
                   >
                     <a data-is-active={isActive ? "true" : "false"}>{item.title}</a>
                   </Link>

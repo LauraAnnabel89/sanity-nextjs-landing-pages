@@ -37,7 +37,6 @@ function ImageGrid(props) {
                   pathname: "/locations/[slug]",
                 }}
                 as="locations/[slug]"
-                prefetch
               >
                 <div className={styles.imageContainer}>
                   <img
