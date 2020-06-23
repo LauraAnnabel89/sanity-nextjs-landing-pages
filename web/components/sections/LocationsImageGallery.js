@@ -92,7 +92,10 @@ const LocationsImageGallery = (props) => {
   const show = (index) => {
     setShowGrid(false);
     setShowSlider(true);
-    setState({ activeSlide: index });
+    setState((prev) => {
+      console.log(prev);
+      return { ...prev, activeSlide: index };
+    });
   };
 
   const hide = () => {
