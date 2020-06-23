@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Gilroy";
-  src: url("/static/fonts/Gilroy-Regular.otf");
+  src: url("/static/fonts/Gilroy-Medium.otf");
   font-display: auto;
   font-style: normal;
 }
@@ -43,8 +43,8 @@
   /* Widths */
   --width-x-small: 20em;
   --width-small: 40em;
-  --width-text-medium: 50em;
-  --width-medium: 60em;
+  --width-text-medium: 60em;
+  --width-medium: 70em;
   --width-text-large: 70em;
   --width-large: 80em;
   --width-x-large: 100em;

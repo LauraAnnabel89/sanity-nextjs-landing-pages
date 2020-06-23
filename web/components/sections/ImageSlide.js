@@ -8,9 +8,9 @@ const ImageSlide = ({ content }) => (
       height: 100%;
       width: 100%;
       background-image: url('${content}');
-      background-size: cover;
+      background-size: contain;
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: 20% 100%;
     `}
   ></div>
 );

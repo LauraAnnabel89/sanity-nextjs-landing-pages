@@ -22,7 +22,6 @@ function Figure({ node }) {
           query: { slug: slug.current },
         }}
         as={`/${slug.current}`}
-        prefetch
       >
         <img
           src={builder.image(asset).auto("format").width(2000).url()}
