@@ -5,9 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Document types
-import locations from './documents/locations'
 import page from './documents/page'
-import locations from './documents/locations'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
 
@@ -35,6 +33,7 @@ import textSectionThreeColumns from './objects/textSectionThreeColumns'
 import threeColumn from './objects/threeColumn'
 import twoColumn from './objects/twoColumn'
 import video from './objects/video'
+import videoGrid from './objects/videoGrid'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -54,7 +53,6 @@ export default createSchema({
     imageSlider,
     internalLink,
     link,
-    locations,
     locationsImageGallery,
     mailchimp,
     modalImageGrid,
@@ -68,6 +66,7 @@ export default createSchema({
     textSectionThreeColumns,
     threeColumn,
     twoColumn,
-    video
+    video,
+    videoGrid
   ])
 })
