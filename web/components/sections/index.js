@@ -1,7 +1,5 @@
 export { default as FourColumn } from "./FourColumn";
 export { default as Hero } from "./Hero";
-export { default as HomePage } from "./HomePage";
-export { default as HomePageVideo } from "./HomePageVideo";
 export { default as ImageSection } from "./ImageSection";
 export { default as ImageGrid } from "./ImageGrid";
 export { default as ImageSlider } from "./ImageSlider";
