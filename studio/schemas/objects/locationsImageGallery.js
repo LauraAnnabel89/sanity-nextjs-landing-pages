@@ -1,7 +1,7 @@
 export default {
   type: 'object',
   name: 'locationsImageGallery',
-  title: 'Locations Image Gallery',
+  title: 'Image Gallery',
   fields: [
     {
       name: 'image',
@@ -22,7 +22,7 @@ export default {
         title,
         caption,
         internalLink,
-        subtitle: 'Locations Image Gallery',
+        subtitle: 'Image Gallery',
         media
       }
     }

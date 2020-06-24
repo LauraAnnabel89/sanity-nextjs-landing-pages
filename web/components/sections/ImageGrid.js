@@ -26,9 +26,6 @@ function ImageGrid(props) {
       <div className={styles.content}>
         {images.map((image) => {
           const { slug, index, caption } = image;
-          {
-            console.log("locations", image);
-          }
 
           return (
             <>
