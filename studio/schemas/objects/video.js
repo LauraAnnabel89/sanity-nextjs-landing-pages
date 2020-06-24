@@ -27,11 +27,12 @@ export default {
       type: 'boolean'
     },
     {
-      name: 'ratio',
-      title: 'Custom aspect ratio',
-      description:
-        'Insert the percentage of height relative to width here for a custom aspect ratio (eg: 16:9 is 9/16 = 56.25%), leave empty for the nominal ratio',
-      type: 'string'
+      title: 'Caption',
+      name: 'caption',
+      type: 'string',
+      options: {
+        isHighlighted: true
+      }
     }
   ],
   preview: {

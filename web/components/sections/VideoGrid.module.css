@@ -49,7 +49,7 @@
 
   @media (--media-min-medium) {
     margin: 0 auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     padding-top: 1rem;
     display: grid;
     grid-gap: 1em;

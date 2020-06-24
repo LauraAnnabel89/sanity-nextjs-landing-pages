@@ -1,50 +1,52 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import Carousel, { Modal, ModalGateway } from 'react-images'
-import imageUrlBuilder from '@sanity/image-url'
-import styles from './VideoGrid.module.css'
-import client from '../../client'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import Carousel, { Modal, ModalGateway } from "react-images";
+import imageUrlBuilder from "@sanity/image-url";
+import styles from "./VideoGrid.module.css";
+import client from "../../client";
 
-import Video from './Video'
+import Video from "./Video";
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
-function VideoGrid (props) {
-  const {videos} = props
+function VideoGrid(props) {
+  const { videos } = props;
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   if (videos.length === 0) {
-    return null
+    return null;
   }
 
   const View = (viewProps) => {
-    const {data} = viewProps
-    return (<Video key={data._key} autoplay={false} windowed {...data} />)
-  }
+    const { data } = viewProps;
+    return <Video key={data._key} autoplay={false} windowed {...data} />;
+  };
 
   const carouselComponents = {
     Footer: null,
-    View
-  }
+    View,
+  };
 
   return (
     <div className={styles.root}>
       <div className={styles.content}>
         {videos.map((video, index) => {
-          const {_key, poster} = video
-          const imageUrl = builder.image(poster).auto('format').width(2000).url()
-
+          const { _key, poster, caption } = video;
+          const imageUrl = builder.image(poster).auto("format").width(2000).url();
+          console.log(video);
           return (
             <div
               key={_key}
-              style={{backgroundImage: `url(${imageUrl})`}}
+              style={{ backgroundImage: `url(${imageUrl})` }}
               className={styles.videoContainer}
               onClick={() => {
-                setOpen(index)
+                setOpen(index);
               }}
-            />
-          )
+            >
+              <p className={styles.caption}>{caption}</p>
+            </div>
+          );
         })}
       </div>
 
@@ -54,23 +56,19 @@ function VideoGrid (props) {
             closeOnBackdropClick
             allowFullscreen={false}
             onClose={() => {
-              setOpen(false)
+              setOpen(false);
             }}
           >
-            <Carousel
-              currentIndex={open}
-              components={carouselComponents}
-              views={videos}
-            />
+            <Carousel currentIndex={open} components={carouselComponents} views={videos} />
           </Modal>
         ) : null}
       </ModalGateway>
     </div>
-  )
+  );
 }
 
 VideoGrid.propTypes = {
-  videos: PropTypes.array
-}
+  videos: PropTypes.array,
+};
 
-export default VideoGrid
+export default VideoGrid;
