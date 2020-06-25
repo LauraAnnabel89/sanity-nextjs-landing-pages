@@ -28,6 +28,7 @@ import textSection from './objects/textSection'
 import textSectionThreeColumns from './objects/textSectionThreeColumns'
 import threeColumn from './objects/threeColumn'
 import twoColumn from './objects/twoColumn'
+import twoColumnWithText from './objects/twoColumnWithText'
 import video from './objects/video'
 import videoGrid from './objects/videoGrid'
 
@@ -58,6 +59,7 @@ export default createSchema({
     textSectionThreeColumns,
     threeColumn,
     twoColumn,
+    twoColumnWithText,
     video,
     videoGrid
   ])

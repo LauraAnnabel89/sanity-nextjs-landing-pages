@@ -31,6 +31,7 @@ export default {
         { type: 'textSectionThreeColumns' },
         { type: 'threeColumn' },
         { type: 'twoColumn' },
+        { type: 'twoColumnWithText' },
         { type: 'video' },
         { type: 'videoGrid' }
       ]
