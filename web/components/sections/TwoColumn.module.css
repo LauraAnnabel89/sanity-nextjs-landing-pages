@@ -58,7 +58,10 @@
 }
 
 .imageContainer {
-  margin: 0;
+  margin: 1em 0;
+  @media (--media-min-medium) {
+    margin: 0;
+  }
 }
 
 .caption {
