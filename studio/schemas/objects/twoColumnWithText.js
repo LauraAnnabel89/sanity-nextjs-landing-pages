@@ -1,12 +1,12 @@
 export default {
   type: 'object',
-  name: 'twoColumn',
-  title: 'Two Column Images',
+  name: 'twoColumnWithText',
+  title: 'Two Column With Text',
   fields: [
     {
-      name: 'heading',
-      type: 'string',
-      title: 'Heading'
+      name: 'reverseOrder',
+      description: 'Image is on the left by default, reverse the order by toggling this on',
+      type: 'boolean'
     },
     {
       name: 'image',
@@ -37,7 +37,7 @@ export default {
     prepare({ title, media }) {
       return {
         title,
-        subtitle: 'Two Column Images',
+        subtitle: 'Two Column With Text',
         media
       }
     }

@@ -9,26 +9,29 @@ import Cta from "../Cta";
 const builder = imageUrlBuilder(client);
 
 function TwoColumnWithText(props) {
-  const { heading, label, text, image, cta } = props;
-
-  const images = props.image;
+  const { heading, label, text, image, reverseOrder } = props;
 
   if (!image) {
     return null;
   }
 
+  console.log(props);
+
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        {images.map((image) => (
-          <figure className={styles.imageContainer}>
-            <img
-              src={builder.image(image).auto("format").width(2000).url()}
-              className={styles.image}
-              alt={heading}
-            />
-          </figure>
-        ))}
+        <div className={styles.imageContainer} style={{ order: reverseOrder && "2" }}>
+          <img
+            src={builder.image(props.image).auto("format").width(2000).url()}
+            className={styles.image}
+            alt={props.heading}
+          />
+        </div>
+        <section className={styles.article}>
+          {label && <div className={styles.label}>{props.label}</div>}
+          {heading && <h2 className={styles.heading}>{props.heading}</h2>}
+          {text && <SimpleBlockContent blocks={props.text} />}
+        </section>
       </div>
     </div>
   );

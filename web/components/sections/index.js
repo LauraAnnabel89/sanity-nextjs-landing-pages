@@ -10,5 +10,6 @@ export { default as TextSection } from "./TextSection";
 export { default as TextSectionThreeColumns } from "./TextSectionThreeColumns";
 export { default as ThreeColumn } from "./ThreeColumn";
 export { default as TwoColumn } from "./TwoColumn";
+export { default as TwoColumnWithText } from "./TwoColumnWithText";
 export { default as Video } from "./Video";
 export { default as VideoGrid } from "./VideoGrid";
