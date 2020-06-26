@@ -118,6 +118,10 @@
   display: block;
 }
 
+.fakeLink {
+  cursor: pointer;
+}
+
 .imageGrid {
 
 }

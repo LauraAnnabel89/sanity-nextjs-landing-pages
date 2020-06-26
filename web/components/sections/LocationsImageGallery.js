@@ -23,8 +23,8 @@ const LocationsImageGallery = (props) => {
     activeSlide: 0
   })
 
-  const [showSlider, setShowSlider] = useState(false)
-  const [showGrid, setShowGrid] = useState(true)
+  const [showSlider, setShowSlider] = useState(true)
+  const [showGrid, setShowGrid] = useState(false)
 
   const {translate, transition, activeSlide, _slides} = state
 
@@ -70,7 +70,7 @@ const LocationsImageGallery = (props) => {
     setState({
       ...state,
       activeSlide: activeSlide + 1,
-      translate: (activeSlide + 1) * size.width
+      translate: (activeSlide + 1) * 60
     })
   }
 
@@ -78,7 +78,7 @@ const LocationsImageGallery = (props) => {
     if (activeSlide === 0) {
       return setState({
         ...state,
-        translate: (images.length - 1) * size.width,
+        translate: (images.length - 1) * 60,
         activeSlide: images.length - 1
       })
     }
@@ -86,14 +86,18 @@ const LocationsImageGallery = (props) => {
     setState({
       ...state,
       activeSlide: activeSlide - 1,
-      translate: (activeSlide - 1) * size.width
+      translate: (activeSlide - 1) * 60
     })
   }
 
   const show = (index) => {
     setShowGrid(false)
     setShowSlider(true)
-    setState({activeSlide: index})
+    setState({
+      ...state,
+      activeSlide: index,
+      translate: (index) * 60
+    })
   }
 
   const hide = () => {
@@ -104,9 +108,17 @@ const LocationsImageGallery = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <Link href='/locations'>
-          <a>X</a>
-        </Link>
+        {
+          showGrid ? (
+            <span className={styles.fakeLink} onClick={hide}>
+              X
+            </span>
+          ) : (
+            <Link href='/locations'>
+              <a>X</a>
+            </Link>
+          )
+        }
       </div>
 
       <div className={`${styles.imageGrid} ${showGrid ? styles.show : styles.hide}`}>
@@ -148,9 +160,9 @@ const LocationsImageGallery = (props) => {
           <p className={styles.infoCaption}>
             Locations / <span>{image.caption}</span>
           </p>
-          <button onClick={hide} className={styles.infoThumbnails}>
+          <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
             Show Thumbnails
-          </button>
+          </span>
         </div>
       </div>
     </div>
