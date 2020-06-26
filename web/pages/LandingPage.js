@@ -21,6 +21,18 @@ const pageQuery = groq`
       ctas[] {
         ...,
         route->
+      },
+      image[] {
+        ...,
+        internalLink {
+          ...,
+          "resolved": @-> {
+            _type,
+            title,
+            name,
+            slug,
+          }
+        }
       }
     }
   }

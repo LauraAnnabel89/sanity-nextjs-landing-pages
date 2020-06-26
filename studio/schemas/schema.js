@@ -5,7 +5,6 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Document types
-import locations from './documents/locations'
 import page from './documents/page'
 import locations from './documents/locations'
 import route from './documents/route'
