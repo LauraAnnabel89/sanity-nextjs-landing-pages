@@ -46,9 +46,10 @@ function ImageGrid (props) {
               <Link
                 href={{pathname: `/locations/${slug.current}`}}
                 as={`locations/${slug.current}`}
-                prefetch
               >
-                {RenderItem()}
+                <a>
+                  {RenderItem()}
+                </a>
               </Link>
             )
           }

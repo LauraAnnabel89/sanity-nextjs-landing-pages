@@ -110,6 +110,22 @@
   }
 }
 
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.imageGrid {
+
+}
+
+.imageGalleryContainer {
+
+}
+
 .imageContainer {
   margin: 1.5rem;
   position: relative;

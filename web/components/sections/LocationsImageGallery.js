@@ -108,54 +108,51 @@ const LocationsImageGallery = (props) => {
           <a>X</a>
         </Link>
       </div>
-      {showGrid && (
-        <div className={styles.imageGrid}>
-          <div className={styles.imageGridContainer}>
-            {images.map((image, index, caption) => (
-              <div className={styles.imageContainer} onClick={() => show(index)}>
-                <img
-                  src={builder.image(image).auto('format').width(2000).url()}
-                  className={styles.image}
-                  alt={image.caption}
-                  key={index}
-                />
-                <p className={styles.caption}>{image.caption}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
-      {showSlider && (
-        <div className={styles.imageGalleryContainer}>
-          <div className={styles.imageSlider}>
-            <ImageSliderContent
-              translate={translate}
-              transition={transition}
-              width={size.width * images.length}
-            >
-              {images.map((image, index, caption) => (
-                <>
-                  <ImageSlide
-                    key={image + index}
-                    content={builder.image(image).auto('format').url()}
-                  />
-                </>
-              ))}
-            </ImageSliderContent>
-            <Arrow direction='left' handleClick={prevSlide} />
-            <Arrow direction='right' handleClick={nextSlide} />
-          </div>
-          <div className={styles.infoBar}>
-            <p className={styles.infoCaption}>
-              Locations / <span>{image.caption}</span>
-            </p>
-            <a href='' onClick={hide} className={styles.infoThumbnails}>
-              Show Thumbnails
-            </a>
-          </div>
+      <div className={`${styles.imageGrid} ${showGrid ? styles.show : styles.hide}`}>
+        <div className={styles.imageGridContainer}>
+          {images.map((image, index) => (
+            <div key={image._key} className={styles.imageContainer} onClick={() => show(index)}>
+              <img
+                src={builder.image(image).auto('format').width(2000).url()}
+                className={styles.image}
+                alt={image.caption}
+                key={index}
+              />
+              <p className={styles.caption}>{image.caption}</p>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
+
+      <div className={`${styles.imageGalleryContainer} ${showSlider ? styles.show : styles.hide}`}>
+        <div className={styles.imageSlider}>
+          <ImageSliderContent
+            translate={translate}
+            transition={transition}
+            width={size.width * images.length}
+          >
+            {images.map((image, index) => (
+              <>
+                <ImageSlide
+                  key={image + index}
+                  content={builder.image(image).auto('format').url()}
+                />
+              </>
+            ))}
+          </ImageSliderContent>
+          <Arrow direction='left' handleClick={prevSlide} />
+          <Arrow direction='right' handleClick={nextSlide} />
+        </div>
+        <div className={styles.infoBar}>
+          <p className={styles.infoCaption}>
+            Locations / <span>{image.caption}</span>
+          </p>
+          <button onClick={hide} className={styles.infoThumbnails}>
+            Show Thumbnails
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
