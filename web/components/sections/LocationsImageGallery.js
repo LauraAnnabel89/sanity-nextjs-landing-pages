@@ -67,11 +67,11 @@ const LocationsImageGallery = (props) => {
       })
     }
 
-    setState({
+    setState((state) => ({
       ...state,
-      activeSlide: activeSlide + 1,
-      translate: (activeSlide + 1) * 60
-    })
+      activeSlide: state.activeSlide + 1,
+      translate: (state.activeSlide + 1) * 60
+    }))
   }
 
   const prevSlide = () => {
@@ -83,11 +83,11 @@ const LocationsImageGallery = (props) => {
       })
     }
 
-    setState({
+    setState((state) => ({
       ...state,
-      activeSlide: activeSlide - 1,
-      translate: (activeSlide - 1) * 60
-    })
+      activeSlide: state.activeSlide - 1,
+      translate: (state.activeSlide - 1) * 60
+    }))
   }
 
   const show = (index) => {
@@ -110,7 +110,7 @@ const LocationsImageGallery = (props) => {
       <div className={styles.header}>
         {
           showGrid ? (
-            <span className={styles.fakeLink} onClick={hide}>
+            <span className={styles.fakeLink} onClick={() => { show(activeSlide) }}>
               X
             </span>
           ) : (
@@ -142,7 +142,7 @@ const LocationsImageGallery = (props) => {
           <ImageSliderContent
             translate={translate}
             transition={transition}
-            width={size.width * images.length}
+            width={60 * images.length}
           >
             {images.map((image, index) => (
               <>
