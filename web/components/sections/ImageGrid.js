@@ -24,29 +24,35 @@ function ImageGrid(props) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        {images.map((image) => {
-          const { slug, index, caption } = image;
+        {images.map((item) => {
+          const { internalLink, _key, caption } = item;
 
-          return (
-            <>
-              <Link
-                href={{
-                  pathname: "/locations/[slug]",
-                }}
-                as="locations/[slug]"
-              >
-                <div className={styles.imageContainer}>
-                  <img
-                    src={builder.image(image).auto("format").width(2000).url()}
-                    className={styles.image}
-                    alt={image.caption}
-                    key={index}
-                  />
-                  <p className={styles.caption}>{image.caption}</p>
-                </div>
-              </Link>
-            </>
+          const RenderItem = () => (
+            <div key={`${_key}-image`} className={styles.imageContainer}>
+              <img
+                src={builder.image(item).auto("format").width(2000).url()}
+                className={styles.image}
+                alt={caption}
+              />
+              <p className={styles.caption}>{caption}</p>
+            </div>
           );
+
+          if (internalLink && internalLink.resolved) {
+            const { resolved } = internalLink;
+            const { slug } = resolved;
+
+            return (
+              <Link
+                href={{ pathname: `/locations/${slug.current}` }}
+                as={`locations/${slug.current}`}
+              >
+                <a>{RenderItem()}</a>
+              </Link>
+            );
+          }
+
+          return RenderItem();
         })}
       </div>
     </div>
@@ -56,12 +62,8 @@ function ImageGrid(props) {
 ImageGrid.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
+  images: PropTypes.object,
   text: PropTypes.array,
-  image: PropTypes.shape({
-    asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
-  }),
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
   cta: PropTypes.object,
