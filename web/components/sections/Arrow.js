@@ -29,9 +29,9 @@ const Arrow = ({ direction, handleClick }) => (
     `}
   >
     {direction === "right" ? (
-      <img src="static/images/rightarrow.png" />
+      <img src="/static/images/rightarrow.png" />
     ) : (
-      <img src="static/images/leftarrow.png" />
+      <img src="/static/images/leftarrow.png" />
     )}
   </div>
 );
