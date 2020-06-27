@@ -147,7 +147,7 @@ const LocationsImageGallery = (props) => {
             transition={transition}
             width={60 * images.length}
           >
-            {images.map((image, index) => (
+            {images.map((image, index, caption) => (
               <>
                 <ImageSlide
                   key={image + index}
