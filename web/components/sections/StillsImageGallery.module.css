@@ -4,12 +4,62 @@
 .root {
   position: relative;
   padding: 2rem 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 30;
+  position: absolute;
+  top: 0;
+  background: white;
 
   @media (--media-min-large) {
     padding: 1rem 0;
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+  }
+}
+
+.imageSlider {
+  position: relative;
+  height: 80vh;
+  width: 60em;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.infoBar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+  font-size: var(--font-small-size);
+  font-family: var(--font-family-baskerville);
+  text-decoration: none;
+  color: var(--color-black);
+  @nest & > p span {
+  }
+}
+
+.infoCaption {
+  margin: 0;
+}
+
+.infoThumbnails {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header {
+  color: var(--color-grey);
+  text-align: right;
+  width: 100%;
+  font-size: var(--font-base-size);
+  max-width: var(--width-medium);
+  cursor: pointer;
+
+  @nest & > a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
@@ -35,8 +85,7 @@
   width: 100%;
 }
 
-.content {
-  width: 100%;
+.imageGridContainer {
   position: relative;
   margin: 1.5rem;
   max-width: 70em;
@@ -61,15 +110,29 @@
   }
 }
 
-.videoContainer {
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.fakeLink {
+  cursor: pointer;
+}
+
+.imageGrid {
+
+}
+
+.imageGalleryContainer {
+
+}
+
+.imageContainer {
   margin: 1.5rem;
   position: relative;
-  height: 0;
-  padding-top: calc(100% / 16 * 9) !important;
-  background-size: cover;
-  background-position: 50%;
-  cursor: pointer;
-
   @media (--media-min-medium) {
     margin: 0;
     padding: 0;

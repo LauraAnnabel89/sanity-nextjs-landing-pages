@@ -24,6 +24,8 @@ import locationsImageGallery from './objects/locationsImageGallery'
 import mailchimp from './objects/mailchimp'
 import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
+import stillsImageGallery from './objects/stillsImageGallery'
+import stillsImageGrid from './objects/stillsImageGrid'
 import textSection from './objects/textSection'
 import textSectionThreeColumns from './objects/textSectionThreeColumns'
 import threeColumn from './objects/threeColumn'
@@ -55,6 +57,8 @@ export default createSchema({
     route,
     simplePortableText,
     siteConfig,
+    stillsImageGallery,
+    stillsImageGrid,
     textSection,
     textSectionThreeColumns,
     threeColumn,

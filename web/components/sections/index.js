@@ -6,6 +6,8 @@ export { default as ImageSlider } from "./ImageSlider";
 export { default as ImageSliderContainer } from "./ImageSliderContainer";
 export { default as LocationsImageGallery } from "./LocationsImageGallery";
 export { default as Mailchimp } from "./Mailchimp";
+export { default as StillsImageGallery } from "./StillsImageGallery";
+export { default as StillsImageGrid } from "./StillsImageGrid";
 export { default as TextSection } from "./TextSection";
 export { default as TextSectionThreeColumns } from "./TextSectionThreeColumns";
 export { default as ThreeColumn } from "./ThreeColumn";

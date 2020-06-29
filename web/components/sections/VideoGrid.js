@@ -34,7 +34,6 @@ function VideoGrid(props) {
         {videos.map((video, index) => {
           const { _key, poster, caption } = video;
           const imageUrl = builder.image(poster).auto("format").width(2000).url();
-          console.log(video);
           return (
             <div
               key={_key}
