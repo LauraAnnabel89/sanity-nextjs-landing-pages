@@ -52,8 +52,9 @@ function VideoGrid(props) {
       <ModalGateway>
         {Number.isInteger(open) ? (
           <Modal
+            className={styles.videoModal}
             closeOnBackdropClick
-            allowFullscreen={false}
+            allowFullscreen={true}
             onClose={() => {
               setOpen(false);
             }}

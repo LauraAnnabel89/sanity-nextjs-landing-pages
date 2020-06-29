@@ -8,12 +8,12 @@ const Arrow = ({ direction, handleClick }) => (
     css={css`
       display: flex;
       position: absolute;
-      top: 50%;
+      top: 0;
       ${direction === "right" ? `right: 25px` : `left: 25px`};
-      height: 20px;
-      width: 20px;
+      height: 100%;
+      width: 50%;
       justify-content: center;
-      cursor: pointer;
+      cursor: ${direction === "left" ? "w-resize" : "e-resize"};
       align-items: center;
       transition: transform ease-in 0.1s;
       &:hover {
@@ -28,11 +28,7 @@ const Arrow = ({ direction, handleClick }) => (
       }
     `}
   >
-    {direction === "right" ? (
-      <img src="/static/images/rightarrow.png" />
-    ) : (
-      <img src="/static/images/leftarrow.png" />
-    )}
+    {direction === "right" ? <div /> : <div />}
   </div>
 );
 
