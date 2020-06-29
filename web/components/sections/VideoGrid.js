@@ -20,7 +20,7 @@ function VideoGrid(props) {
 
   const View = (viewProps) => {
     const { data } = viewProps;
-    return <Video key={data._key} autoplay={false} windowed {...data} />;
+    return <Video key={data._key} windowed {...data} />;
   };
 
   const carouselComponents = {
