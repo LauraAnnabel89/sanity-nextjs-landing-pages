@@ -40,7 +40,7 @@
   position: relative;
   margin: 1.5rem;
   max-width: 70em;
-  max-width: var(--width-medium);
+  max-width: 90vw;
 
   @nest & figcaption {
     width: 100%;
@@ -49,7 +49,7 @@
 
   @media (--media-min-medium) {
     margin: 0 auto;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding-top: 1rem;
     display: grid;
     grid-gap: 1em;

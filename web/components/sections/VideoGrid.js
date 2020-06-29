@@ -20,7 +20,7 @@ function VideoGrid(props) {
 
   const View = (viewProps) => {
     const { data } = viewProps;
-    return <Video key={data._key} autoplay={false} windowed {...data} />;
+    return <Video key={data._key} windowed {...data} />;
   };
 
   const carouselComponents = {
@@ -34,7 +34,6 @@ function VideoGrid(props) {
         {videos.map((video, index) => {
           const { _key, poster, caption } = video;
           const imageUrl = builder.image(poster).auto("format").width(2000).url();
-          console.log(video);
           return (
             <div
               key={_key}
@@ -53,8 +52,9 @@ function VideoGrid(props) {
       <ModalGateway>
         {Number.isInteger(open) ? (
           <Modal
+            className={styles.videoModal}
             closeOnBackdropClick
-            allowFullscreen={false}
+            allowFullscreen={true}
             onClose={() => {
               setOpen(false);
             }}

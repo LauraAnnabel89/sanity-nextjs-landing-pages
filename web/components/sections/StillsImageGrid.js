@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 const builder = imageUrlBuilder(client);
 
-function ImageGrid(props) {
+function StillsImageGrid(props) {
   const { image } = props;
 
   const router = useRouter();
@@ -43,10 +43,7 @@ function ImageGrid(props) {
             const { slug } = resolved;
 
             return (
-              <Link
-                href={{ pathname: `/locations/${slug.current}` }}
-                as={`locations/${slug.current}`}
-              >
+              <Link href={{ pathname: `/stills/${slug.current}` }} as={`stills/${slug.current}`}>
                 <a>{RenderItem()}</a>
               </Link>
             );
@@ -59,7 +56,7 @@ function ImageGrid(props) {
   );
 }
 
-ImageGrid.propTypes = {
+StillsImageGrid.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
   images: PropTypes.object,
@@ -69,4 +66,4 @@ ImageGrid.propTypes = {
   cta: PropTypes.object,
 };
 
-export default ImageGrid;
+export default StillsImageGrid;

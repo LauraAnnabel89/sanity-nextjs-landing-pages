@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { css, jsx } from "@emotion/core";
 import ImageSliderContent from "./ImageSliderContent";
-import styles from "./LocationsImageGallery.module.css";
+import styles from "./StillsImageGallery.module.css";
 import ImageGrid from "./ImageGrid";
-import ImageSlide from "./ImageSlide";
+import StillsImageSlide from "./StillsImageSlide";
 import Arrow from "./Arrow";
 import Dots from "./Dots";
 import imageUrlBuilder from "@sanity/image-url";
@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
-const LocationsImageGallery = (props) => {
+const StillsImageGallery = (props) => {
   const { caption, image } = props;
 
   const images = props.image;
@@ -118,7 +118,7 @@ const LocationsImageGallery = (props) => {
             X
           </span>
         ) : (
-          <Link href="/locations">
+          <Link href="/stills">
             <a>X</a>
           </Link>
         )}
@@ -148,7 +148,12 @@ const LocationsImageGallery = (props) => {
             width={60 * images.length}
           >
             {images.map((image, index, caption) => (
-              <ImageSlide key={image + index} content={builder.image(image).auto("format").url()} />
+              <>
+                <StillsImageSlide
+                  key={image + index}
+                  content={builder.image(image).auto("format").url()}
+                />
+              </>
             ))}
           </ImageSliderContent>
           <Arrow direction="left" handleClick={prevSlide} />
@@ -156,7 +161,7 @@ const LocationsImageGallery = (props) => {
         </div>
         <div className={styles.infoBar}>
           <p className={styles.infoCaption}>
-            Locations / <span>{image.caption}</span>
+            Stills / <span>{image.caption}</span>
           </p>
           <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
             Show Thumbnails
@@ -167,4 +172,4 @@ const LocationsImageGallery = (props) => {
   );
 };
 
-export default LocationsImageGallery;
+export default StillsImageGallery;
