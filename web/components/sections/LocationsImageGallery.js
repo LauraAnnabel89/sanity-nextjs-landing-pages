@@ -148,12 +148,7 @@ const LocationsImageGallery = (props) => {
             width={60 * images.length}
           >
             {images.map((image, index, caption) => (
-              <>
-                <ImageSlide
-                  key={image + index}
-                  content={builder.image(image).auto("format").url()}
-                />
-              </>
+              <ImageSlide key={image + index} content={builder.image(image).auto("format").url()} />
             ))}
           </ImageSliderContent>
           <Arrow direction="left" handleClick={prevSlide} />

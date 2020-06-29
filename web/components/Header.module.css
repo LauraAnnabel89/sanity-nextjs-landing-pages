@@ -172,9 +172,9 @@
   padding: 1.5rem;
   outline: none;
 
-  @media (--media-min-medium) {
+  /* @media (--media-min-medium) {
     display: none;
-  }
+  } */
 }
 
 .hamburgerIcon {
