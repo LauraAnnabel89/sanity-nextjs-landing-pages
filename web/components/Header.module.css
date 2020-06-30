@@ -91,7 +91,7 @@
     background-color: var(--color-white, #000);
     color: var(--color-black, #fff);
     overflow: hidden;
-    min-height: 100%;
+    min-height: 100vh;
     height: 100%;
     width: 30vw;
     max-width: 35vw;
@@ -191,8 +191,4 @@
   font-size: 20px;
   cursor: pointer;
   text-decoration: none;
-
-  @media (--media-min-medium) {
-    display: none;
-  }
 }
