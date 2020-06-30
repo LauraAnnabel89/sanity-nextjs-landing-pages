@@ -69,6 +69,7 @@
   background-size: cover;
   background-position: 50%;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
 
   @media (--media-min-medium) {
     margin: 0;

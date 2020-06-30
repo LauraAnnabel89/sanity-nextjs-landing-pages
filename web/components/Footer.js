@@ -51,6 +51,7 @@ function Footer(props) {
         </ul>
       </nav>
       <div className={styles.membershiplogos}>
+        <img src="static/images/greenlogo.png" alt="Certified Green Website" />
         <img src="static/images/aop.jpg" alt="AOP Logo" />
         <img src="static/images/apa.jpg" alt="APA Logo" />
         <img src="static/images/b.jpg" alt="B Logo" />
