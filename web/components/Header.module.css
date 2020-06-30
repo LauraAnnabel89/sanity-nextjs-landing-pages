@@ -88,7 +88,7 @@
     min-height: 100vh;
     min-height: 100vh;
     height: 100%;
-    width: 15vw;
+    width: 100vw;
     z-index: 40;
     top: 0;
     right: 0;
@@ -97,6 +97,10 @@
     align-items: flex-end;
     flex-direction: column;
     position: fixed;
+
+    @media (--media-min-medium) {
+      width: 15vw;
+    }
   }
 }
 
@@ -151,13 +155,8 @@
   }
 }
 
-.navItem a[data-is-active="true"] {
-  border-bottom: 1px solid var(--color-white);
-}
-
 .navItem a:hover {
   color: var(--color-light-grey);
-  border-bottom: 1px solid var(--color-white);
 }
 
 .showNavButton {
