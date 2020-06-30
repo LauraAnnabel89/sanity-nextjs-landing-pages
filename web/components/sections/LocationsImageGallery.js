@@ -90,7 +90,7 @@ const LocationsImageGallery = (props) => {
     }));
   };
 
-  const show = (index) => {
+  const show = (index, caption) => {
     setShowGrid(false);
     setShowSlider(true);
     setState({
@@ -115,11 +115,11 @@ const LocationsImageGallery = (props) => {
               show(activeSlide);
             }}
           >
-            X
+            x
           </span>
         ) : (
           <Link href="/locations">
-            <a>X</a>
+            <a>x</a>
           </Link>
         )}
       </div>

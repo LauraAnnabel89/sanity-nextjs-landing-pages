@@ -115,11 +115,11 @@ const StillsImageGallery = (props) => {
               show(activeSlide);
             }}
           >
-            X
+            x
           </span>
         ) : (
           <Link href="/stills">
-            <a>X</a>
+            <a>x</a>
           </Link>
         )}
       </div>

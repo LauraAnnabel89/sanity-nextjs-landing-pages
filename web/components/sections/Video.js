@@ -56,7 +56,7 @@ export default class Video extends React.Component {
             onEnded={this.onEnded}
             config={PLAYER_OPTIONS}
           />
-          <h1 className={styles.title}>{caption}</h1>
+          {windowed ? "" : <h1 className={styles.title}>{caption}</h1>}
         </div>
       </div>
     );
