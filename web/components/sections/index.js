@@ -1,5 +1,6 @@
 export { default as FourColumn } from "./FourColumn";
 export { default as Hero } from "./Hero";
+export { default as HeroSingle } from "./HeroSingle";
 export { default as ImageSection } from "./ImageSection";
 export { default as ImageGrid } from "./ImageGrid";
 export { default as ImageSlider } from "./ImageSlider";

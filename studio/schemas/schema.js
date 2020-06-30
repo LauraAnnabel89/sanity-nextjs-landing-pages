@@ -15,6 +15,7 @@ import embedHTML from './objects/embedHTML'
 import figure from './objects/figure'
 import fourColumn from './objects/fourColumn'
 import hero from './objects/hero'
+import heroSingle from './objects/heroSingle'
 import imageGrid from './objects/imageGrid'
 import imageSection from './objects/imageSection'
 import imageSlider from './objects/imageSlider'
@@ -45,6 +46,7 @@ export default createSchema({
     figure,
     fourColumn,
     hero,
+    heroSingle,
     imageGrid,
     imageSection,
     imageSlider,

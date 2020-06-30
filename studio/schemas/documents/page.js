@@ -22,6 +22,7 @@ export default {
         { type: 'figure' },
         { type: 'fourColumn' },
         { type: 'hero' },
+        { type: 'heroSingle' },
         { type: 'imageGrid' },
         { type: 'imageSection' },
         { type: 'imageSlider' },
