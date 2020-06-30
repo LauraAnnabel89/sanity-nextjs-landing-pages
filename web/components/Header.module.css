@@ -76,31 +76,27 @@
     padding-right: calc(env(safe-area-inset-right) + 2rem);
   }
 
-  /* @media (--media-max-medium) { */
-  z-index: 10;
   display: none;
   position: absolute;
-  left: 0;
   top: 100%;
   width: 100%;
-  background-color: var(--color-black, #000);
-  color: var(--color-white, #fff);
 
   @nest .root[data-show-nav="true"] & {
     display: block;
     background-color: var(--color-white, #000);
     color: var(--color-black, #fff);
-    overflow: hidden;
+    min-height: 100vh;
     min-height: 100vh;
     height: 100%;
-    width: 30vw;
-    max-width: 35vw;
-    z-index: 4;
+    width: 15vw;
+    z-index: 40;
     top: 0;
+    right: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
+    position: fixed;
   }
 }
 
@@ -182,7 +178,7 @@
 }
 
 .closeIcon {
-  z-index: 20;
+  z-index: 40;
   position: absolute;
   top: 0;
   right: 0;
