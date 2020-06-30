@@ -22,6 +22,11 @@ export default {
       }
     },
     {
+      name: 'reverseColour',
+      description: 'Title is white by default, switch this on to make it black',
+      type: 'boolean'
+    },
+    {
       name: 'ctas',
       type: 'array',
       title: 'Call to actions',

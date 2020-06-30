@@ -11,7 +11,7 @@ function urlFor(source) {
 }
 
 function HeroSingle(props) {
-  const { heading, backgroundImage, tagline, ctas } = props;
+  const { heading, backgroundImage, tagline, ctas, reverseColour } = props;
 
   const style = backgroundImage
     ? {
@@ -23,7 +23,9 @@ function HeroSingle(props) {
   return (
     <div className={styles.root} style={style}>
       <div className={styles.content}>
-        <h1 className={styles.title}>{heading}</h1>
+        <h1 className={styles.title} style={{ color: reverseColour && "black" }}>
+          {heading}
+        </h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
         {ctas && (
           <div className={styles.ctas}>

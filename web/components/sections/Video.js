@@ -31,7 +31,7 @@ export default class Video extends React.Component {
   };
 
   render() {
-    const { poster, url, autoplay, muted, loop, ratio, windowed } = this.props;
+    const { poster, url, autoplay, muted, loop, ratio, windowed, caption } = this.props;
     const { playing, started } = this.state;
     if (!url) return null;
 
@@ -56,6 +56,7 @@ export default class Video extends React.Component {
             onEnded={this.onEnded}
             config={PLAYER_OPTIONS}
           />
+          <h1 className={styles.title}>{caption}</h1>
         </div>
       </div>
     );
