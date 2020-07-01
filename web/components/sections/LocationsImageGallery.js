@@ -156,7 +156,7 @@ const LocationsImageGallery = (props) => {
         </div>
         <div className={styles.infoBar}>
           <p className={styles.infoCaption}>
-            Locations / <span>{image.caption}</span>
+            Locations / <span>{images[activeSlide].caption}</span>
           </p>
           <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
             Show Thumbnails
