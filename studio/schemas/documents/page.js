@@ -19,13 +19,11 @@ export default {
       type: 'array',
       title: 'Page sections',
       of: [
-        { type: 'figure' },
         { type: 'fourColumn' },
         { type: 'hero' },
         { type: 'heroSingle' },
         { type: 'imageGrid' },
         { type: 'imageSection' },
-        { type: 'imageSlider' },
         { type: 'mailchimp' },
         { type: 'locationsImageGallery' },
         { type: 'stillsImageGallery' },

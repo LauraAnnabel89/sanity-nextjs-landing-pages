@@ -92,9 +92,7 @@
 .imageGridContainer {
   position: relative;
   margin: 1.5rem;
-  max-width: 70em;
-  max-width: var(--width-medium);
-
+  max-width: 60em;
   @nest & figcaption {
     width: 100%;
     box-sizing: border-box;
