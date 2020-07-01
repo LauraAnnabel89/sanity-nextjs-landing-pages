@@ -9,8 +9,7 @@ export default {
     {
       name: 'url',
       title: 'Video Link',
-      description:
-        'Enter the URL for the video\nSupports videos from: YouTube, Facebook, SoundCloud, Streamable, Vidme, Vimeo, Wistia, Twitch, DailyMotion',
+      description: 'Enter the URL for the video from Vimeo',
       type: 'url'
     },
     {
