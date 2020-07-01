@@ -54,12 +54,52 @@ function VideoGrid(props) {
           <Modal
             styles={{ backgroundColor: "red" }}
             closeOnBackdropClick
-            allowFullscreen={true}
+            allowFullscreen
+            styles={{
+              blanket: base => ({
+                ...base,
+                backgroundColor: 'rgba(255,255,255,0.85)'
+              })
+            }}
             onClose={() => {
               setOpen(false);
             }}
           >
-            <Carousel currentIndex={open} components={carouselComponents} views={videos} />
+            <Carousel
+              currentIndex={open}
+              components={carouselComponents}
+              views={videos}
+              styles={{
+                footer: base => ({
+                  ...base,
+                  background: 'none !important',
+
+                  '& a': {
+                    color: 'black'
+                  }
+                }),
+                header: base => ({
+                  ...base,
+                  background: 'none !important',
+                }),
+                headerFullscreen: base => ({
+                  ...base,
+                  color: '#000',
+
+                  ':hover': {
+                    color: '#000'
+                  }
+                }),
+                headerClose: base => ({
+                  ...base,
+                  color: '#000',
+
+                  ':hover': {
+                    color: '#000'
+                  }
+                })
+              }}
+            />
           </Modal>
         ) : null}
       </ModalGateway>
