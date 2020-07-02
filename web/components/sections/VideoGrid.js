@@ -56,10 +56,10 @@ function VideoGrid(props) {
             closeOnBackdropClick
             allowFullscreen
             styles={{
-              blanket: base => ({
+              blanket: (base) => ({
                 ...base,
-                backgroundColor: 'rgba(255,255,255,0.85)'
-              })
+                backgroundColor: "rgba(255,255,255,1)",
+              }),
             }}
             onClose={() => {
               setOpen(false);
@@ -70,34 +70,34 @@ function VideoGrid(props) {
               components={carouselComponents}
               views={videos}
               styles={{
-                footer: base => ({
+                footer: (base) => ({
                   ...base,
-                  background: 'none !important',
+                  background: "none !important",
 
-                  '& a': {
-                    color: 'black'
-                  }
+                  "& a": {
+                    color: "black",
+                  },
                 }),
-                header: base => ({
+                header: (base) => ({
                   ...base,
-                  background: 'none !important',
+                  background: "none !important",
                 }),
-                headerFullscreen: base => ({
+                headerFullscreen: (base) => ({
                   ...base,
-                  color: '#000',
+                  color: "#000",
 
-                  ':hover': {
-                    color: '#000'
-                  }
+                  ":hover": {
+                    color: "#000",
+                  },
                 }),
-                headerClose: base => ({
+                headerClose: (base) => ({
                   ...base,
-                  color: '#000',
+                  color: "#000",
 
-                  ':hover': {
-                    color: '#000'
-                  }
-                })
+                  ":hover": {
+                    color: "#000",
+                  },
+                }),
               }}
             />
           </Modal>

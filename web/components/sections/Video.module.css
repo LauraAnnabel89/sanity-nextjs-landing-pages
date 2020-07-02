@@ -43,6 +43,7 @@
   height: 90vmin;
   z-index: 1;
   display: block;
+  background: none !important;
 }
 
 .wrapper iframe {
