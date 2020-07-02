@@ -4,13 +4,14 @@ import MailchimpForm from "react-mailchimp-form";
 import styles from "./Mailchimp.module.css";
 
 export default function Mailchimp(props) {
-  const { heading, subtitle, actionUrl } = props;
+  const { heading, subtitle, actionUrl, legalCopy } = props;
 
   return (
     <section className={styles.root}>
       <div className={styles.container}>
         <h2 className={styles.heading}>{heading}</h2>
         <p className={styles.subtitle}>{subtitle}</p>
+        <p className={styles.legalCopy}>{legalCopy}</p>
         {actionUrl && (
           <MailchimpForm
             action={actionUrl}
@@ -23,26 +24,11 @@ export default function Mailchimp(props) {
                 required: true,
               },
               {
-                name: "MARKETINGINFO",
-                placeholder:
-                  "We will use the information you provide on this form to be in touch with you and to provide updates and marketing. Please let us know all the ways you would like to hear from us",
-                type: "string",
-                className: styles.marketingInfo,
-                required: true,
-              },
-              {
                 name: "Marketing Permissions",
                 placeholder: "Marketing Permissions",
                 type: "checkbox",
+                label: "email",
                 className: styles.GDPR,
-                required: true,
-              },
-              {
-                name: "LEGALCOPY",
-                placeholder:
-                  "You can unsubscribe at any time by clicking the link in the footer of our emails. For information about our privacy practices, please see our Terms and Conditions.",
-                type: "string",
-                className: styles.legalCopy,
                 required: true,
               },
             ]}

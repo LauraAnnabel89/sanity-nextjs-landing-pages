@@ -26,27 +26,36 @@ function Hero(props) {
     };
   });
 
+  function urlFor(source) {
+    return imageUrlBuilder(client).image(source);
+  }
+
+  const style = image
+    ? {
+        background: `url("${urlFor(image[0]).width(2000).auto("format").url()}")`,
+        backgroundSize: "cover",
+      }
+    : {};
+
   return (
     <div key={key} className={styles.root}>
-      <div className={styles.content}>
+      <div className={styles.content} style={style}>
         <h1 className={styles.title} style={{ color: reverseColour && "black" }}>
           {heading}
         </h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
-        <div>
-          {images.map((image, index) => (
-            <img
-              id={index}
-              src={builder.image(image).url()}
-              alt={heading}
-              key={index}
-              className={index === currentSlide ? styles.activeImage : styles.image}
-              style={{
-                zIndex: `-${index + 1}`,
-              }}
-            />
-          ))}
-        </div>
+        {images.map((image, index) => (
+          <img
+            id={index}
+            src={builder.image(image).url()}
+            alt={heading}
+            key={index}
+            className={index === currentSlide ? styles.activeImage : styles.image}
+            style={{
+              zIndex: `-${index + 1}`,
+            }}
+          />
+        ))}
       </div>
     </div>
   );

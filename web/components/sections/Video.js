@@ -4,6 +4,8 @@ import screenfull from "screenfull";
 import { findDOMNode } from "react-dom";
 import { isString } from "lodash";
 import styles from "./Video.module.css";
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../../client";
 
 const PLAYER_OPTIONS = {
   vimeo: {
@@ -35,6 +37,7 @@ export default class Video extends React.Component {
     const { playing, started } = this.state;
     if (!url) return null;
 
+    console.log(this.props);
     if (autoplay) {
       PLAYER_OPTIONS.vimeo.playerOptions.background = true;
       PLAYER_OPTIONS.vimeo.playerOptions.autoplay = true;
@@ -43,8 +46,20 @@ export default class Video extends React.Component {
       PLAYER_OPTIONS.vimeo.preload = true;
     }
 
+    function urlFor(source) {
+      return imageUrlBuilder(client).image(source);
+    }
+
+    const style = poster
+      ? {
+          background: `url("${urlFor(poster).width(2000).auto("format").url()}")`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }
+      : {};
+
     return (
-      <div className={windowed ? styles.windowContainer : styles.container}>
+      <div className={windowed ? styles.windowContainer : styles.container} style={style}>
         <div className={windowed ? styles.windowWrapper : styles.wrapper}>
           <ReactPlayer
             url={url}
