@@ -9,7 +9,7 @@ import imageUrlBuilder from "@sanity/image-url";
 const builder = imageUrlBuilder(client);
 
 function Hero(props) {
-  const { heading, image, tagline, ctas, reverseColour, key } = props;
+  const { heading, image, tagline, ctas, reverseColour } = props;
   const images = props.image;
 
   const slidePresentationTime = 5000;
@@ -38,7 +38,7 @@ function Hero(props) {
     : {};
 
   return (
-    <div key={key} className={styles.root}>
+    <div className={styles.root}>
       <div className={styles.content} style={style}>
         <h1 className={styles.title} style={{ color: reverseColour && "black" }}>
           {heading}

@@ -22,7 +22,6 @@ function ImageSection(props) {
           src={builder.image(image).auto("format").width(2000).url()}
           className={styles.image}
           alt={heading}
-          oncontextmenu="return false;"
         />
       </figure>
     </div>

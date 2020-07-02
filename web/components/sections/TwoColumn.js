@@ -20,8 +20,8 @@ function TwoColumn(props) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        {images.map((image) => (
-          <figure className={styles.imageContainer}>
+        {images.map((image, index) => (
+          <figure className={styles.imageContainer} key={index}>
             <img
               src={builder.image(image).auto("format").width(2000).url()}
               className={styles.image}
@@ -38,11 +38,6 @@ TwoColumn.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
   text: PropTypes.array,
-  image: PropTypes.shape({
-    asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
-  }),
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
   cta: PropTypes.object,

@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang={this.props.lang || "en"}>
         <Head />
-        <body onclick="document.oncontextmenu = function() { return false; }">
+        <body>
           <Main />
           <NextScript />
         </body>
