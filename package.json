@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-nextjs-landing-pages",
+  "name": "Dawn Production",
   "version": "1.0.5",
   "scripts": {
     "build": "lerna run build --parallel",
