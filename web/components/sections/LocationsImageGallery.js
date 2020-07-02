@@ -13,7 +13,7 @@ import Link from "next/link";
 const builder = imageUrlBuilder(client);
 
 const LocationsImageGallery = (props) => {
-  const { caption, image } = props;
+  const { caption, image, slug } = props;
 
   const images = props.image;
 
@@ -156,7 +156,7 @@ const LocationsImageGallery = (props) => {
         </div>
         <div className={styles.infoBar}>
           <p className={styles.infoCaption}>
-            Locations / <span>{images[activeSlide].caption}</span>
+            Locations / {images[activeSlide].slug} <span>{images[activeSlide].caption}</span>
           </p>
           <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
             Show Thumbnails

@@ -9,11 +9,6 @@ export default {
       title: 'Heading'
     },
     {
-      name: 'tagline',
-      type: 'simplePortableText',
-      title: 'Tagline'
-    },
-    {
       name: 'backgroundImage',
       type: 'image',
       title: 'Background image',
@@ -25,17 +20,6 @@ export default {
       name: 'reverseColour',
       description: 'Title is white by default, switch this on to make it black',
       type: 'boolean'
-    },
-    {
-      name: 'ctas',
-      type: 'array',
-      title: 'Call to actions',
-      of: [
-        {
-          title: 'Call to action',
-          type: 'cta'
-        }
-      ]
     }
   ],
   preview: {
