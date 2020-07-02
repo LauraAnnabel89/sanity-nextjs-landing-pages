@@ -43,7 +43,7 @@ function StillsImageGrid(props) {
             const { slug } = resolved;
 
             return (
-              <Link href={{ pathname: `/stills/${slug.current}` }} as={`stills/${slug.current}`}>
+              <Link href={{ pathname: `/${slug.current}` }} as={`/${slug.current}`}>
                 <a>{RenderItem()}</a>
               </Link>
             );
