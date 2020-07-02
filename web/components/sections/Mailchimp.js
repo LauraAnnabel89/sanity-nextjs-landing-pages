@@ -20,15 +20,6 @@ export default function Mailchimp(props) {
                 name: "EMAIL",
                 placeholder: "email address",
                 type: "email",
-                className: styles.email,
-                required: true,
-              },
-              {
-                name: "Marketing Permissions",
-                placeholder: "Marketing Permissions",
-                type: "checkbox",
-                label: "email",
-                className: styles.GDPR,
                 required: true,
               },
             ]}

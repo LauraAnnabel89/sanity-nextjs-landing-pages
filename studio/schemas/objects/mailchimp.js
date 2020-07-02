@@ -20,7 +20,7 @@ export default {
       description:
         'URL for the Mailchimp signup form. Remember to add your domain in your mailchimp settings to avoid CORS errors.'
     },
-    { name: 'gdprText', type: 'string', title: 'GDPR Text' }
+    { name: 'legalCopy', type: 'portableText', title: 'Legal Copy' }
   ],
   preview: {
     select: {
