@@ -1,0 +1,8 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.content {
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-family-gilroy);
+}

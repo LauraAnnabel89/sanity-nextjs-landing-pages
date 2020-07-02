@@ -4,6 +4,7 @@ import Head from "next/head";
 
 import { LogoJsonLd } from "next-seo";
 import Header from "./Header";
+import Cookies from "./sections/Cookies";
 
 function HomeLayout(props) {
   const { config, children } = props;
@@ -24,6 +25,7 @@ function HomeLayout(props) {
       <div className="container" style={{ overflow: "hidden" }}>
         <Header title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
         <div className="content">{children}</div>
+        <Cookies />
       </div>
     </>
   );

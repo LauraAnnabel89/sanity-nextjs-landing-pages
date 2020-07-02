@@ -5,6 +5,7 @@ import Head from "next/head";
 import { LogoJsonLd } from "next-seo";
 import Header from "./Header";
 import Footer from "./Footer";
+import Cookies from "./sections/Cookies";
 
 function Layout(props) {
   const { config, children } = props;
@@ -35,6 +36,7 @@ function Layout(props) {
         <Header title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
         <div className="content">{children}</div>
         <Footer navItems={footerNavigation} socialLogos={socialmedialogos} text={footerText} />
+        <Cookies />
         {logoUrl && url && <LogoJsonLd url={url} logo={logoUrl} />}
       </div>
     </>
