@@ -43,10 +43,7 @@ function ImageGrid(props) {
             const { slug } = resolved;
 
             return (
-              <Link
-                href={{ pathname: `/locations/${slug.current}` }}
-                as={`locations/${slug.current}`}
-              >
+              <Link href={{ pathname: `/${slug.current}` }} as={`/${slug.current}`}>
                 <a>{RenderItem()}</a>
               </Link>
             );
