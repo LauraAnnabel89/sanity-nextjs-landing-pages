@@ -22,6 +22,12 @@ export default function Mailchimp(props) {
                 type: "email",
                 required: true,
               },
+              {
+                name: "GDPR",
+                placeholder: "Opt In",
+                type: "checkbox",
+                required: true,
+              },
             ]}
             buttonClassName={styles.button}
             styles={{
