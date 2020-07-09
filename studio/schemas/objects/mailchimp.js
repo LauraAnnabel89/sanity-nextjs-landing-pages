@@ -14,13 +14,17 @@ export default {
       title: 'Subheading'
     },
     {
+      name: 'legalCopy',
+      type: 'string',
+      title: 'Legal Copy'
+    },
+    {
       name: 'actionUrl',
       type: 'url',
       title: 'URL to Mailchimp signup',
       description:
         'URL for the Mailchimp signup form. Remember to add your domain in your mailchimp settings to avoid CORS errors.'
-    },
-    { name: 'legalCopy', type: 'portableText', title: 'Legal Copy' }
+    }
   ],
   preview: {
     select: {
