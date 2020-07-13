@@ -1,61 +1,61 @@
-import React, { useState, useEffect, useRef } from "react";
-import { css, jsx } from "@emotion/core";
-import ImageSliderContent from "./ImageSliderContent";
-import styles from "./StillsImageGallery.module.css";
-import ImageGrid from "./ImageGrid";
-import StillsImageSlide from "./StillsImageSlide";
-import Arrow from "./Arrow";
-import Dots from "./Dots";
-import imageUrlBuilder from "@sanity/image-url";
-import client from "../../client";
-import Link from "next/link";
+import React, {useState, useEffect, useRef} from 'react'
+import {css, jsx} from '@emotion/core'
+import ImageSliderContent from './ImageSliderContent'
+import styles from './StillsImageGallery.module.css'
+import ImageGrid from './ImageGrid'
+import StillsImageSlide from './StillsImageSlide'
+import Arrow from './Arrow'
+import Dots from './Dots'
+import imageUrlBuilder from '@sanity/image-url'
+import client from '../../client'
+import Link from 'next/link'
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(client)
 
 const StillsImageGallery = (props) => {
-  const { caption, image } = props;
+  const {caption, image} = props
 
-  const images = props.image;
+  const images = props.image
 
   const [state, setState] = useState({
     translate: 0,
     transition: 0.45,
-    activeSlide: 0,
-  });
+    activeSlide: 0
+  })
 
-  const [showSlider, setShowSlider] = useState(true);
-  const [showGrid, setShowGrid] = useState(false);
+  const [showSlider, setShowSlider] = useState(true)
+  const [showGrid, setShowGrid] = useState(false)
 
-  const { translate, transition, activeSlide, _slides } = state;
+  const {translate, transition, activeSlide, _slides} = state
 
-  const size = useWindowSize();
-  const transitionRef = useRef();
+  const size = useWindowSize()
+  const transitionRef = useRef()
 
-  function useWindowSize() {
-    const isClient = typeof window === "object";
+  function useWindowSize () {
+    const isClient = typeof window === 'object'
 
-    function getSize() {
+    function getSize () {
       return {
-        width: isClient ? window.innerWidth : undefined,
-      };
+        width: isClient ? window.innerWidth : undefined
+      }
     }
 
-    const [windowSize, setWindowSize] = useState(getSize);
+    const [windowSize, setWindowSize] = useState(getSize)
 
     useEffect(() => {
       if (!isClient) {
-        return false;
+        return false
       }
 
-      function handleResize() {
-        setWindowSize(getSize());
+      function handleResize () {
+        setWindowSize(getSize())
       }
 
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
-    return windowSize;
+    return windowSize
   }
 
   const nextSlide = () => {
@@ -63,47 +63,47 @@ const StillsImageGallery = (props) => {
       return setState({
         ...state,
         translate: 0,
-        activeSlide: 0,
-      });
+        activeSlide: 0
+      })
     }
 
     setState((state) => ({
       ...state,
       activeSlide: state.activeSlide + 1,
-      translate: (state.activeSlide + 1) * 60,
-    }));
-  };
+      translate: (state.activeSlide + 1) * 60
+    }))
+  }
 
   const prevSlide = () => {
     if (activeSlide === 0) {
       return setState({
         ...state,
         translate: (images.length - 1) * 60,
-        activeSlide: images.length - 1,
-      });
+        activeSlide: images.length - 1
+      })
     }
 
     setState((state) => ({
       ...state,
       activeSlide: state.activeSlide - 1,
-      translate: (state.activeSlide - 1) * 60,
-    }));
-  };
+      translate: (state.activeSlide - 1) * 60
+    }))
+  }
 
   const show = (index) => {
-    setShowGrid(false);
-    setShowSlider(true);
+    setShowGrid(false)
+    setShowSlider(true)
     setState({
       ...state,
       activeSlide: index,
-      translate: index * 60,
-    });
-  };
+      translate: index * 60
+    })
+  }
 
   const hide = () => {
-    setShowSlider(false);
-    setShowGrid(true);
-  };
+    setShowSlider(false)
+    setShowGrid(true)
+  }
 
   return (
     <div className={styles.root}>
@@ -112,13 +112,13 @@ const StillsImageGallery = (props) => {
           <span
             className={styles.fakeLink}
             onClick={() => {
-              show(activeSlide);
+              show(activeSlide)
             }}
           >
             x
           </span>
         ) : (
-          <Link href="/stills">
+          <Link href='/stills'>
             <a>x</a>
           </Link>
         )}
@@ -129,7 +129,7 @@ const StillsImageGallery = (props) => {
           {images.map((image, index) => (
             <div key={image._key} className={styles.imageContainer} onClick={() => show(index)}>
               <img
-                src={builder.image(image).auto("format").width(2000).url()}
+                src={builder.image(image).auto('format').width(480).url()}
                 className={styles.image}
                 alt={image.caption}
                 key={index}
@@ -148,20 +148,18 @@ const StillsImageGallery = (props) => {
             width={60 * images.length}
           >
             {images.map((image, index, caption) => (
-              <>
-                <StillsImageSlide
-                  key={image + index}
-                  content={builder.image(image).auto("format").url()}
-                />
-              </>
+              <StillsImageSlide
+                key={`${image._key}-${index}`}
+                content={builder.image(image).auto('format').width(980).url()}
+              />
             ))}
           </ImageSliderContent>
-          <Arrow direction="left" handleClick={prevSlide} />
-          <Arrow direction="right" handleClick={nextSlide} />
+          <Arrow direction='left' handleClick={prevSlide} />
+          <Arrow direction='right' handleClick={nextSlide} />
         </div>
         <div className={styles.infoBar}>
           <p className={styles.infoCaption}>
-            Stills / <span>{image.caption}</span>
+            Stills / {images[activeSlide].slug} <span>{images[activeSlide].caption}</span>
           </p>
           <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
             Show Thumbnails
@@ -169,7 +167,7 @@ const StillsImageGallery = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StillsImageGallery;
+export default StillsImageGallery
