@@ -73,7 +73,8 @@
   }
 
   @supports (padding-top: env(safe-area-inset-top)) {
-    padding-right: calc(env(safe-area-inset-right) + 2rem);
+    padding-top: calc(env(safe-area-inset-top) + 0.25rem);
+    padding-right: calc(env(safe-area-inset-right) + 3.5rem);
   }
 
   display: none;
@@ -83,7 +84,7 @@
 
   @nest .root[data-show-nav="true"] & {
     display: block;
-    background-color: var(--color-white, #000);
+    background-color: rgba(255, 255, 255, 0.8);
     color: var(--color-black, #fff);
     min-height: 100vh;
     min-height: 100vh;
@@ -93,13 +94,13 @@
     top: 0;
     right: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
     position: fixed;
 
     @media (--media-min-medium) {
-      width: 15vw;
+      width: 220px;
     }
   }
 }
@@ -174,15 +175,19 @@
   font-size: calc(var(--font-base-line-height) * 1.5rem);
   display: block;
   cursor: pointer;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 20px;
 }
 
 .closeIcon {
   z-index: 40;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   color: var(--color-black);
-  padding: 1.5em;
+  padding: 30px;
   font-size: 20px;
   cursor: pointer;
   text-decoration: none;
