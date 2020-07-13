@@ -1,23 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import styles from "./HomePage.module.css";
-import client from "../../client";
-import SimpleBlockContent from "../SimpleBlockContent";
-import Cta from "../Cta";
+import React from 'react'
+import PropTypes from 'prop-types'
+import imageUrlBuilder from '@sanity/image-url'
+import styles from './HomePage.module.css'
+import client from '../../client'
+import SimpleBlockContent from '../SimpleBlockContent'
+import Cta from '../Cta'
 
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
+function urlFor (source) {
+  return imageUrlBuilder(client).image(source)
 }
 
-function HomePage(props) {
-  const { heading, backgroundImage, tagline, ctas } = props;
+function HomePage (props) {
+  const {heading, backgroundImage, tagline, ctas} = props
 
   const style = backgroundImage
     ? {
-        backgroundImage: `url("${urlFor(backgroundImage).width(2000).auto("format").url()}")`,
-      }
-    : {};
+      backgroundImage: `url("${urlFor(backgroundImage).width(2000).auto('format').url()}")`
+    }
+    : {}
 
   return (
     <div className={styles.root} style={style}>
@@ -33,14 +33,14 @@ function HomePage(props) {
         )}
       </div>
     </div>
-  );
+  )
 }
 
 HomePage.propTypes = {
   heading: PropTypes.string,
   backgroundImage: PropTypes.object,
   tagline: PropTypes.array,
-  ctas: PropTypes.arrayOf(PropTypes.object),
-};
+  ctas: PropTypes.arrayOf(PropTypes.object)
+}
 
-export default HomePage;
+export default HomePage

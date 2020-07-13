@@ -87,7 +87,7 @@ class Header extends Component {
             }}
             as='/'
           >
-            <a title={title}>DAWN</a>
+            <a>DAWN</a>
           </Link>
         </h1>
         <nav className={styles.nav}>
