@@ -98,10 +98,6 @@
   color: var(--color-white);
   text-transform: uppercase;
 
-  @media (--media-min-medium) {
-    max-width: calc(var(--width-small) - 3rem);
-  }
-
   @nest &:hover {
     opacity: 1;
   }

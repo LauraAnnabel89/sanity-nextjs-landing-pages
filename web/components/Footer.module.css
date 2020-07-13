@@ -57,13 +57,23 @@
   }
 }
 
-.sociallogos,
-.membershiplogos {
+.sociallogos {
   display: flex;
   justify-content: center;
 
   @nest & img {
     margin: 0 10px;
     max-height: 25px;
+  }
+}
+
+.membershiplogos {
+  display: flex;
+  justify-content: center;
+  
+  @nest & img {
+    margin: 0 10px;
+    height: 50px;
+    width: auto;
   }
 }
