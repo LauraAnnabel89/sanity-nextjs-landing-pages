@@ -38,7 +38,6 @@
 .content {
   position: relative;
   margin: 1.5rem;
-  max-width: 70em;
   max-width: 90vw;
 
   @nest & figcaption {
@@ -88,10 +87,6 @@
   background: rgba(0, 0, 0, 0.4);
   color: var(--color-white);
   text-transform: uppercase;
-
-  @media (--media-min-medium) {
-    max-width: calc(var(--width-small) - 3rem);
-  }
 
   @nest &:hover {
     opacity: 1;
