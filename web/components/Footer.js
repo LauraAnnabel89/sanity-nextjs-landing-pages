@@ -51,9 +51,13 @@ function Footer (props) {
         </ul>
       </nav>
       <div className={styles.membershiplogos}>
-        <img src='static/images/greenlogo.png' alt='Certified Green Website' />
-        <img src='static/images/aop.jpg' alt='AOP Logo' />
-        <img src='static/images/apa.jpg' alt='APA Logo' />
+        <img src='static/images/erjjjo.png' alt='Certified Green Website' />
+        <img src='static/images/aop.png' alt='AOP' />
+        <img src='static/images/apa.png' alt='APA' />
+        <img src='static/images/albert.png' alt='Albert' />
+        <img src='static/images/adgreen.png' alt='Adgreen' />
+        <img src='static/images/location-guide.png' alt='Location Guide' />
+        <img src='static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
         <img src='static/images/b.jpg' alt='B Logo' />
       </div>
       <div className={styles.copyright}>&copy; DAWN Production 2020.</div>
