@@ -1,117 +1,116 @@
 /** @jsx jsx */
-import React, { useState, useEffect, useRef } from "react";
-import { css, jsx } from "@emotion/core";
-import ImageSliderContent from "./ImageSliderContent";
-import ImageSlide from "./ImageSlide";
-import Arrow from "./Arrow";
-import Dots from "./Dots";
-import imageUrlBuilder from "@sanity/image-url";
-import client from "../../client";
+import React, {useState, useEffect, useRef} from 'react'
+import {css, jsx} from '@emotion/core'
+import ImageSliderContent from './ImageSliderContent'
+import ImageSlide from './ImageSlide'
+import Arrow from './Arrow'
+import Dots from './Dots'
+import imageUrlBuilder from '@sanity/image-url'
+import client from '../../client'
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(client)
 
 const ImageSlider = (props) => {
-  const { caption, image } = props;
+  const {caption, image} = props
 
-  const images = props.image;
+  const images = props.image
 
-  const size = useWindowSize();
-  const transitionRef = useRef();
+  const size = useWindowSize()
+  const transitionRef = useRef()
 
-  const firstSlide = images[0];
-  const secondSlide = images[1];
-  const lastSlide = images[images.length - 1];
+  const firstSlide = images[0]
+  const secondSlide = images[1]
+  const lastSlide = images[images.length - 1]
 
-  function useWindowSize() {
-    const isClient = typeof window === "object";
+  function useWindowSize () {
+    const isClient = typeof window === 'object'
 
-    function getSize() {
+    function getSize () {
       return {
-        width: isClient ? window.innerWidth : undefined,
-      };
+        width: isClient ? window.innerWidth : undefined
+      }
     }
 
-    const [windowSize, setWindowSize] = useState(getSize);
+    const [windowSize, setWindowSize] = useState(getSize)
 
     useEffect(() => {
       if (!isClient) {
-        return false;
+        return false
       }
 
-      function handleResize() {
-        setWindowSize(getSize());
+      function handleResize () {
+        setWindowSize(getSize())
       }
 
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []); // Empty array ensures that effect is only run on mount and unmount
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }, []) // Empty array ensures that effect is only run on mount and unmount
 
-    return windowSize;
+    return windowSize
   }
 
   const [state, setState] = useState({
     translate: 0,
     transition: 0.45,
     activeSlide: 0,
-    _slides: [lastSlide, firstSlide, secondSlide],
-  });
+    _slides: [lastSlide, firstSlide, secondSlide]
+  })
 
-  const { translate, transition, activeSlide, _slides } = state;
+  const {translate, transition, activeSlide, _slides} = state
 
   const nextSlide = () => {
     if (activeSlide === images.length - 1) {
       return setState({
         ...state,
         translate: 0,
-        activeSlide: 0,
-      });
+        activeSlide: 0
+      })
     }
 
     setState({
       ...state,
       activeSlide: activeSlide + 1,
-      translate: (activeSlide + 1) * size.width,
-    });
-  };
+      translate: (activeSlide + 1) * size.width
+    })
+  }
 
   const prevSlide = () => {
     if (activeSlide === 0) {
       return setState({
         ...state,
         translate: (images.length - 1) * size.width,
-        activeSlide: images.length - 1,
-      });
+        activeSlide: images.length - 1
+      })
     }
 
     setState({
       ...state,
       activeSlide: activeSlide - 1,
-      translate: (activeSlide - 1) * size.width,
-    });
-  };
+      translate: (activeSlide - 1) * size.width
+    })
+  }
 
   useEffect(() => {
-    transitionRef.current = smoothTransition;
-  });
+    transitionRef.current = smoothTransition
+  })
 
   const smoothTransition = () => {
-    let _slides = [];
+    let _slides = []
 
     // We're at the last slide.
-    if (activeSlide === slides.length - 1)
-      _slides = [slides[slides.length - 2], lastSlide, firstSlide];
+    if (activeSlide === slides.length - 1) { _slides = [slides[slides.length - 2], lastSlide, firstSlide] }
     // We're back at the first slide. Just reset to how it was on initial render
-    else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide];
+    else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide]
     // Create an array of the previous last slide, and the next two slides that follow it.
-    else _slides = slides.slice(activeSlide - 1, activeSlide + 2);
+    else _slides = slides.slice(activeSlide - 1, activeSlide + 2)
 
     setState({
       ...state,
       _slides,
       transition: 0,
-      translate: size.width,
-    });
-  };
+      translate: size.width
+    })
+  }
 
   return (
     <div css={ImageSliderCSS}>
@@ -123,16 +122,16 @@ const ImageSlider = (props) => {
         {images.map((image, index) => (
           <ImageSlide
             key={image + index}
-            content={builder.image(image).auto("format").width(2000).url()}
-          ></ImageSlide>
+            content={builder.image(image).auto('format').width(1980).url()}
+          />
         ))}
       </ImageSliderContent>
-      <Arrow direction="left" handleClick={prevSlide} />
-      <Arrow direction="right" handleClick={nextSlide} />
+      <Arrow direction='left' handleClick={prevSlide} />
+      <Arrow direction='right' handleClick={nextSlide} />
       <Dots slides={images} activeSlide={activeSlide} />
     </div>
-  );
-};
+  )
+}
 
 const ImageSliderCSS = css`
   position: relative;
@@ -140,5 +139,5 @@ const ImageSliderCSS = css`
   width: 750px;
   margin: 0 auto;
   overflow: hidden;
-`;
-export default ImageSlider;
+`
+export default ImageSlider

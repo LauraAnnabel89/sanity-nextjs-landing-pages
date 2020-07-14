@@ -15,7 +15,7 @@ function HomePage (props) {
 
   const style = backgroundImage
     ? {
-      backgroundImage: `url("${urlFor(backgroundImage).width(2000).auto('format').url()}")`
+      backgroundImage: `url("${urlFor(backgroundImage).width(1980).auto('format').url()}")`
     }
     : {}
 

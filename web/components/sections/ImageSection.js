@@ -19,7 +19,7 @@ function ImageSection(props) {
     <div className={styles.root}>
       <figure className={styles.content}>
         <img
-          src={builder.image(image).auto("format").width(2000).url()}
+          src={builder.image(image).auto("format").width(1980).url()}
           className={styles.image}
           alt={heading}
         />
