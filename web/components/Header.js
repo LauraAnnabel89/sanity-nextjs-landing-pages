@@ -4,6 +4,8 @@ import Link from 'next/link'
 import {withRouter} from 'next/router'
 import SVG from 'react-inlinesvg'
 import styles from './Header.module.css'
+import HamburgerMenu from 'react-hamburger-menu'
+
 import HamburgerIcon from './icons/Hamburger'
 
 class Header extends Component {
@@ -119,13 +121,19 @@ class Header extends Component {
                 )
               })}
           </ul>
-          <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
-            {showNav ? (
-              <div className={styles.closeIcon}>X</div>
-            ) : (
-              <HamburgerIcon className={styles.hamburgerIcon} />
-            )}
-          </button>
+          <div className={styles.showNavButton}>
+            <HamburgerMenu
+              isOpen={showNav}
+              menuClicked={this.handleMenuToggle}
+              width={20}
+              height={15}
+              strokeWidth={1}
+              rotate={0}
+              color={showNav ? 'black' : 'white'}
+              borderRadius={1}
+              animationDuration={0.25}
+            />
+          </div>
         </nav>
       </div>
     )

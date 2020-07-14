@@ -13,15 +13,15 @@
 
 .article {
   width: 100%;
-  font-family: "Baskerville", sans-serif;
-  font-family: "Baskerville", sans-serif;
   font-family: var(--font-family-baskerville);
-  max-width: 50em;
-  max-width: 50em;
-  max-width: var(--width-medium);
+  max-width: var(--width-text-medium);
   margin: 0 auto;
+  padding: 0 1.5rem;
   box-sizing: border-box;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   @media (--media-min-medium) {
     display: flex;

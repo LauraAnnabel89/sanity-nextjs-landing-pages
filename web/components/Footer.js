@@ -17,6 +17,11 @@ function Footer (props) {
 
   if (!isServer) {
     const checkScrollTop = () => {
+      if (window.pageYOffset <= window.innerHeight) {
+        setShowScroll(false)
+        return
+      }
+
       const threshold = document.body.scrollHeight - window.innerHeight - 10
 
       if (!showScroll && window.pageYOffset > threshold) {
@@ -32,14 +37,6 @@ function Footer (props) {
   const {navItems, text, router, image, alt, caption, asset, sociallogos} = props
   return (
     <div className={styles.root}>
-      <button
-        className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
-        onClick={() => {
-          window.scrollTo({top: 0, behavior: 'smooth'})
-        }}
-      >
-        <span />
-      </button>
       <div className={styles.footerlogo}>
         <img src='/static/images/blacklogo.jpg' alt='Dawn Production Logo' />
       </div>
@@ -82,10 +79,21 @@ function Footer (props) {
         <img src='/static/images/apa.png' alt='APA' />
         <img src='/static/images/albert.png' alt='Albert' />
         <img src='/static/images/adgreen.png' alt='Adgreen' />
+        <img src='/static/images/lebook.png' alt='Le Book' />
         <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
         <img src='/static/images/b.jpg' alt='B Logo' />
       </div>
+      <button
+        className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
+        onClick={() => {
+          window.scrollTo({top: 0, behavior: 'smooth'})
+        }}
+      >
+        <span />
+      </button>
+
       <div className={styles.copyright}>&copy; DAWN Production 2020</div>
+
     </div>
   )
 }
