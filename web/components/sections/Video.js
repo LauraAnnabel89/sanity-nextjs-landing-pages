@@ -1,11 +1,11 @@
-import React from "react";
-import ReactPlayer from "react-player";
-import screenfull from "screenfull";
-import { findDOMNode } from "react-dom";
-import { isString } from "lodash";
-import styles from "./Video.module.css";
-import imageUrlBuilder from "@sanity/image-url";
-import client from "../../client";
+import React from 'react'
+import ReactPlayer from 'react-player'
+import screenfull from 'screenfull'
+import {findDOMNode} from 'react-dom'
+import {isString} from 'lodash'
+import styles from './Video.module.css'
+import imageUrlBuilder from '@sanity/image-url'
+import client from '../../client'
 
 const PLAYER_OPTIONS = {
   vimeo: {
@@ -13,50 +13,50 @@ const PLAYER_OPTIONS = {
       byline: false,
       portrait: false,
       title: false,
-      color: "ffffff",
-    },
-  },
-};
+      color: 'ffffff'
+    }
+  }
+}
 
 export default class Video extends React.Component {
   state = {
     playing: false,
-    started: false,
+    started: false
   };
 
   player = null;
 
-  componentDidMount() {}
+  componentDidMount () {}
 
   ref = (player) => {
-    this.player = player;
+    this.player = player
   };
 
-  render() {
-    const { poster, url, autoplay, muted, loop, ratio, windowed, caption } = this.props;
-    const { playing, started } = this.state;
-    if (!url) return null;
+  render () {
+    const {poster, url, autoplay, muted, loop, ratio, windowed, caption} = this.props
+    const {playing, started} = this.state
+    if (!url) return null
 
-    console.log(this.props);
+    console.log(this.props)
     if (autoplay) {
-      PLAYER_OPTIONS.vimeo.playerOptions.background = true;
-      PLAYER_OPTIONS.vimeo.playerOptions.autoplay = true;
-      PLAYER_OPTIONS.vimeo.playerOptions.loop = true;
-      PLAYER_OPTIONS.vimeo.playerOptions.controls = false;
-      PLAYER_OPTIONS.vimeo.preload = true;
+      PLAYER_OPTIONS.vimeo.playerOptions.background = true
+      PLAYER_OPTIONS.vimeo.playerOptions.autoplay = true
+      PLAYER_OPTIONS.vimeo.playerOptions.loop = true
+      PLAYER_OPTIONS.vimeo.playerOptions.controls = false
+      PLAYER_OPTIONS.vimeo.preload = true
     }
 
-    function urlFor(source) {
-      return imageUrlBuilder(client).image(source);
+    function urlFor (source) {
+      return imageUrlBuilder(client).image(source)
     }
 
     const style = poster
       ? {
-          background: `url("${urlFor(poster).width(2000).auto("format").url()}")`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }
-      : {};
+        background: `url("${urlFor(poster).width(1980).auto('format').url()}")`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }
+      : {}
 
     return (
       <div className={windowed ? styles.windowContainer : styles.container} style={style}>
@@ -71,9 +71,9 @@ export default class Video extends React.Component {
             onEnded={this.onEnded}
             config={PLAYER_OPTIONS}
           />
-          {windowed ? "" : <h1 className={styles.title}>{caption}</h1>}
+          {windowed ? '' : <h1 className={styles.title}>{caption}</h1>}
         </div>
       </div>
-    );
+    )
   }
 }

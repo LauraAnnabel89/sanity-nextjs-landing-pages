@@ -24,7 +24,7 @@ function Figure({ node }) {
         as={`/${slug.current}`}
       >
         <img
-          src={builder.image(asset).auto("format").width(2000).url()}
+          src={builder.image(asset).auto("format").width(1980).url()}
           className={styles.image}
           alt={alt}
         />

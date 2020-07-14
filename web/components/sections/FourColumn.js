@@ -23,7 +23,7 @@ function FourColumn(props) {
         {images.map((image) => (
           <figure className={styles.imageContainer}>
             <img
-              src={builder.image(image).auto("format").width(2000).url()}
+              src={builder.image(image).auto("format").width(480).url()}
               className={styles.image}
               alt={heading}
             />
