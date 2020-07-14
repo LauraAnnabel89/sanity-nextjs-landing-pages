@@ -77,7 +77,7 @@ class Header extends Component {
         data-show-nav={showNav}
         style={{color: reverseColour && 'black'}}
       >
-        <h1 className={styles.branding}>
+        <div className={styles.branding}>
           <Link
             href={{
               pathname: '/',
@@ -87,9 +87,11 @@ class Header extends Component {
             }}
             as='/'
           >
-            <a>DAWN</a>
+            <a>
+              <img src='static/images/dawn.svg' alt='Dawn Production' />
+            </a>
           </Link>
-        </h1>
+        </div>
         <nav className={styles.nav}>
           <ul className={styles.navItems}>
             {navItems &&

@@ -26,7 +26,7 @@ export default function Mailchimp (props) {
             buttonClassName={styles.button}
             styles={{
               sendingMsg: {
-                color: '#0652DD'
+                color: '#000'
               },
               successMsg: {
                 color: '#009432'
