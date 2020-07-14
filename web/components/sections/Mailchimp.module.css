@@ -78,13 +78,17 @@
 .form button {
   -webkit-font-smoothing: inherit;
   font: inherit;
-  background: none;
   margin-top: 1rem;
   display: block;
   height: 2.5em;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
+  transition:
+    background 150ms linear,
+    color 150ms linear;
+  background: var(--color-black, #000);
+  color: var(--color-white, #fff);
 
   @media (--media-min-medium) {
     margin-top: 0;
@@ -92,14 +96,14 @@
   }
 
   @nest &:focus {
-    background: var(--color-black, #000);
-    color: var(--color-white, #fff);
+    background: var(--color-grey, #fff);
+    color: var(--color-light-grey, #000);
   }
 
   @media (hover: hover) {
     @nest &:hover {
-      background: var(--color-black, #000);
-      color: var(--color-white, #fff);
-    }
+      background: var(--color-grey, #fff);
+      color: var(--color-light-grey, #000);
+      }
   }
 }
