@@ -1,3 +1,4 @@
+@import "../styles/custom-media.css";
 @import "../styles/custom-properties.css";
 
 .root {
@@ -17,7 +18,7 @@
 
 .item {
   @nest & > a {
-    font-size: 10px;
+    font-size: var(--font-micro-size);
     font-family: var(--font-family-gilroy);
     display: block;
     text-decoration: none;
@@ -68,12 +69,51 @@
 }
 
 .membershiplogos {
-  display: flex;
-  justify-content: center;
+  display: block;
+  text-align: center;
   
   @nest & img {
-    margin: 0 10px;
-    height: 45px;
+    padding: 10px;
+    height: 30px;
     width: auto;
+    display: inline;
+  }
+
+  @media (--media-min-medium) {
+
+    @nest & img {
+      margin: 0 10px;
+      height: 45px;
+      width: auto;
+      display: inline;
+    }  
+  }  
+}
+
+.arrowUp {
+  position: fixed;
+  z-index: 1000;
+  background: white;
+  border: 2px solid black;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  bottom: 2rem;
+  right: 2rem;
+  transform: translateY(200%);  
+  transition: transform 150ms ease-out;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  outline: none !important;
+  cursor: pointer;
+
+  @nest &.arrowUpShow {
+    transform: translateY(0);  
+  }
+
+  @nest & span {
+    display: block;
+    border: 8px solid transparent;
+    border-bottom-width: 10px;
+    border-bottom-color: black;
+    margin: 2px;
   }
 }

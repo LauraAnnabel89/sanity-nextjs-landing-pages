@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component, useState} from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import {withRouter} from 'next/router'
@@ -11,21 +11,47 @@ import client from '../client'
 const builder = imageUrlBuilder(client)
 
 function Footer (props) {
+
+  const [showScroll, setShowScroll] = useState(false)
+  const isServer = typeof window === 'undefined'
+
+  if (!isServer) {
+    const checkScrollTop = () => {
+      const threshold = document.body.scrollHeight - window.innerHeight - 10
+
+      if (!showScroll && window.pageYOffset > threshold) {
+        setShowScroll(true)
+      } else if (showScroll && window.pageYOffset <= threshold) {
+        setShowScroll(false)
+      }
+    }
+
+    window.addEventListener('scroll', checkScrollTop)
+  }
+
   const {navItems, text, router, image, alt, caption, asset, sociallogos} = props
   return (
     <div className={styles.root}>
+      <button
+        className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
+        onClick={() => {
+          window.scrollTo({top: 0, behavior: 'smooth'})
+        }}
+      >
+        <span />
+      </button>
       <div className={styles.footerlogo}>
-        <img src='static/images/blacklogo.jpg' alt='Dawn Production Logo' />
+        <img src='/static/images/blacklogo.jpg' alt='Dawn Production Logo' />
       </div>
       <div className={styles.text}>
         <SimpleBlockContent blocks={text} />
       </div>
       <div className={styles.sociallogos}>
         <a href='https://www.instagram.com/dawnmoretti/?hl=en' target='_blank'>
-          <img src='static/images/instagram.jpg' alt='Instagram Logo' />
+          <img src='/static/images/instagram.jpg' alt='Instagram Logo' />
         </a>
         <a href='https://www.linkedin.com/in/dawn-moretti-95208714'>
-          <img src='static/images/linkedin.jpg' alt='LinkedIn Logo' />
+          <img src='/static/images/linkedin.jpg' alt='LinkedIn Logo' />
         </a>
       </div>
       <nav>
@@ -51,16 +77,15 @@ function Footer (props) {
         </ul>
       </nav>
       <div className={styles.membershiplogos}>
-        <img src='static/images/erjjjo.png' alt='Certified Green Website' />
-        <img src='static/images/aop.png' alt='AOP' />
-        <img src='static/images/apa.png' alt='APA' />
-        <img src='static/images/albert.png' alt='Albert' />
-        <img src='static/images/adgreen.png' alt='Adgreen' />
-        <img src='static/images/location-guide.png' alt='Location Guide' />
-        <img src='static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
-        <img src='static/images/b.jpg' alt='B Logo' />
+        <img src='/static/images/erjjjo.png' alt='Certified Green Website' />
+        <img src='/static/images/aop.png' alt='AOP' />
+        <img src='/static/images/apa.png' alt='APA' />
+        <img src='/static/images/albert.png' alt='Albert' />
+        <img src='/static/images/adgreen.png' alt='Adgreen' />
+        <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
+        <img src='/static/images/b.jpg' alt='B Logo' />
       </div>
-      <div className={styles.copyright}>&copy; DAWN Production 2020.</div>
+      <div className={styles.copyright}>&copy; DAWN Production 2020</div>
     </div>
   )
 }
