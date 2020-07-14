@@ -3,7 +3,8 @@
 
 .container {
   position: relative;
-  height: 56.25vw !important;
+  height: 0 !important;
+  padding-top: 56.25% !important;
   z-index: 1;
   display: block;
   overflow: hidden;
@@ -49,7 +50,7 @@
 
 .wrapper iframe {
   width: 100%;
-  height: 56.25vw !important;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 50%;

@@ -32,14 +32,6 @@ function Footer (props) {
   const {navItems, text, router, image, alt, caption, asset, sociallogos} = props
   return (
     <div className={styles.root}>
-      <button
-        className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
-        onClick={() => {
-          window.scrollTo({top: 0, behavior: 'smooth'})
-        }}
-      >
-        <span />
-      </button>
       <div className={styles.footerlogo}>
         <img src='/static/images/blacklogo.jpg' alt='Dawn Production Logo' />
       </div>
@@ -85,7 +77,17 @@ function Footer (props) {
         <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
         <img src='/static/images/b.jpg' alt='B Logo' />
       </div>
+      <button
+        className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
+        onClick={() => {
+          window.scrollTo({top: 0, behavior: 'smooth'})
+        }}
+      >
+        <span />
+      </button>
+
       <div className={styles.copyright}>&copy; DAWN Production 2020</div>
+
     </div>
   )
 }
