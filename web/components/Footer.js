@@ -17,6 +17,11 @@ function Footer (props) {
 
   if (!isServer) {
     const checkScrollTop = () => {
+      if (window.pageYOffset <= window.innerHeight) {
+        setShowScroll(false)
+        return
+      }
+
       const threshold = document.body.scrollHeight - window.innerHeight - 10
 
       if (!showScroll && window.pageYOffset > threshold) {

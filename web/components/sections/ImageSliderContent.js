@@ -1,10 +1,9 @@
-import React from "react";
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
 const ImageSliderContent = styled.div`
-  transform: translateX(-${(props) => props.translate}em);
+  transform: translateX(-${(props) => props.translate}vw);
   height: 100%;
-  width: ${(props) => props.width}em;
+  width: ${(props) => props.width}vw;
   display: flex;
-`;
-export default ImageSliderContent;
+`
+export default ImageSliderContent
