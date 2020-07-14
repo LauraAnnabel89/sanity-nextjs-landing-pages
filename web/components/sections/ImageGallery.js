@@ -11,7 +11,7 @@ import HamburgerMenu from 'react-hamburger-menu'
 const builder = imageUrlBuilder(client)
 
 const ImageGallery = (props) => {
-  const {images} = props
+  const {images, back} = props
 
   const [state, setState] = useState({
     translate: 0,
@@ -90,7 +90,7 @@ const ImageGallery = (props) => {
             animationDuration={0.25}
           />
         ) : (
-          <Link href='/locations'>
+          <Link href={back}>
             <a>
               <HamburgerMenu
                 isOpen
