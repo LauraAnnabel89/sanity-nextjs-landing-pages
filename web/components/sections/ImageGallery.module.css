@@ -3,7 +3,6 @@
 
 .root {
   position: relative;
-  padding: 2rem 0;
   height: 100vh;
   width: 100%;
   z-index: 30;
@@ -12,7 +11,6 @@
   background: white;
 
   @media (--media-min-large) {
-    padding: 1rem 0;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -29,24 +27,24 @@
 }
 
 .infoBar {
-  width: 80vw;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding-top: 1rem;
+  padding: 1.5rem;
+  padding-top: 2rem;
   font-size: var(--font-small-size);
   font-family: var(--font-family-baskerville);
   text-decoration: none;
   color: var(--color-black);
-
-  @media (--media-min-large) {
-    width: 80vw;
-    margin: 0 auto;  
-  }  
 }
 
 .infoCaption {
   margin: 0;
+
+  @nest & span {
+    color: var(--color-grey);
+  }
 }
 
 .infoThumbnails {
@@ -62,9 +60,9 @@
   font-size: 1.5em;
   font-weight: 300;
   cursor: pointer;
-  width: 80vw;
   margin: 0 auto;
-  padding-bottom: 1rem;
+  padding: 1.5rem;
+  padding-bottom: 2rem;
 
   @nest & > a {
     color: inherit;
@@ -134,6 +132,12 @@
 
 .fakeLink {
   cursor: pointer;
+  text-decoration: none;
+  color: var(--color-grey);
+
+  @nest &:hover {
+    text-decoration: underline;
+  }
 }
 
 .imageGrid {

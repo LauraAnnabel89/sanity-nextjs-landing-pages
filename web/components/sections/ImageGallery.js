@@ -137,14 +137,15 @@ const ImageGallery = (props) => {
           <Arrow direction='left' handleClick={prevSlide} />
           <Arrow direction='right' handleClick={nextSlide} />
         </div>
-        <div className={styles.infoBar}>
-          <p className={styles.infoCaption}>
-            Locations / {images[activeSlide].slug} <span>{images[activeSlide].caption}</span>
-          </p>
-          <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
-            Show Thumbnails
-          </span>
-        </div>
+      </div>
+
+      <div className={styles.infoBar}>
+        <p className={styles.infoCaption}>
+          Locations / <span>{activeSlide} of {images.length} {images[activeSlide].slug} {images[activeSlide].caption}</span>
+        </p>
+        <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
+          Show Thumbnails
+        </span>
       </div>
     </div>
   )
