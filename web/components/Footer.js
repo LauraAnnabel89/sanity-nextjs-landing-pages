@@ -74,6 +74,7 @@ function Footer (props) {
         <img src='/static/images/apa.png' alt='APA' />
         <img src='/static/images/albert.png' alt='Albert' />
         <img src='/static/images/adgreen.png' alt='Adgreen' />
+        <img src='/static/images/lebook.png' alt='Le Book' />
         <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
         <img src='/static/images/b.jpg' alt='B Logo' />
       </div>
