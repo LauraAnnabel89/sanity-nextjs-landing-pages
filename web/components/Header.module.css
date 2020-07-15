@@ -149,8 +149,9 @@
 
 .showNavButton {
   position: fixed;
-  right: 1.5rem;
-  top: 1.5rem;
+  right: 0;
+  top: 0;
+  padding: 1.5rem;
   z-index: 1001;
   cursor: pointer;
 }
