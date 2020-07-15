@@ -36,7 +36,7 @@ const ImageGallery = (props) => {
     setState((state) => ({
       ...state,
       activeSlide: state.activeSlide + 1,
-      translate: (state.activeSlide + 1) * 80
+      translate: (state.activeSlide + 1) * 90
     }))
   }
 
@@ -44,7 +44,7 @@ const ImageGallery = (props) => {
     if (activeSlide === 0) {
       return setState({
         ...state,
-        translate: (images.length - 1) * 80,
+        translate: (images.length - 1) * 90,
         activeSlide: images.length - 1
       })
     }
@@ -52,7 +52,7 @@ const ImageGallery = (props) => {
     setState((state) => ({
       ...state,
       activeSlide: state.activeSlide - 1,
-      translate: (state.activeSlide - 1) * 80
+      translate: (state.activeSlide - 1) * 90
     }))
   }
 
@@ -62,7 +62,7 @@ const ImageGallery = (props) => {
     setState({
       ...state,
       activeSlide: index,
-      translate: index * 80
+      translate: index * 90
     })
   }
 
@@ -128,7 +128,7 @@ const ImageGallery = (props) => {
           <ImageSliderContent
             translate={translate}
             transition={transition}
-            width={80 * images.length}
+            width={90 * images.length}
           >
             {images.map((image, index, caption) => (
               <ImageSlide key={image + index} content={builder.image(image).auto('format').width(2000).url()} />

@@ -6,7 +6,7 @@ const ImageSlide = ({content}) => (
   <div
     css={css`
       height: 100%;
-      width: 80vw;
+      width: 90vw;
       background-image: url('${content}');
       background-size: contain;
       background-repeat: no-repeat;

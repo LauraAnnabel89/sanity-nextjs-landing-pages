@@ -20,7 +20,7 @@
 .imageSlider {
   position: relative;
   height: 80vh;
-  width: 80vw;
+  width: 90vw;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -102,7 +102,7 @@
 .imageGridContainer {
   position: relative;
   margin: 1.5rem;
-  max-width: 80vw;
+  max-width: 90vw;
   @nest & figcaption {
     width: 100%;
     box-sizing: border-box;
