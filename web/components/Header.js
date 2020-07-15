@@ -121,10 +121,12 @@ class Header extends Component {
                 )
               })}
           </ul>
-          <div className={styles.showNavButton}>
+          <div
+            onClick={this.handleMenuToggle}  
+            className={styles.showNavButton}
+          >
             <HamburgerMenu
               isOpen={showNav}
-              menuClicked={this.handleMenuToggle}
               width={20}
               height={15}
               strokeWidth={1}

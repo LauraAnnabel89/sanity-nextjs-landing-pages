@@ -57,6 +57,15 @@
       top: 0;
     }
   }
+
+  @media (--media-min-large) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (--media-min-x-large) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  } 
+
 }
 
 .imageContainer {

@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Head from 'next/head'
 
-import { LogoJsonLd } from "next-seo";
-import Header from "./Header";
-import Footer from "./Footer";
-import Cookies from "./sections/Cookies";
+import {LogoJsonLd} from 'next-seo'
+import Header from './Header'
+import Footer from './Footer'
+import Cookies from './sections/Cookies'
 
-function Layout(props) {
-  const { config, children } = props;
+function Layout (props) {
+  const {slug, config, children} = props
 
   if (!config) {
-    console.error("Missing config");
-    return <div>Missing config</div>;
+    console.error('Missing config')
+    return <div>Missing config</div>
   }
 
   const {
@@ -23,24 +23,24 @@ function Layout(props) {
     logo,
     url,
     socialmedialogos,
-    reverseColour,
-  } = config;
-  const logoUrl = logo && logo.asset && logo.asset.url;
+    reverseColour
+  } = config
+  const logoUrl = logo && logo.asset && logo.asset.url
 
   return (
     <>
       <Head>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
       </Head>
-      <div className="container">
+      <div className='container'>
         <Header title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
-        <div className="content">{children}</div>
-        <Footer navItems={footerNavigation} socialLogos={socialmedialogos} text={footerText} />
+        <div className='content'>{children}</div>
+        {slug !== '/' ? <Footer navItems={footerNavigation} socialLogos={socialmedialogos} text={footerText} /> : null}
         <Cookies />
         {logoUrl && url && <LogoJsonLd url={url} logo={logoUrl} />}
       </div>
     </>
-  );
+  )
 }
 
 Layout.propTypes = {
@@ -52,11 +52,11 @@ Layout.propTypes = {
     footerText: PropTypes.arrayOf(PropTypes.object),
     logo: PropTypes.shape({
       asset: PropTypes.shape({
-        url: PropTypes.string,
-      }),
+        url: PropTypes.string
+      })
     }),
-    url: PropTypes.string,
-  }),
-};
+    url: PropTypes.string
+  })
+}
 
-export default Layout;
+export default Layout

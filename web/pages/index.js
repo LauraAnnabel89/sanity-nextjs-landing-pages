@@ -127,7 +127,7 @@ class IndexPage extends Component {
       : []
 
     return (
-      <Layout config={config}>
+      <Layout slug={slug} config={config}>
         <NextSeo
           config={{
             title,

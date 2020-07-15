@@ -3,14 +3,14 @@
 
 .container {
   position: relative;
-  height: 0 !important;
-  padding-top: 56.25% !important;
+  height: 100vh;
   z-index: 1;
   display: block;
   overflow: hidden;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #000;
 }
 
 .title {
@@ -49,12 +49,13 @@
 }
 
 .wrapper iframe {
-  width: 100%;
-  height: 100%;
   position: absolute;
-  top: 0;
+  z-index: -1;
+  height: 100vmax !important;
+  width: calc(100vmax / 9 * 16) !important;
   left: 50%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .windowWrapper iframe {
