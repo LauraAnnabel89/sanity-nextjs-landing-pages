@@ -141,7 +141,7 @@ const ImageGallery = (props) => {
 
       <div className={styles.infoBar}>
         <p className={styles.infoCaption}>
-          Locations / <span>{activeSlide} of {images.length} {images[activeSlide].slug} {images[activeSlide].caption}</span>
+          Locations / <span>{activeSlide + 1} of {images.length} {images[activeSlide].slug} {images[activeSlide].caption}</span>
         </p>
         <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
           Show Thumbnails
