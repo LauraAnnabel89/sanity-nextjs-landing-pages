@@ -62,10 +62,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  @media (--media-min-x-large) {
+  @media (--media-min-xx-large) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  } 
-
+  }
 }
 
 .imageContainer {

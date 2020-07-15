@@ -59,6 +59,14 @@
       top: 0;
     }
   }
+
+  @media (--media-min-large) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (--media-min-xx-large) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }  
 }
 
 .videoContainer {
@@ -111,4 +119,32 @@
   @media (--media-min-medium) {
     max-width: calc((var(--width-small) / 2) - 3rem);
   }
+}
+
+.modal {
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+.modalBackdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2001;
+}
+
+.modalClose {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 2002;
+  cursor: pointer;
 }

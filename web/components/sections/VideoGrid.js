@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import Carousel, {Modal, ModalGateway} from 'react-images'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './VideoGrid.module.css'
 import client from '../../client'
 
 import Video from './Video'
+import HamburgerMenu from 'react-hamburger-menu'
 
 const builder = imageUrlBuilder(client)
 
@@ -18,20 +18,12 @@ function VideoGrid (props) {
     return null
   }
 
-  const View = (viewProps) => {
-    const {data} = viewProps
-    return <Video key={data._key} windowed {...data} />
-  }
-
-  const carouselComponents = {
-    Footer: null,
-    View
-  }
+  const RenderVideo = (video) => <Video key={video._key} windowed {...video} />
 
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        {videos.map((video, index) => {
+        {videos.map((video) => {
           const {_key, poster, caption} = video
           const imageUrl = builder.image(poster).auto('format').width(980).url()
           return (
@@ -40,7 +32,7 @@ function VideoGrid (props) {
               style={{backgroundImage: `url(${imageUrl})`}}
               className={styles.videoContainer}
               onClick={() => {
-                setOpen(index)
+                setOpen(video)
               }}
             >
               <p className={styles.caption}>{caption}</p>
@@ -49,60 +41,32 @@ function VideoGrid (props) {
         })}
       </div>
 
-      <ModalGateway>
-        {Number.isInteger(open) ? (
-          <Modal
-            closeOnBackdropClick
-            allowFullscreen
-            styles={{
-              backgroundColor: 'red',
-              blanket: (base) => ({
-                ...base,
-                backgroundColor: 'rgba(255,255,255,1)'
-              })
-            }}
-            onClose={() => {
-              setOpen(false)
-            }}
+      {
+        open ? (
+          <div
+            className={styles.modal}
           >
-            <Carousel
-              currentIndex={open}
-              components={carouselComponents}
-              views={videos}
-              styles={{
-                footer: (base) => ({
-                  ...base,
-                  background: 'none !important',
-
-                  '& a': {
-                    color: 'black'
-                  }
-                }),
-                header: (base) => ({
-                  ...base,
-                  background: 'none !important'
-                }),
-                headerFullscreen: (base) => ({
-                  ...base,
-                  color: '#000',
-
-                  ':hover': {
-                    color: '#000'
-                  }
-                }),
-                headerClose: (base) => ({
-                  ...base,
-                  color: '#000',
-
-                  ':hover': {
-                    color: '#000'
-                  }
-                })
+            <div
+              className={styles.modalClose}
+              onClick={() => {
+                setOpen(null)
               }}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+            >
+              <HamburgerMenu
+                isOpen={open}
+                width={20}
+                height={15}
+                strokeWidth={1}
+                rotate={0}
+                color={'black'}
+                borderRadius={1}
+                animationDuration={0.25}
+              />
+            </div>
+            {RenderVideo(open)}
+          </div>
+        ) : null
+      }
     </div>
   )
 }
