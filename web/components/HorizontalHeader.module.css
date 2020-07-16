@@ -44,7 +44,11 @@
     transition: fill 150ms ease-out;
   }
 
-  @nest .root[data-show-nav="true"]  & svg path {
+  @nest .root[data-show-nav="true"] & {
+    position: fixed;
+  }
+
+  @nest .root[data-show-nav="true"] & svg path {
     fill: #000 !important;
   }
 
