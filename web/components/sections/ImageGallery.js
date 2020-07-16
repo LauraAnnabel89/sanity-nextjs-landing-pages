@@ -81,9 +81,9 @@ const ImageGallery = (props) => {
               show(activeSlide)
             }}
             isOpen
-            width={20}
-            height={15}
-            strokeWidth={1}
+            width={30}
+            height={25}
+            strokeWidth={2}
             rotate={0}
             color={'black'}
             borderRadius={1}
@@ -95,9 +95,9 @@ const ImageGallery = (props) => {
               <HamburgerMenu
                 isOpen
                 menuClicked={null}
-                width={20}
-                height={15}
-                strokeWidth={1}
+                width={30}
+                height={25}
+                strokeWidth={2}
                 rotate={0}
                 color={'black'}
                 borderRadius={1}

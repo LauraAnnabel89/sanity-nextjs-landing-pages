@@ -126,9 +126,9 @@ class HorizontalHeader extends Component {
             <HamburgerMenu
               isOpen={showNav}
               menuClicked={null}
-              width={20}
-              height={15}
-              strokeWidth={1}
+              width={30}
+              height={25}
+              strokeWidth={2}
               rotate={0}
               color={showNav ? 'black' : 'white'}
               borderRadius={1}
