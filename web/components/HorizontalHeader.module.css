@@ -165,6 +165,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (--media-min-large) {
+    height: 6.5rem;
+  }
 }
 
 .closeIcon {
