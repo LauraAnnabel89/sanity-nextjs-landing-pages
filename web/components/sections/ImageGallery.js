@@ -94,6 +94,7 @@ const ImageGallery = (props) => {
             <a>
               <HamburgerMenu
                 isOpen
+                menuClicked={null}
                 width={20}
                 height={15}
                 strokeWidth={1}

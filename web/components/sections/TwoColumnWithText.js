@@ -15,8 +15,6 @@ function TwoColumnWithText (props) {
     return null
   }
 
-  console.log(props)
-
   return (
     <div className={styles.root}>
       <div className={styles.content}>

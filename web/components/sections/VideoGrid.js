@@ -54,6 +54,7 @@ function VideoGrid (props) {
             >
               <HamburgerMenu
                 isOpen={open}
+                menuClicked={null}
                 width={20}
                 height={15}
                 strokeWidth={1}

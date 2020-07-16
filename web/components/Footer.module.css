@@ -73,8 +73,9 @@
   text-align: center;
   
   @nest & img {
-    padding: 10px;
-    height: 45px;
+    margin: 0 5px;
+    padding: 15px 0;
+    height: 50px;
     width: auto;
     display: inline;
   }
@@ -83,7 +84,7 @@
 
     @nest & img {
       margin: 0 10px;
-      height: 65px;
+      height: 70px;
       width: auto;
       display: inline;
     }  

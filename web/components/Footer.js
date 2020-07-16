@@ -74,14 +74,14 @@ function Footer (props) {
         </ul>
       </nav>
       <div className={styles.membershiplogos}>
-        <img src='/static/images/erjjjo.png' alt='Certified Green Website' />
+        <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
+        <img style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
         <img src='/static/images/aop.png' alt='AOP' />
         <img src='/static/images/apa.png' alt='APA' />
+        <img style={{paddingBottom: 4}} src='/static/images/b.jpg' alt='B Logo' />
+        <img src='/static/images/lebook.png' alt='Le Book' />
         <img src='/static/images/albert.png' alt='Albert' />
         <img src='/static/images/adgreen.png' alt='Adgreen' />
-        <img src='/static/images/lebook.png' alt='Le Book' />
-        <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
-        <img src='/static/images/b.jpg' alt='B Logo' />
       </div>
       <button
         className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}

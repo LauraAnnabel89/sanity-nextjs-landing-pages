@@ -37,7 +37,6 @@ export default class Video extends React.Component {
     const {playing, started} = this.state
     if (!url) return null
 
-    console.log(this.props)
     if (autoplay) {
       PLAYER_OPTIONS.vimeo.playerOptions.background = true
       PLAYER_OPTIONS.vimeo.playerOptions.autoplay = true
