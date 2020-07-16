@@ -3,12 +3,10 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import {withRouter} from 'next/router'
 import SVG from 'react-inlinesvg'
-import styles from './Header.module.css'
+import styles from './HorizontalHeader.module.css'
 import HamburgerMenu from 'react-hamburger-menu'
 
-import HamburgerIcon from './icons/Hamburger'
-
-class Header extends Component {
+class HorizontalHeader extends Component {
   state = {showNav: false};
 
   static propTypes = {
@@ -90,7 +88,7 @@ class Header extends Component {
             as='/'
           >
             <a>
-              <img src='static/images/dawn.svg' alt='Dawn Production' />
+              <SVG src='static/images/dawn.svg' alt='Dawn Production' />
             </a>
           </Link>
         </div>
@@ -143,4 +141,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header)
+export default withRouter(HorizontalHeader)

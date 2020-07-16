@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 
 import {LogoJsonLd} from 'next-seo'
-import Header from './Header'
+import HorizontalHeader from './HorizontalHeader'
 import Footer from './Footer'
 import Cookies from './sections/Cookies'
 
@@ -33,7 +33,7 @@ function Layout (props) {
         <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
       </Head>
       <div className='container'>
-        <Header title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
+        <HorizontalHeader title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
         <div className='content'>{children}</div>
         {slug !== '/' ? <Footer navItems={footerNavigation} socialLogos={socialmedialogos} text={footerText} /> : null}
         <Cookies />
