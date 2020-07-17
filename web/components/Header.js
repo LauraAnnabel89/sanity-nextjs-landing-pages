@@ -127,7 +127,7 @@ class Header extends Component {
           >
             <HamburgerMenu
               isOpen={showNav}
-              menuClicked={null}
+              menuClicked={() => {}}
               width={20}
               height={15}
               strokeWidth={1}

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import {withRouter} from 'next/router'
-import SVG from 'react-inlinesvg'
+import InlineSVG from 'react-inlinesvg'
 import styles from './HorizontalHeader.module.css'
 import HamburgerMenu from 'react-hamburger-menu'
 
@@ -88,7 +88,7 @@ class HorizontalHeader extends Component {
             as='/'
           >
             <a>
-              <SVG src='static/images/dawn.svg' alt='Dawn Production' />
+              <InlineSVG src='static/images/dawn.svg' alt='Dawn Production' />
             </a>
           </Link>
         </div>
@@ -125,7 +125,7 @@ class HorizontalHeader extends Component {
           >
             <HamburgerMenu
               isOpen={showNav}
-              menuClicked={null}
+              menuClicked={() => {}}
               width={30}
               height={25}
               strokeWidth={2}
