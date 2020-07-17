@@ -5,40 +5,18 @@ import {withRouter} from 'next/router'
 import styles from './Footer.module.css'
 import SimpleBlockContent from './SimpleBlockContent'
 import ImageSection from './sections/ImageSection'
+import SVG from 'react-inlinesvg'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../client'
 
 const builder = imageUrlBuilder(client)
 
 function Footer (props) {
-
-  const [showScroll, setShowScroll] = useState(false)
-  const isServer = typeof window === 'undefined'
-
-  if (!isServer) {
-    const checkScrollTop = () => {
-      if (window.pageYOffset <= window.innerHeight) {
-        setShowScroll(false)
-        return
-      }
-
-      const threshold = document.body.scrollHeight - window.innerHeight - 10
-
-      if (!showScroll && window.pageYOffset > threshold) {
-        setShowScroll(true)
-      } else if (showScroll && window.pageYOffset <= threshold) {
-        setShowScroll(false)
-      }
-    }
-
-    window.addEventListener('scroll', checkScrollTop)
-  }
-
   const {navItems, text, router, image, alt, caption, asset, sociallogos} = props
   return (
     <div className={styles.root}>
       <div className={styles.footerlogo}>
-        <img src='/static/images/blacklogo.jpg' alt='Dawn Production Logo' />
+        <SVG src='/static/images/dawn.svg' alt='Dawn Production' />
       </div>
       <div className={styles.text}>
         <SimpleBlockContent blocks={text} />
@@ -83,16 +61,18 @@ function Footer (props) {
         <img src='/static/images/albert.png' alt='Albert' />
         <img src='/static/images/adgreen.png' alt='Adgreen' />
       </div>
-      <button
-        className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
-        onClick={() => {
-          window.scrollTo({top: 0, behavior: 'smooth'})
-        }}
-      >
-        <span />
-      </button>
 
-      <div className={styles.copyright}>&copy; DAWN Production 2020</div>
+      <div className={styles.flexContainer}>
+        <div className={styles.copyright}>&copy; DAWN Production 2020</div>
+        <button
+          className={styles.arrowUp}
+          onClick={() => {
+            window.scrollTo({top: 0, behavior: 'smooth'})
+          }}
+        >
+          <SVG src='/static/images/arrow.svg' alt='Go back up' />
+        </button>
+      </div>
 
     </div>
   )

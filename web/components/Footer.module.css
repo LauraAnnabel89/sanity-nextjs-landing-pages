@@ -53,8 +53,12 @@
   max-width: 75px;
   margin: 0 auto;
 
-  @nest & img {
+  @nest & svg {
     width: 100%;
+  }
+
+  @nest & svg path {
+    fill: #000;
   }
 }
 
@@ -92,29 +96,14 @@
 }
 
 .arrowUp {
-  position: fixed;
-  z-index: 1000;
-  background: white;
-  border: 2px solid black;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
-  bottom: 2rem;
-  right: 2rem;
-  transform: translateY(200%);  
-  transition: transform 150ms ease-out;
-  padding-bottom: 10px;
-  border-radius: 10px;
+  background: transparent;
+  border: none;
   outline: none !important;
   cursor: pointer;
+}
 
-  @nest &.arrowUpShow {
-    transform: translateY(0);  
-  }
-
-  @nest & span {
-    display: block;
-    border: 8px solid transparent;
-    border-bottom-width: 10px;
-    border-bottom-color: black;
-    margin: 2px;
-  }
+.flexContainer {
+  display: flex;
+  padding: 0 2.5rem;
+  justify-content: space-between;
 }

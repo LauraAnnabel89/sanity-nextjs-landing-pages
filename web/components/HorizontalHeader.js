@@ -130,7 +130,7 @@ class HorizontalHeader extends Component {
               height={25}
               strokeWidth={2}
               rotate={0}
-              color={showNav ? 'black' : 'white'}
+              color='white'
               borderRadius={1}
               animationDuration={0.25}
             />
