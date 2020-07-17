@@ -50,7 +50,7 @@
 }
 
 .footerlogo {
-  max-width: 75px;
+  max-width: 130px;
   margin: 0 auto;
 
   @nest & svg {
@@ -58,7 +58,7 @@
   }
 
   @nest & svg path {
-    fill: #000;
+    fill: #000 !important;
   }
 }
 
