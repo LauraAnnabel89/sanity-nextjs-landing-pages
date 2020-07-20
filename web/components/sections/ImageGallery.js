@@ -36,7 +36,7 @@ const ImageGallery = (props) => {
     setState((state) => ({
       ...state,
       activeSlide: state.activeSlide + 1,
-      translate: (state.activeSlide + 1) * 90
+      translate: (state.activeSlide + 1) * 100
     }))
   }
 
@@ -44,7 +44,7 @@ const ImageGallery = (props) => {
     if (activeSlide === 0) {
       return setState({
         ...state,
-        translate: (images.length - 1) * 90,
+        translate: (images.length - 1) * 100,
         activeSlide: images.length - 1
       })
     }
@@ -52,7 +52,7 @@ const ImageGallery = (props) => {
     setState((state) => ({
       ...state,
       activeSlide: state.activeSlide - 1,
-      translate: (state.activeSlide - 1) * 90
+      translate: (state.activeSlide - 1) * 100
     }))
   }
 
@@ -62,7 +62,7 @@ const ImageGallery = (props) => {
     setState({
       ...state,
       activeSlide: index,
-      translate: index * 90
+      translate: index * 100
     })
   }
 
@@ -74,10 +74,12 @@ const ImageGallery = (props) => {
   return (
     <div className={`${styles.root} ${showGrid ? styles.pageRelative : styles.pageFixed}`}>
       <div className={styles.header}>
-        {!showGrid ? (
+        {showGrid ? (
           <HamburgerMenu
             isOpen
-            menuClicked={hide}
+            menuClicked={() => {
+              show(activeSlide)
+            }}
             width={30}
             height={25}
             strokeWidth={2}
@@ -114,6 +116,7 @@ const ImageGallery = (props) => {
                 className={styles.image}
                 alt={image.caption}
                 key={index}
+                loading='lazy'
               />
               <p className={styles.caption}>{image.caption}</p>
             </div>
@@ -126,7 +129,7 @@ const ImageGallery = (props) => {
           <ImageSliderContent
             translate={translate}
             transition={transition}
-            width={90 * images.length}
+            width={100 * images.length}
           >
             {images.map((image, index, caption) => (
               <ImageSlide key={image + index} content={builder.image(image).auto('format').width(2000).url()} />

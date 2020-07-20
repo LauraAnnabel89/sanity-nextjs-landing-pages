@@ -10,7 +10,7 @@ import HamburgerMenu from 'react-hamburger-menu'
 const builder = imageUrlBuilder(client)
 
 function VideoGrid (props) {
-  const {videos} = props
+  const {videos, limitGrid = 'responsive'} = props
 
   const [open, setOpen] = useState(false)
 
@@ -22,20 +22,24 @@ function VideoGrid (props) {
 
   return (
     <div className={styles.root}>
-      <div className={styles.content}>
+      <div className={`${styles.content} ${styles[`grid-${limitGrid}`]}`}>
         {videos.map((video) => {
           const {_key, poster, caption} = video
           const imageUrl = builder.image(poster).auto('format').width(980).url()
           return (
             <div
-              key={_key}
-              style={{backgroundImage: `url(${imageUrl})`}}
-              className={styles.videoContainer}
+              className={styles.videoParentContainer}
               onClick={() => {
                 setOpen(video)
               }}
             >
-              <p className={styles.caption}>{caption}</p>
+              <div
+                key={_key}
+                style={{backgroundImage: `url(${imageUrl})`}}
+                className={styles.videoContainer}
+              >
+                <p className={styles.caption}>{caption}</p>
+              </div>
             </div>
           )
         })}

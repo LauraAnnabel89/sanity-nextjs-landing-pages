@@ -38,12 +38,13 @@
 .content {
   position: relative;
   margin: 1.5rem;
-  max-width: 90vw;
+  width: 90vw;
 
   @nest & figcaption {
     width: 100%;
     box-sizing: border-box;
   }
+
   @media (--media-min-medium) {
     margin: 0 auto;
     padding-top: 1rem;
@@ -64,41 +65,42 @@
     @media (--media-min-medium) {
       width: calc(100% / 3);
     }    
-  }
+  }  
+}
 
-  @nest &.grid-responsive {
-    @nest & a {    
-      @media (--media-min-large) {
-        width: calc(100% / 4);
-      }
-    
-      @media (--media-min-xx-large) {
-        width: calc(100% / 5);
-      }    
+.grid-5,
+.grid-4 {
+  @nest & a {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4);
     }
   }
-  
-  @nest &.grid-4 {
-    @nest & a {
-      @media (--media-min-large) {
-        width: calc(100% / 4);
-      }
+}
+
+.grid-5 {
+  @nest & a {
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5);
     }
   }
-  
-  @nest &.grid-5 {
-    @nest & a {
-      @media (--media-min-xx-large) {
-        width: calc(100% / 5);
-      }
+}
+
+.grid-responsive {
+  @nest & a {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4);
     }
+
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5);
+    }  
   }
-  
 }
 
 .imageContainer {
   margin: 1.5rem;
   position: relative;
+
   @media (--media-min-medium) {
     margin: 1em;
     padding: 0;

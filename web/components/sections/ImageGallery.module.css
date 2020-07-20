@@ -14,8 +14,8 @@
 
 .imageSlider {
   position: relative;
-  height: 80vh;
-  width: 90vw;
+  height: calc(100vh - 11rem);
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -58,6 +58,7 @@
   margin: 0 auto;
   padding: 2.5rem;
   padding-bottom: 2rem;
+  z-index: 1000;
 
   @nest & > a {
     color: inherit;
@@ -97,7 +98,8 @@
 .imageGridContainer {
   position: relative;
   margin: 1.5rem;
-  max-width: 90vw;
+  max-width: 100%;
+
   @nest & figcaption {
     width: 100%;
     box-sizing: border-box;
@@ -105,16 +107,25 @@
 
   @media (--media-min-medium) {
     margin: 0 auto;
-    grid-template-columns: 1fr 1fr 1fr;
     padding-top: 1rem;
-    display: grid;
-    grid-gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     @nest & figcaption {
       position: absolute;
       top: 0;
     }
   }
+
+  @nest & a {
+    display: block;
+    width: 100%;
+
+    @media (--media-min-medium) {
+      width: calc(100% / 3);
+    }    
+  }  
 }
 
 .pageRelative {
@@ -148,17 +159,28 @@
   }
 }
 
-.imageGrid {
-}
 
 .imageGalleryContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  height: calc(100vh - 10rem);
+
+  @media (--media-min-medium) {
+    height: calc(100vh - 11rem);
+  }
+}
+
+.imageGrid {
+  position: relative;
 }
 
 .imageContainer {
   margin: 1.5rem;
   position: relative;
+
   @media (--media-min-medium) {
-    margin: 0;
+    margin: 1em;
     padding: 0;
     position: relative;
   }
