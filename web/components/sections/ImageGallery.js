@@ -72,15 +72,12 @@ const ImageGallery = (props) => {
   }
 
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${showGrid ? styles.pageRelative : styles.pageFixed}`}>
       <div className={styles.header}>
         {!showGrid ? (
           <HamburgerMenu
-            className={styles.fakeLink}
-            menuClicked={() => {
-              show(activeSlide)
-            }}
             isOpen
+            menuClicked={hide}
             width={30}
             height={25}
             strokeWidth={2}
@@ -140,7 +137,7 @@ const ImageGallery = (props) => {
         </div>
       </div>
 
-      <div className={styles.infoBar}>
+      <div className={`${styles.infoBar} ${showSlider ? styles.show : styles.hide}`}>
         <p className={styles.infoCaption}>
           Locations / <span>{activeSlide + 1} of {images.length} {images[activeSlide].slug} {images[activeSlide].caption}</span>
         </p>

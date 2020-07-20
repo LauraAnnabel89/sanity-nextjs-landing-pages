@@ -3,11 +3,6 @@
 
 .root {
   position: relative;
-  height: 100vh;
-  width: 100%;
-  z-index: 30;
-  position: absolute;
-  top: 0;
   background: white;
 
   @media (--media-min-large) {
@@ -31,7 +26,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 2.5rem;
   padding-top: 2rem;
   font-size: var(--font-small-size);
   font-family: var(--font-family-gilroy);
@@ -61,7 +56,7 @@
   font-weight: 300;
   cursor: pointer;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 2.5rem;
   padding-bottom: 2rem;
 
   @nest & > a {
@@ -122,12 +117,25 @@
   }
 }
 
+.pageRelative {
+  position: relative;
+  z-index: 1000;
+}
+
+.pageFixed {
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+}
+
 .hide {
   display: none;
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 .fakeLink {

@@ -49,8 +49,7 @@ module.exports = withCSS({
       const nextRoutes = {
         // Routes imported from sanity
         ...routes.filter(({slug}) => slug.current).reduce(reduceRoutes, {}),
-        '/custom-page': {page: '/CustomPage'},
-        '/locations/[slug]': {page: '/locations/[slug]'}
+        '/custom-page': {page: '/CustomPage'}
       }
       return nextRoutes
     })
