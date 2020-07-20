@@ -18,7 +18,7 @@ function VideoGrid (props) {
     return null
   }
 
-  const RenderVideo = (video) => <Video key={video._key} windowed {...video} />
+  const RenderVideo = (video) => <Video key={video._key} {...video} windowed />
 
   return (
     <div className={styles.root}>

@@ -1,18 +1,17 @@
-import React, {Component, useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import {withRouter} from 'next/router'
 import styles from './Footer.module.css'
 import SimpleBlockContent from './SimpleBlockContent'
-import ImageSection from './sections/ImageSection'
 import SVG from 'react-inlinesvg'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../client'
-
-const builder = imageUrlBuilder(client)
+import Mailchimp from './sections/Mailchimp'
 
 function Footer (props) {
   const {navItems, text, router, image, alt, caption, asset, sociallogos} = props
+
   return (
     <div className={styles.root}>
       <div className={styles.footerlogo}>

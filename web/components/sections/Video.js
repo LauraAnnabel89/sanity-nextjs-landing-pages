@@ -7,17 +7,6 @@ import styles from './Video.module.css'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../../client'
 
-const PLAYER_OPTIONS = {
-  vimeo: {
-    playerOptions: {
-      byline: false,
-      portrait: false,
-      title: false,
-      color: 'ffffff'
-    }
-  }
-}
-
 export default class Video extends React.Component {
   state = {
     playing: false,
@@ -33,11 +22,28 @@ export default class Video extends React.Component {
   };
 
   render () {
-    const {poster, url, autoplay, muted, loop, ratio, windowed, caption} = this.props
-    const {playing, started} = this.state
+    const {poster, url, autoplay = false, muted, loop, ratio, windowed, caption} = this.props
+    const {playing} = this.state
     if (!url) return null
 
-    if (autoplay) {
+    const PLAYER_OPTIONS = {
+      vimeo: {
+        playerOptions: {
+          byline: false,
+          portrait: false,
+          title: false,
+          color: 'ffffff',
+          background: 0,
+          autoplay: 0,
+          loop: false,
+          controls: true,
+          preload: true,
+          volume: 1
+        }
+      }
+    }
+
+    if (autoplay === true) {
       PLAYER_OPTIONS.vimeo.playerOptions.background = true
       PLAYER_OPTIONS.vimeo.playerOptions.autoplay = true
       PLAYER_OPTIONS.vimeo.playerOptions.loop = true
@@ -64,11 +70,13 @@ export default class Video extends React.Component {
             url={url}
             ref={this.ref}
             autoPlay={autoplay}
-            loop={loop || autoplay}
-            muted={muted || autoplay}
+            loop={autoplay}
+            muted={autoplay}
             playing={playing}
             onEnded={this.onEnded}
             config={PLAYER_OPTIONS}
+            width='100%'
+            height='100%'
           />
           {windowed ? '' : <h1 className={styles.title}>{caption}</h1>}
         </div>
