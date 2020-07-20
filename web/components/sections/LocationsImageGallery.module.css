@@ -33,7 +33,7 @@
   justify-content: space-between;
   padding-top: 1em;
   font-size: var(--font-small-size);
-  font-family: var(--font-family-baskerville);
+  font-family: var(--font-family-gilroy);
   text-decoration: none;
   color: var(--color-black);
   @nest & > p span {

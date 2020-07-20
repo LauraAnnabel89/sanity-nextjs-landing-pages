@@ -28,6 +28,9 @@ function Footer (props) {
         <a href='https://www.linkedin.com/in/dawn-moretti-95208714'>
           <img src='/static/images/linkedin.jpg' alt='LinkedIn Logo' />
         </a>
+        <a href='#'>
+          <img src='/static/images/facebook.jpg' alt='Facebook Logo' />
+        </a>        
       </div>
       <nav>
         <ul className={styles.items}>
@@ -56,7 +59,7 @@ function Footer (props) {
         <img style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
         <img src='/static/images/aop.png' alt='AOP' />
         <img src='/static/images/apa.png' alt='APA' />
-        <img style={{paddingBottom: 4}} src='/static/images/b.jpg' alt='B Logo' />
+        <img style={{paddingBottom: 7}} src='/static/images/b.png' alt='B Logo' />
         <img src='/static/images/lebook.png' alt='Le Book' />
         <img src='/static/images/albert.png' alt='Albert' />
         <img src='/static/images/adgreen.png' alt='Adgreen' />

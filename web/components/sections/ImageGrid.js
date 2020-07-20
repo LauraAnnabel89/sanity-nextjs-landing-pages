@@ -8,7 +8,7 @@ import Link from 'next/link'
 const builder = imageUrlBuilder(client)
 
 function ImageGrid (props) {
-  const {image} = props
+  const {image, limitGrid} = props
 
   const images = props.image
 
@@ -18,7 +18,7 @@ function ImageGrid (props) {
 
   return (
     <div className={styles.root}>
-      <div className={styles.content}>
+      <div className={`${styles.content} ${`grid-${limitGrid || 'responsive'}`}`}>
         {images.map((item) => {
           const {internalLink, _key, caption} = item
 

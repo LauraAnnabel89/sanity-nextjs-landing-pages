@@ -74,7 +74,7 @@ const ImageGallery = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        {showGrid ? (
+        {!showGrid ? (
           <HamburgerMenu
             className={styles.fakeLink}
             menuClicked={() => {
