@@ -90,7 +90,7 @@ class Header extends Component {
             as='/'
           >
             <a>
-              <img src='static/images/dawn.svg' alt='Dawn Production' />
+              <img src='/static/images/dawn.svg' alt='Dawn Production' />
             </a>
           </Link>
         </div>

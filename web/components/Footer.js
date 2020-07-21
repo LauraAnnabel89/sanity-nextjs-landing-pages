@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {withRouter} from 'next/router'
 import styles from './Footer.module.css'
 import SimpleBlockContent from './SimpleBlockContent'
-import SVG from 'react-inlinesvg'
+import InlineSVG from 'react-inlinesvg'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../client'
 import Mailchimp from './sections/Mailchimp'
@@ -15,7 +15,7 @@ function Footer (props) {
   return (
     <div className={styles.root}>
       <div className={styles.footerlogo}>
-        <SVG src='/static/images/dawn.svg' alt='Dawn Production' />
+        <InlineSVG src='/static/images/dawn.svg' alt='Dawn Production' />
       </div>
       <div className={styles.text}>
         <SimpleBlockContent blocks={text} />
@@ -72,7 +72,7 @@ function Footer (props) {
             window.scrollTo({top: 0, behavior: 'smooth'})
           }}
         >
-          <SVG src='/static/images/arrow.svg' alt='Go back up' />
+          <InlineSVG src='/static/images/arrow.svg' alt='Go back up' />
         </button>
       </div>
 

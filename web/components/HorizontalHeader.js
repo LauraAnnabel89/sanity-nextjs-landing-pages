@@ -88,7 +88,7 @@ class HorizontalHeader extends Component {
             as='/'
           >
             <a>
-              <InlineSVG src='static/images/dawn.svg' alt='Dawn Production' />
+              <InlineSVG src='/static/images/dawn.svg' alt='Dawn Production' />
             </a>
           </Link>
         </div>

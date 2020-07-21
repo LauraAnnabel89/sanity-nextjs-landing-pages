@@ -28,13 +28,13 @@ function VideoGrid (props) {
           const imageUrl = builder.image(poster).auto('format').width(980).url()
           return (
             <div
+              key={_key}
               className={styles.videoParentContainer}
               onClick={() => {
                 setOpen(video)
               }}
             >
               <div
-                key={_key}
                 style={{backgroundImage: `url(${imageUrl})`}}
                 className={styles.videoContainer}
               >

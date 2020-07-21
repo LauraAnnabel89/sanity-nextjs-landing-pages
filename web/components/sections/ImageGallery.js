@@ -7,11 +7,16 @@ import imageUrlBuilder from '@sanity/image-url'
 import client from '../../client'
 import Link from 'next/link'
 import HamburgerMenu from 'react-hamburger-menu'
+import {useRouter} from 'next/router'
 
 const builder = imageUrlBuilder(client)
 
 const ImageGallery = (props) => {
   const {images, back} = props
+  const router = useRouter()
+
+  const returnHash = router.query.slug.replace('/', '-')
+  const returnUrl = `${back}#${returnHash}`
 
   const [state, setState] = useState({
     translate: 0,
@@ -89,7 +94,10 @@ const ImageGallery = (props) => {
             animationDuration={0.25}
           />
         ) : (
-          <Link href={back}>
+          <Link
+            href={returnUrl}
+            as={returnUrl}
+          >
             <a>
               <HamburgerMenu
                 isOpen

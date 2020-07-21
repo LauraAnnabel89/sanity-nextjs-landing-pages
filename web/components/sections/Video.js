@@ -32,7 +32,7 @@ export default class Video extends React.Component {
           byline: false,
           portrait: false,
           title: false,
-          color: 'ffffff',
+          color: '#ffffff',
           background: 0,
           autoplay: 0,
           loop: false,

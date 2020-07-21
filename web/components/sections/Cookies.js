@@ -7,6 +7,7 @@ const Cookies = () => {
       location='bottom'
       buttonText='I Accept'
       cookieName='cookie-gdpr-viewed'
+      sameSite='strict'
       style={{
         fontFamily: 'Gilroy',
         background: '#fff',
