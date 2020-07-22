@@ -38,8 +38,7 @@
 .content {
   position: relative;
   margin: 1.5rem;
-  max-width: 70em;
-  max-width: 90vw;
+  width: 90vw;
 
   @nest & figcaption {
     width: 100%;
@@ -48,23 +47,62 @@
 
   @media (--media-min-medium) {
     margin: 0 auto;
-    grid-template-columns: 1fr 1fr 1fr;
     padding-top: 1rem;
-    display: grid;
-    grid-gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     @nest & figcaption {
       position: absolute;
       top: 0;
     }
   }
+
+  @nest & a {
+    display: block;
+    width: 100%;
+
+    @media (--media-min-medium) {
+      width: calc(100% / 3);
+    }    
+  }  
+}
+
+.grid-5,
+.grid-4 {
+  @nest & a {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4);
+    }
+  }
+}
+
+.grid-5 {
+  @nest & a {
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5);
+    }
+  }
+}
+
+.grid-responsive {
+  @nest & a {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4);
+    }
+
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5);
+    }  
+  }
 }
 
 .imageContainer {
   margin: 1.5rem;
   position: relative;
+
   @media (--media-min-medium) {
-    margin: 0;
+    margin: 1em;
     padding: 0;
     position: relative;
   }
@@ -88,10 +126,6 @@
   background: rgba(0, 0, 0, 0.4);
   color: var(--color-white);
   text-transform: uppercase;
-
-  @media (--media-min-medium) {
-    max-width: calc(var(--width-small) - 3rem);
-  }
 
   @nest &:hover {
     opacity: 1;

@@ -2,6 +2,12 @@
 @import "slick-carousel/slick/slick-theme.css"; */
 @import "./custom-properties.css";
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 html {
   font-family: var(--font-family-gilroy);
   font-size: var(--font-base-size);
@@ -22,6 +28,6 @@ body,
   height: 100%;
 }
 
-:global(.content) {
+/* :global(.content) {
   min-height: calc(100% - 84px - 218px);
-}
+} */

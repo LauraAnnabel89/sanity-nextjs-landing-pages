@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Head from 'next/head'
 
-import { LogoJsonLd } from "next-seo";
+import {LogoJsonLd} from 'next-seo'
 
-function CustomLayout(props) {
-  const { config, children } = props;
+function CustomLayout (props) {
+  const {config, children} = props
 
   if (!config) {
-    console.error("Missing config");
-    return <div>Missing config</div>;
+    console.error('Missing config')
+    return <div>Missing config</div>
   }
 
   const {
@@ -20,20 +20,20 @@ function CustomLayout(props) {
     logo,
     url,
     socialmedialogos,
-    reverseColour,
-  } = config;
-  const logoUrl = logo && logo.asset && logo.asset.url;
+    reverseColour
+  } = config
+  const logoUrl = logo && logo.asset && logo.asset.url
 
   return (
     <>
       <Head>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
       </Head>
-      <div className="container">
-        <div className="content">{children}</div>
+      <div className='container'>
+        <div className='content'>{children}</div>
       </div>
     </>
-  );
+  )
 }
 
 CustomLayout.propTypes = {
@@ -45,11 +45,11 @@ CustomLayout.propTypes = {
     footerText: PropTypes.arrayOf(PropTypes.object),
     logo: PropTypes.shape({
       asset: PropTypes.shape({
-        url: PropTypes.string,
-      }),
+        url: PropTypes.string
+      })
     }),
-    url: PropTypes.string,
-  }),
-};
+    url: PropTypes.string
+  })
+}
 
-export default CustomLayout;
+export default CustomLayout

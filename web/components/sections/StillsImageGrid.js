@@ -1,59 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import styles from "./ImageGrid.module.css";
-import client from "../../client";
-import SimpleBlockContent from "../SimpleBlockContent";
-import Cta from "../Cta";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import React from 'react'
+import PropTypes from 'prop-types'
+import ImageGrid from './ImageGrid'
 
-const builder = imageUrlBuilder(client);
-
-function StillsImageGrid(props) {
-  const { image } = props;
-
-  const router = useRouter();
-
-  const images = props.image;
+function StillsImageGrid (props) {
+  const {image, limitGrid = 'responsive'} = props
 
   if (!image) {
-    return null;
+    return null
   }
 
   return (
-    <div className={styles.root}>
-      <div className={styles.content}>
-        {images.map((item) => {
-          const { internalLink, _key, caption } = item;
-
-          const RenderItem = () => (
-            <div key={`${_key}-image`} className={styles.imageContainer}>
-              <img
-                src={builder.image(item).auto("format").width(2000).url()}
-                className={styles.image}
-                alt={caption}
-              />
-              <p className={styles.caption}>{caption}</p>
-            </div>
-          );
-
-          if (internalLink && internalLink.resolved) {
-            const { resolved } = internalLink;
-            const { slug } = resolved;
-
-            return (
-              <Link href={{ pathname: `/stills/${slug.current}` }} as={`stills/${slug.current}`}>
-                <a>{RenderItem()}</a>
-              </Link>
-            );
-          }
-
-          return RenderItem();
-        })}
-      </div>
-    </div>
-  );
+    <ImageGrid image={image} limitGrid={limitGrid} />
+  )
 }
 
 StillsImageGrid.propTypes = {
@@ -63,7 +21,7 @@ StillsImageGrid.propTypes = {
   text: PropTypes.array,
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
-  cta: PropTypes.object,
-};
+  cta: PropTypes.object
+}
 
-export default StillsImageGrid;
+export default StillsImageGrid

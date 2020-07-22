@@ -13,15 +13,15 @@
 
 .article {
   width: 100%;
-  font-family: "Baskerville", sans-serif;
-  font-family: "Baskerville", sans-serif;
-  font-family: var(--font-family-baskerville);
-  max-width: 50em;
-  max-width: 50em;
-  max-width: var(--width-medium);
+  font-family: var(--font-family-gilroy);
+  max-width: var(--width-text-medium);
   margin: 0 auto;
+  padding: 0 1.5rem;
   box-sizing: border-box;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   @media (--media-min-medium) {
     display: flex;
@@ -34,30 +34,33 @@
 }
 
 .column {
-  max-height: 275px;
-  overflow-y: scroll;
   @media (--media-min-medium) {
     min-width: 230px;
     margin-left: 0.2rem;
   }
 }
 
-.column::-webkit-scrollbar {
+.copy::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
-.column::-webkit-scrollbar:vertical {
+.copy::-webkit-scrollbar:vertical {
   width: 6px;
 }
 
-.column::-webkit-scrollbar:horizontal {
+.copy::-webkit-scrollbar:horizontal {
   height: 11px;
 }
 
-.column::-webkit-scrollbar-thumb {
+.copy::-webkit-scrollbar-thumb {
   border-radius: 8px;
   border: 1px solid white; /* should match background, can't be transparent */
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.copy {
+  max-height: 275px;
+  overflow-y: scroll;
 }
 
 .copy p {
@@ -81,9 +84,6 @@
   text-transform: uppercase;
   font-weight: normal;
   width: object-fit;
-}
-
-.column {
 }
 
 .label + .heading {

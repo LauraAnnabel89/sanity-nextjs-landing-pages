@@ -3,7 +3,7 @@ const client = sanityClient({
   projectId: 'f24siizv',
   dataset: 'production',
   token: '', // or leave blank to be anonymous user
-  useCdn: false // `false` if you want to ensure fresh data
+  useCdn: process.env.NODE_ENV === 'production' // `false` if you want to ensure fresh data
 })
 
 module.exports = client

@@ -33,7 +33,7 @@
   justify-content: space-between;
   padding-top: 1em;
   font-size: var(--font-small-size);
-  font-family: var(--font-family-baskerville);
+  font-family: var(--font-family-gilroy);
   text-decoration: none;
   color: var(--color-black);
   @nest & > p span {
@@ -92,9 +92,7 @@
 .imageGridContainer {
   position: relative;
   margin: 1.5rem;
-  max-width: 70em;
-  max-width: var(--width-medium);
-
+  max-width: 60em;
   @nest & figcaption {
     width: 100%;
     box-sizing: border-box;

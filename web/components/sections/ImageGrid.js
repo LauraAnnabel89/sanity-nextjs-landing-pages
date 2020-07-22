@@ -1,62 +1,63 @@
-import React from "react";
-import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import styles from "./ImageGrid.module.css";
-import client from "../../client";
-import SimpleBlockContent from "../SimpleBlockContent";
-import Cta from "../Cta";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import React from 'react'
+import PropTypes from 'prop-types'
+import imageUrlBuilder from '@sanity/image-url'
+import styles from './ImageGrid.module.css'
+import client from '../../client'
+import Link from 'next/link'
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(client)
 
-function ImageGrid(props) {
-  const { image } = props;
+function ImageGrid (props) {
+  const {image, limitGrid = 'responsive'} = props
 
-  const router = useRouter();
-
-  const images = props.image;
+  const images = props.image
 
   if (!image) {
-    return null;
+    return null
   }
 
   return (
     <div className={styles.root}>
-      <div className={styles.content}>
+      <div className={`${styles.content} ${styles[`grid-${limitGrid}`]}`}>
         {images.map((item) => {
-          const { internalLink, _key, caption } = item;
+          const {internalLink, _key, caption} = item
 
           const RenderItem = () => (
             <div key={`${_key}-image`} className={styles.imageContainer}>
               <img
-                src={builder.image(item).auto("format").width(2000).url()}
+                src={builder.image(item).auto('format').width(900).url()}
                 className={styles.image}
                 alt={caption}
+                loading='lazy'
               />
               <p className={styles.caption}>{caption}</p>
             </div>
-          );
+          )
 
           if (internalLink && internalLink.resolved) {
-            const { resolved } = internalLink;
-            const { slug } = resolved;
+            const {resolved} = internalLink
+            const {slug} = resolved
 
             return (
               <Link
-                href={{ pathname: `/locations/${slug.current}` }}
-                as={`locations/${slug.current}`}
+                key={_key}
+                href={{
+                  pathname: '/LandingPage',
+                  query: {slug: slug.current}
+                }}
+                as={`/${slug.current}`}
+                prefetch={false}
               >
-                <a>{RenderItem()}</a>
+                <a id={slug.current.replace('/', '-')}>{RenderItem()}</a>
               </Link>
-            );
+            )
           }
 
-          return RenderItem();
+          return RenderItem()
         })}
       </div>
     </div>
-  );
+  )
 }
 
 ImageGrid.propTypes = {
@@ -66,7 +67,7 @@ ImageGrid.propTypes = {
   text: PropTypes.array,
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
-  cta: PropTypes.object,
-};
+  cta: PropTypes.object
+}
 
-export default ImageGrid;
+export default ImageGrid

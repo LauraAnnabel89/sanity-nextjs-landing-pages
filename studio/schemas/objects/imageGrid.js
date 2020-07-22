@@ -6,10 +6,23 @@ export default {
     {
       name: 'image',
       type: 'array',
-      of: [{ type: 'figure' }],
+      of: [{type: 'figure'}],
       title: 'Image',
       options: {
         hotspot: true
+      }
+    },
+    {
+      title: 'Limit grid',
+      description: 'Limits the grid to this maximum images in a single row',
+      name: 'limitGrid',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Responsive (5 Images)', value: ''},
+          {title: '3 Images', value: '3'},
+          {title: '4 Images', value: '4'}
+        ]
       }
     }
   ],
@@ -17,9 +30,9 @@ export default {
     select: {
       media: 'image'
     },
-    prepare({ title, internalLink, caption, media }) {
+    prepare ({title, internalLink, caption, media}) {
       return {
-        title,
+        title: title || 'Untitled Image Grid Section',
         caption,
         internalLink,
         subtitle: 'Image Grid',

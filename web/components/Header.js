@@ -1,133 +1,146 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Link from "next/link";
-import { withRouter } from "next/router";
-import SVG from "react-inlinesvg";
-import styles from "./Header.module.css";
-import HamburgerIcon from "./icons/Hamburger";
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import {withRouter} from 'next/router'
+import SVG from 'react-inlinesvg'
+import styles from './Header.module.css'
+import HamburgerMenu from 'react-hamburger-menu'
+
+import HamburgerIcon from './icons/Hamburger'
 
 class Header extends Component {
-  state = { showNav: false };
+  state = {showNav: false};
 
   static propTypes = {
     router: PropTypes.shape({
       pathname: PropTypes.string,
       query: PropTypes.shape({
-        slug: PropTypes.string,
+        slug: PropTypes.string
       }),
-      events: PropTypes.any,
+      events: PropTypes.any
     }),
     title: PropTypes.string,
     navItems: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         slug: PropTypes.shape({
-          current: PropTypes.string,
-        }).isRequired,
+          current: PropTypes.string
+        }).isRequired
       })
     ),
     logo: PropTypes.shape({
       asset: PropTypes.shape({
-        url: PropTypes.string,
+        url: PropTypes.string
       }),
-      logo: PropTypes.string,
-    }),
+      logo: PropTypes.string
+    })
   };
 
-  componentDidMount() {
-    const { router } = this.props;
-    router.events.on("routeChangeComplete", this.hideMenu);
+  componentDidMount () {
+    const {router} = this.props
+    router.events.on('routeChangeComplete', this.hideMenu)
   }
 
-  componentWillUnmount() {
-    const { router } = this.props;
-    router.events.off("routeChangeComplete", this.hideMenu);
+  componentWillUnmount () {
+    const {router} = this.props
+    router.events.off('routeChangeComplete', this.hideMenu)
   }
 
   hideMenu = () => {
-    this.setState({ showNav: false });
+    this.setState({showNav: false})
   };
 
   handleMenuToggle = () => {
-    const { showNav } = this.state;
+    const {showNav} = this.state
     this.setState({
-      showNav: !showNav,
-    });
+      showNav: !showNav
+    })
   };
 
   renderLogo = (logo) => {
     if (!logo || !logo.asset) {
-      return null;
+      return null
     }
 
-    if (logo.asset.extension === "svg") {
-      return <SVG src={logo.asset.url} className={styles.logo} />;
+    if (logo.asset.extension === 'svg') {
+      return <SVG src={logo.asset.url} className={styles.logo} />
     }
 
-    return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />;
+    return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />
   };
 
-  render() {
-    const { title = "Missing title", navItems, router, logo, reverseColour } = this.props;
-    const { showNav } = this.state;
+  render () {
+    const {title = 'Missing title', navItems, router, logo, reverseColour} = this.props
+    const {showNav} = this.state
 
     return (
       <div
         className={styles.root}
         data-show-nav={showNav}
-        style={{ color: reverseColour && "black" }}
+        style={{color: reverseColour && 'black'}}
       >
-        <h1 className={styles.branding}>
+        <div className={styles.branding}>
           <Link
             href={{
-              pathname: "/",
+              pathname: '/',
               query: {
-                slug: "/",
-              },
+                slug: '/'
+              }
             }}
-            as="/"
+            as='/'
           >
-            <a title={title}>DAWN</a>
+            <a>
+              <img src='/static/images/dawn.svg' alt='Dawn Production' />
+            </a>
           </Link>
-        </h1>
+        </div>
         <nav className={styles.nav}>
           <ul className={styles.navItems}>
             {navItems &&
               navItems.map((item) => {
-                const { slug, title, _id } = item;
+                const {slug, title, _id} = item
                 const isActive =
-                  router.pathname === "/LandingPage" && router.query.slug === slug.current;
+                  router.pathname === '/LandingPage' && router.query.slug === slug.current
                 return (
                   <li key={_id} className={styles.navItem}>
                     <Link
                       href={{
-                        pathname: "/LandingPage",
-                        query: { slug: slug.current },
+                        pathname: '/LandingPage',
+                        query: {slug: slug.current}
                       }}
                       as={`/${slug.current}`}
                     >
                       <a
-                        data-is-active={isActive ? "true" : "false"}
-                        style={{ borderBottom: reverseColour && "none" }}
+                        data-is-active={isActive ? 'true' : 'false'}
+                        style={{borderBottom: reverseColour && 'none'}}
                       >
                         {title}
                       </a>
                     </Link>
                   </li>
-                );
+                )
               })}
           </ul>
-          <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
-            {showNav ? (
-              <div className={styles.closeIcon}>X</div>
-            ) : (
-              <HamburgerIcon className={styles.hamburgerIcon} />
-            )}
-          </button>
+          <div
+            onClick={this.handleMenuToggle}  
+            className={styles.showNavButton}
+          >
+            <HamburgerMenu
+              isOpen={showNav}
+              menuClicked={() => {}}
+              width={20}
+              height={15}
+              strokeWidth={1}
+              rotate={0}
+              color={showNav ? 'black' : 'white'}
+              borderRadius={1}
+              animationDuration={0.25}
+            />
+          </div>
         </nav>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(Header);
+export default withRouter(Header)

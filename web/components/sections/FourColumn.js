@@ -1,20 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import styles from "./FourColumn.module.css";
-import client from "../../client";
-import SimpleBlockContent from "../SimpleBlockContent";
-import Cta from "../Cta";
+import React from 'react'
+import PropTypes from 'prop-types'
+import imageUrlBuilder from '@sanity/image-url'
+import styles from './FourColumn.module.css'
+import client from '../../client'
+import SimpleBlockContent from '../SimpleBlockContent'
+import Cta from '../Cta'
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(client)
 
-function FourColumn(props) {
-  const { heading, label, text, image, cta } = props;
+function FourColumn (props) {
+  const {heading, label, text, image, cta} = props
 
-  const images = props.image;
+  const images = props.image
 
   if (!image) {
-    return null;
+    return null
   }
 
   return (
@@ -23,7 +23,7 @@ function FourColumn(props) {
         {images.map((image) => (
           <figure className={styles.imageContainer}>
             <img
-              src={builder.image(image).auto("format").width(2000).url()}
+              src={builder.image(image).auto('format').width(480).url()}
               className={styles.image}
               alt={heading}
             />
@@ -31,7 +31,7 @@ function FourColumn(props) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 FourColumn.propTypes = {
@@ -40,12 +40,12 @@ FourColumn.propTypes = {
   text: PropTypes.array,
   image: PropTypes.shape({
     asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
+      _ref: PropTypes.string
+    })
   }),
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
-  cta: PropTypes.object,
-};
+  cta: PropTypes.object
+}
 
-export default FourColumn;
+export default FourColumn

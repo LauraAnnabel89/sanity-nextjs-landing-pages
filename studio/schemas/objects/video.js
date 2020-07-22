@@ -9,8 +9,7 @@ export default {
     {
       name: 'url',
       title: 'Video Link',
-      description:
-        'Enter the URL for the video\nSupports videos from: YouTube, Facebook, SoundCloud, Streamable, Vidme, Vimeo, Wistia, Twitch, DailyMotion',
+      description: 'Enter the URL for the video from Vimeo',
       type: 'url'
     },
     {
@@ -38,11 +37,12 @@ export default {
   preview: {
     select: {
       url: 'url',
-      poster: 'poster'
+      poster: 'poster',
+      caption: 'caption'
     },
     prepare: selection => {
-      const { url, poster } = selection
-      const title = 'Video'
+      const { url, poster, caption } = selection
+      const title = caption || 'Uncaptioned Video'
       const subtitle = url || 'Video URL Missing!'
       return {
         title,

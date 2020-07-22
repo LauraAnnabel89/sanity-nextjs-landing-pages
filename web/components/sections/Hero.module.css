@@ -22,7 +22,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-black);
 }
 
 .image {
@@ -35,7 +34,7 @@
   height: 100vh;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 150ms ease;
 }
 
 .staticImage {
@@ -60,7 +59,7 @@
   height: 100vh;
   object-fit: cover;
   opacity: 1;
-  transition: opacity 1s ease;
+  transition: opacity 150ms ease;
 }
 
 @keyframes fadeIn {

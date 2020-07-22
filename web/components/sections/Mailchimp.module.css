@@ -15,9 +15,14 @@
   width: 100%;
   max-width: var(--width-small);
   padding: 0 1.5em;
-  box-sizing: border-box;
   margin: 0 auto;
+
+  @media (--media-min-medium) {
+    display: flex;
+    flex-direction: row;
+  }
 }
+
 
 .heading {
   text-align: center;
@@ -35,11 +40,19 @@
 }
 
 .subtitle {
-  font-family: var(--font-family-baskerville);
+  font-family: var(--font-family-gilroy);
   text-align: center;
   color: var(--color-dark-grey);
+  margin: 0.5rem 0.5rem;
+  min-width: 12rem;
+}
 
-  margin: 0.5rem 0 1.5rem;
+.legalCopy {
+  font-family: var(--font-family-gilroy);
+  text-align: center;
+  color: var(--color-dark-grey);
+  font-size: var(--font-micro-size);
+  margin: 0.5rem 0.5rem;
 }
 
 .form {
@@ -65,23 +78,23 @@
   max-width: 100%;
   border-radius: 0;
   box-sizing: border-box;
-  font-family: var(--font-family-baskerville);
-
-  @media (--media-min-medium) {
-    padding: 1em;
-  }
+  font-family: var(--font-family-gilroy);
 }
 
 .form button {
   -webkit-font-smoothing: inherit;
   font: inherit;
-  background: none;
   margin-top: 1rem;
   display: block;
   height: 2.5em;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
+  transition:
+    background 150ms linear,
+    color 150ms linear;
+  background: var(--color-black, #000);
+  color: var(--color-white, #fff);
 
   @media (--media-min-medium) {
     margin-top: 0;
@@ -89,14 +102,14 @@
   }
 
   @nest &:focus {
-    background: var(--color-black, #000);
-    color: var(--color-white, #fff);
+    background: var(--color-grey, #fff);
+    color: var(--color-light-grey, #000);
   }
 
   @media (hover: hover) {
     @nest &:hover {
-      background: var(--color-black, #000);
-      color: var(--color-white, #fff);
-    }
+      background: var(--color-grey, #fff);
+      color: var(--color-light-grey, #000);
+      }
   }
 }

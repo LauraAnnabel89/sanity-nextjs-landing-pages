@@ -19,26 +19,24 @@
 }
 
 .branding {
-  font-size: 40px;
-  font-weight: 700;
   margin: 0;
   padding: 0;
-  letter-spacing: 0.3rem;
 
   @nest & > a {
     display: block;
-    padding: 1rem 0.5rem;
-
-    @supports (padding-top: env(safe-area-inset-top)) {
-      padding-left: calc(env(safe-area-inset-left) + 1.5rem);
-    }
+    padding: 1.5rem;
   }
 
   @nest & img, & svg {
-    height: calc(var(--font-base-line-height) * 1.5rem);
+    height: 1.5rem;
     width: auto;
     color: inherit;
     vertical-align: top;
+
+    
+    @media (--media-min-medium) {
+      height: 2.5rem;
+    }
   }
 
   @nest & svg path {
@@ -65,42 +63,40 @@
   padding: 0;
   margin: 0;
   text-transform: uppercase;
-
-  @media (--media-min-medium) {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 1rem;
-  }
-
-  @supports (padding-top: env(safe-area-inset-top)) {
-    padding-right: calc(env(safe-area-inset-right) + 2rem);
-  }
-
-  display: none;
+  padding-top: 1.5rem;
+  display: block;
   position: absolute;
   top: 100%;
   width: 100%;
+  transform: translateX(100%);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--color-black, #fff);
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  z-index: 40;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+  position: fixed;
+  transition: transform 150ms ease-out;
+
+  @media (--media-min-medium) {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1.5rem 1rem;
+    width: 220px;
+  }
+
+  @supports (padding-top: env(safe-area-inset-top)) {
+    padding-right: calc(env(safe-area-inset-right) + 3.5rem);
+  }
 
   @nest .root[data-show-nav="true"] & {
-    display: block;
-    background-color: var(--color-white, #000);
-    color: var(--color-black, #fff);
-    min-height: 100vh;
-    min-height: 100vh;
-    height: 100%;
-    width: 100vw;
-    z-index: 40;
-    top: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    flex-direction: column;
-    position: fixed;
-
-    @media (--media-min-medium) {
-      width: 15vw;
-    }
+    transform: translateX(0%);
   }
 }
 
@@ -113,15 +109,12 @@
   @nest & > a {
     display: block;
     position: relative;
-    padding: 1.5rem 0rem 0.1rem;
-    height: 25px;
-    margin: 0 0.5rem;
     transition: all 1s ease;
+    line-height: 1;
+    padding-bottom: 1rem;
 
     @media (--media-max-medium) {
-      padding: 1rem 1.5rem;
       width: 100%;
-      box-sizing: border-box;
       text-align: right;
 
       @nest &[data-is-active="true"]::before {
@@ -160,30 +153,17 @@
 }
 
 .showNavButton {
-  appearance: none;
-  border: none;
-  font: inherit;
-  background: none;
-  color: inherit;
-  margin: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1001;
   padding: 1.5rem;
-  outline: none;
-}
-
-.hamburgerIcon {
-  font-size: calc(var(--font-base-line-height) * 1.5rem);
-  display: block;
+  padding-left: 0.8rem;
   cursor: pointer;
 }
 
 .closeIcon {
-  z-index: 40;
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: var(--color-black);
-  padding: 1.5em;
-  font-size: 20px;
-  cursor: pointer;
-  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
 }

@@ -1,28 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import styles from "./TwoColumnWithText.module.css";
-import client from "../../client";
-import SimpleBlockContent from "../SimpleBlockContent";
-import Cta from "../Cta";
+import React from 'react'
+import PropTypes from 'prop-types'
+import imageUrlBuilder from '@sanity/image-url'
+import styles from './TwoColumnWithText.module.css'
+import client from '../../client'
+import SimpleBlockContent from '../SimpleBlockContent'
+import Cta from '../Cta'
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(client)
 
-function TwoColumnWithText(props) {
-  const { heading, label, text, image, reverseOrder } = props;
+function TwoColumnWithText (props) {
+  const {heading, label, text, image, reverseOrder} = props
 
   if (!image) {
-    return null;
+    return null
   }
-
-  console.log(props);
 
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        <div className={styles.imageContainer} style={{ order: reverseOrder && "2" }}>
+        <div className={styles.imageContainer} style={{order: reverseOrder && '2'}}>
           <img
-            src={builder.image(props.image).auto("format").width(2000).url()}
+            src={builder.image(props.image).auto('format').width(980).url()}
             className={styles.image}
             alt={props.heading}
           />
@@ -34,7 +32,7 @@ function TwoColumnWithText(props) {
         </section>
       </div>
     </div>
-  );
+  )
 }
 
 TwoColumnWithText.propTypes = {
@@ -43,12 +41,12 @@ TwoColumnWithText.propTypes = {
   text: PropTypes.array,
   image: PropTypes.shape({
     asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
+      _ref: PropTypes.string
+    })
   }),
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
-  cta: PropTypes.object,
-};
+  cta: PropTypes.object
+}
 
-export default TwoColumnWithText;
+export default TwoColumnWithText

@@ -1,12 +1,6 @@
 export default {
   widgets: [
-    {
-      name: 'sanity-tutorials',
-      options: {
-        templateRepoId: 'sanity-io/sanity-template-nextjs-landing-pages'
-      }
-    },
-    {name: 'structure-menu'},
+    { name: 'structure-menu' },
     {
       name: 'project-info',
       options: {
@@ -39,15 +33,19 @@ export default {
             value: 'https://github.com/LauraAnnabel89/sanity-nextjs-landing-pages',
             category: 'Code'
           },
-          {title: 'Frontend', value: 'https://sanity-nextjs-landing-pages-web-7y7c8hzu.netlify.app', category: 'apps'}
+          {
+            title: 'Frontend',
+            value: 'https://sanity-nextjs-landing-pages-web-7y7c8hzu.netlify.app',
+            category: 'apps'
+          }
         ]
       }
     },
-    {name: 'project-users', layout: {height: 'auto'}},
+    { name: 'project-users', layout: { height: 'auto' } },
     {
       name: 'document-list',
-      options: {title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['page']},
-      layout: {width: 'medium'}
+      options: { title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['page'] },
+      layout: { width: 'medium' }
     }
   ]
 }

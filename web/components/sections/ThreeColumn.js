@@ -23,7 +23,7 @@ function ThreeColumn(props) {
         {images.map((image) => (
           <figure className={styles.imageContainer}>
             <img
-              src={builder.image(image).auto("format").width(2000).url()}
+              src={builder.image(image).auto("format").width(980).url()}
               className={styles.image}
               alt={heading}
             />

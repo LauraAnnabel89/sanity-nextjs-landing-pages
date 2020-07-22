@@ -36,28 +36,64 @@
 }
 
 .content {
-  width: 100%;
   position: relative;
   margin: 1.5rem;
-  max-width: 70em;
-  max-width: 90vw;
+  width: 90vw;
 
   @nest & figcaption {
     width: 100%;
-    box-sizing: border-box;
   }
 
   @media (--media-min-medium) {
     margin: 0 auto;
-    grid-template-columns: 1fr 1fr 1fr;
     padding-top: 1rem;
-    display: grid;
-    grid-gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     @nest & figcaption {
       position: absolute;
       top: 0;
     }
+  }
+
+  @nest & .videoParentContainer {
+    display: block;
+    width: 100%;
+
+    @media (--media-min-medium) {
+      width: calc(100% / 3);
+    }    
+  }  
+}
+
+
+.grid-5,
+.grid-4 {
+  @nest & .videoParentContainer {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4);
+    }
+  }
+}
+
+.grid-5 {
+  @nest & .videoParentContainer {
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5);
+    }
+  }
+}
+
+.grid-responsive {
+  @nest & .videoParentContainer {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4);
+    }
+
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5);
+    }  
   }
 }
 
@@ -72,7 +108,7 @@
   background-color: rgba(255, 255, 255, 0.8);
 
   @media (--media-min-medium) {
-    margin: 0;
+    margin: 1em;
     padding: 0;
     position: relative;
   }
@@ -97,10 +133,7 @@
   background: rgba(0, 0, 0, 0.4);
   color: var(--color-white);
   text-transform: uppercase;
-
-  @media (--media-min-medium) {
-    max-width: calc(var(--width-small) - 3rem);
-  }
+  padding: 1rem;
 
   @nest &:hover {
     opacity: 1;
@@ -115,4 +148,32 @@
   @media (--media-min-medium) {
     max-width: calc((var(--width-small) / 2) - 3rem);
   }
+}
+
+.modal {
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+.modalBackdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2001;
+}
+
+.modalClose {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 2002;
+  cursor: pointer;
 }
