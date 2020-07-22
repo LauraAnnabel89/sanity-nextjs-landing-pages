@@ -28,6 +28,7 @@ import simplePortableText from './objects/simplePortableText'
 import stillsImageGallery from './objects/stillsImageGallery'
 import stillsImageGrid from './objects/stillsImageGrid'
 import textSection from './objects/textSection'
+import textIndex from './objects/textIndex'
 import textSectionThreeColumns from './objects/textSectionThreeColumns'
 import threeColumn from './objects/threeColumn'
 import twoColumn from './objects/twoColumn'
@@ -62,6 +63,7 @@ export default createSchema({
     stillsImageGallery,
     stillsImageGrid,
     textSection,
+    textIndex,
     textSectionThreeColumns,
     threeColumn,
     twoColumn,
