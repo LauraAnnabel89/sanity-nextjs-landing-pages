@@ -60,6 +60,10 @@
   @nest & svg path {
     fill: #202123 !important;
   }
+
+  @nest & .navItem > a[data-is-active=true]::before {
+    background-color: #202123 !important;
+  }
 }
 
 .logo {
