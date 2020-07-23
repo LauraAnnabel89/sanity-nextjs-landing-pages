@@ -98,6 +98,7 @@ class LandingPage extends Component {
       openGraphImage,
       content = [],
       config = {},
+      headerInvert = false,
       slug
     } = this.props
 
@@ -127,7 +128,7 @@ class LandingPage extends Component {
       : []
 
     return (
-      <Layout slug={slug} config={config}>
+      <Layout slug={slug} config={config} headerInvert={headerInvert}>
         <NextSeo
           config={{
             title,

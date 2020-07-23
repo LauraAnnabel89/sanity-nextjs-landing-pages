@@ -1,0 +1,101 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.root {
+  padding: 5.5rem 0;
+
+  @media (--media-min-medium) {
+    padding: 6.5rem 0;
+  }
+}
+
+.article {
+  width: 100%;
+  font-family: var(--font-family-gilroy);
+  max-width: var(--width-x-large);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: left;
+ 
+  @media (--media-min-medium) {
+    flex-direction: row;
+  }
+}
+
+.TextSection p span {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.indexes {
+  padding: 0 0.5rem;
+
+  @nest & h4 {
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+
+  @nest & a {
+    color: #000;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 0.65rem 0;
+  }
+
+  @nest & a:visited {
+    color: #000;
+  }
+
+  @media (--media-min-medium) {
+    width: 25%;
+    position: sticky;
+    top: 2.5rem;
+  }
+}
+
+.legal {
+  padding: 0 0.5rem;
+
+  @media (--media-min-medium) {
+    width: 75%;
+
+    @nest & h1:first-child {
+      margin-top: 0;
+    }  
+  }
+
+  @nest & h1 {
+    text-transform: uppercase;
+  }
+}
+
+.indexLink {
+  display: block;
+}
+
+.scrollable {
+  max-height: calc(100vh - 13rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #000 #fff;
+
+  @nest &::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  @nest &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  @nest &::-webkit-scrollbar-thumb {
+    background-color: #000 ;
+    border-radius: 6px;
+    border: 3px solid #fff;
+  }
+}

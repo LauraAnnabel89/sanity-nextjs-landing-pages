@@ -8,7 +8,7 @@ import Footer from './Footer'
 import Cookies from './sections/Cookies'
 
 function Layout (props) {
-  const {slug, config, children} = props
+  const {slug, config, children, headerInvert} = props
 
   if (!config) {
     console.error('Missing config')
@@ -22,8 +22,7 @@ function Layout (props) {
     footerText,
     logo,
     url,
-    socialmedialogos,
-    reverseColour
+    socialmedialogos
   } = config
   const logoUrl = logo && logo.asset && logo.asset.url
 
@@ -33,7 +32,7 @@ function Layout (props) {
         <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
       </Head>
       <div className='container'>
-        <HorizontalHeader title={title} navItems={mainNavigation} logo={logo} reverseColour={reverseColour} />
+        <HorizontalHeader title={title} navItems={mainNavigation} logo={logo} headerInvert={headerInvert} />
         <div className='content'>{children}</div>
         {slug !== '/' ? <Footer navItems={footerNavigation} socialLogos={socialmedialogos} text={footerText} /> : null}
         <Cookies />
