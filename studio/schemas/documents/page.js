@@ -33,7 +33,7 @@ export default {
         {type: 'twoColumnWithText'},
         {type: 'threeColumn'},
         {type: 'textSectionThreeColumns'},
-        {type: 'textIndex'},
+        {type: 'legalSection'},
         {type: 'video'},
         {type: 'videoGrid'}
       ]

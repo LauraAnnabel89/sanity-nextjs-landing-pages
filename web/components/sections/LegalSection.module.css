@@ -1,0 +1,68 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.root {
+  padding: 1.5rem 0;
+
+  @media (--media-min-medium) {
+    padding: 2.5rem 0;
+  }
+}
+
+.article {
+  width: 100%;
+  font-family: var(--font-family-gilroy);
+  max-width: var(--width-large);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: left;
+ 
+  @media (--media-min-medium) {
+    flex-direction: row;
+  }
+}
+
+.TextSection p span {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.indexes {
+  padding: 0 0.5rem;
+
+  @nest & a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  @nest & a:visited {
+    color: #000;
+  }
+
+  @media (--media-min-medium) {
+    width: 25%;
+    position: sticky;
+    top: 2.5rem;
+  }
+}
+
+.legal {
+  padding: 0 0.5rem;
+
+  @media (--media-min-medium) {
+    width: 75%;
+
+    @nest & h1:first-child {
+      margin-top: 0;
+    }  
+  }
+}
+
+.indexLink {
+  display: block;
+}
