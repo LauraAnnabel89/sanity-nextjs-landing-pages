@@ -4,8 +4,8 @@ import SimpleBlockContent from '../SimpleBlockContent'
 import styles from './LegalSection.module.css'
 
 function LegalSection (props) {
-  const {text} = props
-  const titles = text.filter((row) => row.style === 'h1')
+  const {text, heading, headingIndex} = props
+  const titles = text.filter((row) => row.style === 'h2')
 
   const RenderTitle = (title) => {
     const {_key, children} = title
@@ -22,11 +22,13 @@ function LegalSection (props) {
     <div className={styles.root}>
       <section className={styles.article}>
         <aside className={styles.indexes}>
+          {headingIndex && <h4>{headingIndex}</h4>}
           <div className={styles.scrollable}>
             {titles.map((title) => RenderTitle(title))}
           </div>
         </aside>
         <main className={styles.legal}>
+          {heading && <h1>{heading}</h1>}
           {text && <SimpleBlockContent blocks={text} />}
         </main>
       </section>

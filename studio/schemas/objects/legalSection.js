@@ -4,6 +4,16 @@ export default {
   name: 'legalSection',
   fields: [
     {
+      name: 'heading',
+      title: 'Heading',
+      type: 'string'
+    },
+    {
+      name: 'headingIndex',
+      title: 'Heading for Index column',
+      type: 'string'
+    },
+    {
       name: 'text',
       title: 'Text',
       description: 'Please use Titles (h1) to mark the content index',
@@ -13,7 +23,7 @@ export default {
           type: 'block',
           styles: [
             {title: 'Normal', value: 'normal'},
-            {title: 'Title', value: 'h1'}
+            {title: 'Title', value: 'h2'}
           ],
           marks: {
             decorators: [
@@ -30,9 +40,12 @@ export default {
     }
   ],
   preview: {
-    prepare () {
+    select: {
+      heading: 'heading'
+    },
+    prepare ({heading}) {
       return {
-        title: 'Legal Section',
+        title: heading || 'Untitled Legal Section',
         subtitle: 'Legal copy section'
       }
     }

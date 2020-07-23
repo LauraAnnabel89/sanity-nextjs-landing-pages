@@ -5,7 +5,7 @@ import BlockContent from '@sanity/block-content-to-react'
 function BlockRenderer (props) {
   const {style = 'normal'} = props.node
 
-  if (/^h1$/.test(style)) {
+  if (/^h2$/.test(style)) {
     const [text] = props.children
     const id = text.toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
     return React.createElement(style, {id}, props.children)
