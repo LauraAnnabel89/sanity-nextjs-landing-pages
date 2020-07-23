@@ -2,17 +2,17 @@
 @import "../../styles/custom-properties.css";
 
 .root {
-  padding: 1.5rem 0;
+  padding: 5.5rem 0;
 
   @media (--media-min-medium) {
-    padding: 2.5rem 0;
+    padding: 6.5rem 0;
   }
 }
 
 .article {
   width: 100%;
   font-family: var(--font-family-gilroy);
-  max-width: var(--width-large);
+  max-width: var(--width-xlarge);
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
@@ -65,4 +65,25 @@
 
 .indexLink {
   display: block;
+}
+
+.scrollable {
+  max-height: calc(100vh - 13rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #000 #fff;
+
+  @nest &::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  @nest &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  @nest &::-webkit-scrollbar-thumb {
+    background-color: #000 ;
+    border-radius: 6px;
+    border: 3px solid #fff;
+  }
 }

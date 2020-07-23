@@ -51,7 +51,13 @@ export default {
       title: 'Open Graph Image',
       description: 'Image for sharing previews on Facebook, Twitter etc.',
       fieldset: 'metadata'
-    }
+    },
+    {
+      name: 'headerInvert',
+      type: 'boolean',
+      title: 'Invert Navigation menu colors',
+      description: 'By switching this on the navigation bar at the top will be black instead of white, this is useful for pages with only legal copy on'
+    }    
   ],
 
   preview: {

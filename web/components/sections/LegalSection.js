@@ -6,7 +6,7 @@ import styles from './LegalSection.module.css'
 function LegalSection (props) {
   const {text} = props
   const titles = text.filter((row) => row.style === 'h1')
-  console.log(titles)
+
   const RenderTitle = (title) => {
     const {_key, children} = title
     const [row] = children
@@ -22,7 +22,9 @@ function LegalSection (props) {
     <div className={styles.root}>
       <section className={styles.article}>
         <aside className={styles.indexes}>
-          {titles.map((title) => RenderTitle(title))}
+          <div className={styles.scrollable}>
+            {titles.map((title) => RenderTitle(title))}
+          </div>
         </aside>
         <main className={styles.legal}>
           {text && <SimpleBlockContent blocks={text} />}

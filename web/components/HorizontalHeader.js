@@ -68,14 +68,13 @@ class HorizontalHeader extends Component {
   };
 
   render () {
-    const {title = 'Missing title', navItems, router, logo, reverseColour} = this.props
+    const {title = 'Missing title', navItems, router, logo, headerInvert} = this.props
     const {showNav} = this.state
 
     return (
       <div
-        className={styles.root}
+        className={`${styles.root} ${headerInvert && styles.inverted}`}
         data-show-nav={showNav}
-        style={{color: reverseColour && 'black'}}
       >
         <div className={styles.branding}>
           <Link
@@ -110,7 +109,6 @@ class HorizontalHeader extends Component {
                     >
                       <a
                         data-is-active={isActive ? 'true' : 'false'}
-                        style={{borderBottom: reverseColour && 'none'}}
                       >
                         {title}
                       </a>
@@ -130,7 +128,7 @@ class HorizontalHeader extends Component {
               height={25}
               strokeWidth={2}
               rotate={0}
-              color='white'
+              color={headerInvert ? 'black' : 'white'}
               borderRadius={1}
               animationDuration={0.25}
             />
