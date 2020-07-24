@@ -63,8 +63,12 @@
     width: 100%;
 
     @media (--media-min-medium) {
-      width: calc(100% / 3);
+      width: calc(100% / 2);
     }    
+
+    @media (--media-min-navbar) {
+      width: calc(100% / 3);
+    }
   }  
 }
 
@@ -99,12 +103,15 @@
 
 .imageContainer {
   margin: 1.5rem;
+  padding: 0;
   position: relative;
 
   @media (--media-min-medium) {
     margin: 1em;
-    padding: 0;
-    position: relative;
+  }
+
+  @nest & p {
+    padding: 0.5rem;
   }
 }
 

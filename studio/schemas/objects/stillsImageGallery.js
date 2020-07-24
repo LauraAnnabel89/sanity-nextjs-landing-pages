@@ -4,6 +4,11 @@ export default {
   title: 'Stills Image Gallery',
   fields: [
     {
+      name: 'name',
+      type: 'string',
+      title: 'Name'
+    },
+    {
       name: 'image',
       type: 'array',
       of: [{type: 'figure'}],
@@ -15,15 +20,13 @@ export default {
   ],
   preview: {
     select: {
+      title: 'name',
       media: 'image'
     },
-    prepare ({title, internalLink, caption, media}) {
+    prepare ({title, media}) {
       return {
-        title,
-        caption,
-        internalLink,
-        subtitle: 'Stills Image Gallery',
-        media
+        title: title || `${media.length} images`,
+        subtitle: 'Stills Image Gallery'
       }
     }
   }

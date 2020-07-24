@@ -3,13 +3,11 @@ import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './ImageSection.module.css'
 import client from '../../client'
-import SimpleBlockContent from '../SimpleBlockContent'
-import Cta from '../Cta'
 
 const builder = imageUrlBuilder(client)
 
 function ImageSection (props) {
-  const {heading, label, text, image, cta} = props
+  const {image} = props
 
   if (!image) {
     return null
@@ -21,9 +19,10 @@ function ImageSection (props) {
         <img
           src={builder.image(image).auto('format').width(1980).url()}
           className={styles.image}
-          alt={heading}
+          alt={image.caption}
           loading='lazy'
         />
+        <h1 className={styles.imageCaption}>{image.caption}</h1>
       </figure>
     </div>
   )

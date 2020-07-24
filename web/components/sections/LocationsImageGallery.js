@@ -6,7 +6,7 @@ const LocationsImageGallery = (props) => {
   const images = image
 
   return (
-    <ImageGallery images={images} back={'/locations'} name={name} />
+    <ImageGallery images={images} back={'/locations'} name={name} title='Locations' />
   )
 }
 

@@ -126,19 +126,43 @@
     padding-bottom: 1rem;
     color: var(--color-white, #fff) !important;
 
-    @nest &[data-is-active=true] {
-      font-weight: 800;
-    }
-
-    @nest &[data-is-active=true]::before {
+    @nest &::before {
       content: '';
       height: 2px;
       position: absolute;
-      bottom: 0.5rem;
-      left: 0;
-      right: 0;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
       background-color: #fff;
+      opacity: 0;
+      transition:
+        color 150ms ease-out,
+        left 150ms ease-out,
+        right 150ms ease-out,
+        opacity 150ms ease-out;
     }
+
+    @nest &:hover {
+      color: var(--color-light-grey);
+      position: relative;
+
+      @nest &::before {
+        left: 0.5rem;
+        right: 0.5rem;
+        opacity: 1;
+      }  
+    }
+
+    @nest &[data-is-active=true] {
+      font-weight: 800;
+
+      @nest &::before {
+        left: 0.5rem;
+        right: 0.5rem;
+        opacity: 1;
+      }  
+    }
+
 
     @media (--media-min-navbar) {
       width: 100%;
@@ -156,10 +180,6 @@
   }
 }
 
-.navItem a:hover {
-  color: var(--color-light-grey);
-}
-
 .inverted {
   @nest & a {
     color: #202123 !important;
@@ -169,7 +189,7 @@
     fill: #202123 !important;
   }
 
-  @nest & .navItem > a[data-is-active=true]::before {
+  @nest & .navItem > a::before {
     background-color: #202123 !important;
   }
 }

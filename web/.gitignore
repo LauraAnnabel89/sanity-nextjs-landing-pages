@@ -39,3 +39,4 @@ jspm_packages
 
 # Static
 out
+sanity-manual-import.js
