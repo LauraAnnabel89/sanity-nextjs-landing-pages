@@ -105,38 +105,12 @@
   background-size: cover;
   background-position: 50%;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #fff;
 
   @media (--media-min-medium) {
     margin: 1em;
     padding: 0;
     position: relative;
-  }
-}
-
-.caption {
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  position: absolute;
-  text-align: center;
-  opacity: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  background: rgba(0, 0, 0, 0.4);
-  color: var(--color-white);
-  text-transform: uppercase;
-  padding: 1rem;
-
-  @nest &:hover {
-    opacity: 1;
   }
 }
 
@@ -151,7 +125,7 @@
 }
 
 .modal {
-  background: rgba(255, 255, 255, 0.9);
+  background: #fff;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -176,4 +150,73 @@
   padding: 1.5rem;
   z-index: 2002;
   cursor: pointer;
+}
+
+.infoBar {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem;
+  padding-top: 2rem;
+  font-size: var(--font-small-size);
+  font-family: var(--font-family-gilroy);
+  text-decoration: none;
+  color: var(--color-black);
+  position: fixed;
+  bottom: 0;
+  z-index: 1001;
+}
+
+.infoCaption {
+  margin: 0;
+  text-transform: capitalize;
+
+  @nest & span {
+    color: var(--color-grey);
+  }
+}
+
+.infoThumbnails {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fakeLink {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-grey);
+
+  @nest &:hover {
+    text-decoration: underline;
+  }
+}
+
+.caption {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-white);
+  text-transform: uppercase;
+
+  @media (--media-min-medium) {
+    max-width: calc(var(--width-small) - 3rem);
+  }
+
+  @nest &:hover {
+    opacity: 1;
+  }
 }

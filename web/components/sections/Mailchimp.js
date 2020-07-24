@@ -18,7 +18,7 @@ export default function Mailchimp (props) {
             fields={[
               {
                 name: 'EMAIL',
-                placeholder: 'Your e-mail address',
+                placeholder: 'Your email address',
                 type: 'email',
                 required: true
               }

@@ -46,11 +46,22 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     padding: 0.65rem 0;
+
+    @nest &:visited {
+      color: #000;
+    }
+  
+    @nest &:focus {
+      color: #000;
+      text-decoration: underline;
+    }
+  
+    @nest &:active {
+      color: #000;
+      text-decoration: underline;
+    }  
   }
 
-  @nest & a:visited {
-    color: #000;
-  }
 
   @media (--media-min-medium) {
     width: 25%;

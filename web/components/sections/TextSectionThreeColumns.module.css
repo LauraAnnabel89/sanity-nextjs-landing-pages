@@ -59,7 +59,8 @@
 }
 
 .copy {
-  max-height: 275px;
+  height: 675px;
+  max-height: 90vh;
   overflow-y: scroll;
 }
 

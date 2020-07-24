@@ -4,9 +4,14 @@ export default {
   title: 'Image Gallery',
   fields: [
     {
+      name: 'name',
+      type: 'string',
+      title: 'Location name'
+    },
+    {
       name: 'image',
       type: 'array',
-      of: [{ type: 'figure' }],
+      of: [{type: 'figure'}],
       title: 'Image',
       options: {
         hotspot: true
@@ -15,13 +20,12 @@ export default {
   ],
   preview: {
     select: {
+      title: 'name',
       media: 'image'
     },
-    prepare({ title, internalLink, caption, media }) {
+    prepare ({title, internalLink, caption, media}) {
       return {
-        title,
-        caption,
-        internalLink,
+        title: title || `${media.length} images`,
         subtitle: 'Image Gallery',
         media
       }

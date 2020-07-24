@@ -6,7 +6,7 @@
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
   padding: 2rem 0;
-  max-width: 785px;
+  width: 90vw;
   margin: 0 auto;
 }
 

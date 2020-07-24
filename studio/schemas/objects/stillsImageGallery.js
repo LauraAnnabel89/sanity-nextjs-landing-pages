@@ -6,7 +6,7 @@ export default {
     {
       name: 'image',
       type: 'array',
-      of: [{ type: 'figure' }],
+      of: [{type: 'figure'}],
       title: 'Image',
       options: {
         hotspot: true
@@ -17,7 +17,7 @@ export default {
     select: {
       media: 'image'
     },
-    prepare({ title, internalLink, caption, media }) {
+    prepare ({title, internalLink, caption, media}) {
       return {
         title,
         caption,

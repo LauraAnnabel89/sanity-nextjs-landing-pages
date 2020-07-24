@@ -2,10 +2,11 @@ import React from 'react'
 import ImageGallery from './ImageGallery'
 
 const LocationsImageGallery = (props) => {
-  const images = props.image
+  const {name, image} = props
+  const images = image
 
   return (
-    <ImageGallery images={images} back={'/locations'} />
+    <ImageGallery images={images} back={'/locations'} name={name} />
   )
 }
 
