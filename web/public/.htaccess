@@ -1,15 +1,18 @@
-# BEGIN React
+Options -MultiViews
+
+# BEGIN Nextjs Routing
 <IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
+# END Nextjs Routing
+
+## CACHING ##
+<IfModule mod_expires.c>
   FileETag MTime Size
   AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript
 
-  RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)/$ /$1 [L,R=301]
-</IfModule>
-
-## EXPIRES CACHING ##
-<IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access 1 month"
   ExpiresByType application/xhtml+xml "access 1 month"
@@ -27,4 +30,4 @@
   ExpiresByType image/gif "access 1 year"
   ExpiresDefault "access 1 month"
 </IfModule>
-## EXPIRES CACHING ##
+## CACHING ##
