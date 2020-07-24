@@ -25,7 +25,7 @@ function VideoGrid (props) {
       <div className={`${styles.content} ${styles[`grid-${limitGrid}`]}`}>
         {videos.map((video) => {
           const {_key, poster, caption} = video
-          const imageUrl = builder.image(poster).auto('format').width(980).height(Math.ceil(980 / 16 * 9)).url()
+          const imageUrl = builder.image(poster).auto('format').width(980).height(Math.ceil(980 / 16 * 9)).crop('entropy').fit('crop').url()
           return (
             <div
               key={_key}
