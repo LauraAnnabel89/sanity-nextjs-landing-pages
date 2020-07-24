@@ -24,15 +24,10 @@ jobs:
     - name: Run build
       run: npm run build --if-present
       env:
-        NODE_ENV: production      
-
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-
-    # steps:
+        NODE_ENV: production
     - name: Deploy studio to server
       uses: easingthemes/ssh-deploy@v2.1.1
+      if: ${{ github.repository == 'luigimannoni/sanity-nextks-landing-pages' }}
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
         ARGS: "-rltgoDzvO --delete"
@@ -43,6 +38,7 @@ jobs:
         TARGET: ${{ secrets.REMOTE_STUDIO_TARGET }}
     - name: Deploy web folder
       uses: easingthemes/ssh-deploy@v2.1.1
+      if: ${{ github.repository == 'luigimannoni/sanity-nextks-landing-pages' }}
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
         ARGS: "-rltgoDzvO --delete"
