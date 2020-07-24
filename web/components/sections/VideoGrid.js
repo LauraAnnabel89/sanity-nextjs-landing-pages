@@ -69,6 +69,14 @@ function VideoGrid (props) {
               />
             </div>
             {RenderVideo(open)}
+            <div className={styles.infoBar}>
+              <p className={styles.infoCaption}>
+                Moving Image / <span>{open.caption.toLowerCase()}</span>
+              </p>
+              <span onClick={() => { setOpen(null) }} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
+                Show Thumbnails
+              </span>
+            </div>
           </div>
         ) : null
       }
