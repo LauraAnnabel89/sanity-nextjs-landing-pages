@@ -62,8 +62,12 @@
     width: 100%;
 
     @media (--media-min-medium) {
-      width: calc(100% / 3);
+      width: calc(100% / 2);
     }    
+
+    @media (--media-min-navbar) {
+      width: calc(100% / 3);
+    } 
   }  
 }
 

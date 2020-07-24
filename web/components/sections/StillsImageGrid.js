@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import ImageGrid from './ImageGrid'
 
 function StillsImageGrid (props) {
-  const {image, limitGrid = 'responsive'} = props
+  const {image, limitGrid = 'responsive', pages} = props
 
-  if (!image) {
+  if (!image && !pages) {
     return null
   }
 
   return (
-    <ImageGrid image={image} limitGrid={limitGrid} />
+    <ImageGrid pages={pages} image={image} limitGrid={limitGrid} />
   )
 }
 

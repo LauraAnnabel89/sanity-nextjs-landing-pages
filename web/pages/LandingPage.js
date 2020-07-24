@@ -22,6 +22,19 @@ const pageQuery = groq`
         ...,
         route->
       },
+      pages[] {
+        ...,
+        "resolved": @-> {
+          ...,
+          page {
+            ...,
+            "resolved": @-> {
+              title,
+              openGraphImage
+            }
+          }
+        }
+      },
       image[] {
         ...,
         internalLink {

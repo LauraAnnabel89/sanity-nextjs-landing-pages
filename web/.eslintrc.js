@@ -2,7 +2,8 @@ module.exports = {
   extends: ['standard', 'standard-react', 'plugin:import/errors', 'plugin:import/warnings'],
   rules: {
     'object-curly-spacing': ['error', 'never'],
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'react/no-unused-prop-types': 'off'
   },
   settings: {
     react: {

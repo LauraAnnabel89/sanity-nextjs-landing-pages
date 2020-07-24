@@ -11,7 +11,7 @@ export default {
     {
       name: 'image',
       type: 'array',
-      of: [{ type: 'image' }],
+      of: [{type: 'image'}],
       title: 'Image',
       options: {
         hotspot: true
@@ -23,7 +23,7 @@ export default {
       title: 'heading',
       media: 'image'
     },
-    prepare({ title, media }) {
+    prepare ({title, media}) {
       return {
         title,
         subtitle: 'Four Column Images',

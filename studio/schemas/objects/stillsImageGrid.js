@@ -4,13 +4,18 @@ export default {
   title: 'Stills Image Grid',
   fields: [
     {
-      name: 'image',
+      name: 'pages',
+      title: 'Link to pages',
+      weak: true,
       type: 'array',
-      of: [{type: 'figure'}],
-      title: 'Image',
-      options: {
-        hotspot: true
-      }
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'route'}
+          ]
+        }
+      ]
     }
   ],
   preview: {
