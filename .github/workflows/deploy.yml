@@ -27,7 +27,7 @@ jobs:
         NODE_ENV: production
     - name: Deploy studio to server
       uses: easingthemes/ssh-deploy@v2.1.1
-      if: ${{ github.repository == 'luigimannoni/sanity-nextks-landing-pages' }}
+      if: ${{ github.repository == 'luigimannoni/sanity-nextjs-landing-pages' }}
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
         ARGS: "-rltgoDzvO --delete"
@@ -38,7 +38,7 @@ jobs:
         TARGET: ${{ secrets.REMOTE_STUDIO_TARGET }}
     - name: Deploy web folder
       uses: easingthemes/ssh-deploy@v2.1.1
-      if: ${{ github.repository == 'luigimannoni/sanity-nextks-landing-pages' }}
+      if: ${{ github.repository == 'luigimannoni/sanity-nextjs-landing-pages' }}
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
         ARGS: "-rltgoDzvO --delete"
