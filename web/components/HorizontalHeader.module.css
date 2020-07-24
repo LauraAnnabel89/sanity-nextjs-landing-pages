@@ -138,6 +138,7 @@
     transition: color 250ms ease;
     line-height: 1;
     padding-bottom: 1rem;
+    color: var(--color-white, #fff);
 
     @nest &[data-is-active=true] {
       font-weight: 800;
