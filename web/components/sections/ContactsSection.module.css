@@ -21,7 +21,7 @@
 .content {
   position: relative;
   margin: 0 1.5rem;
-  max-width: var(--width-text-medium);
+  max-width: var(--width-text-large);
   padding: 4.5rem 1.5rem;
 
   @nest & figcaption {
