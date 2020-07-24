@@ -10,6 +10,7 @@ import route from './documents/route'
 import siteConfig from './documents/siteConfig'
 
 // Object types
+import contactsSection from './objects/contactsSection'
 import cta from './objects/cta'
 import embedHTML from './objects/embedHTML'
 import figure from './objects/figure'
@@ -42,6 +43,7 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    contactsSection,
     cta,
     embedHTML,
     figure,

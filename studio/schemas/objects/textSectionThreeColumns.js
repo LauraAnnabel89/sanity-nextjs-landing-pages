@@ -36,12 +36,14 @@ export default {
   ],
   preview: {
     select: {
-      heading: 'heading'
+      headingColumnOne: 'headingColumnOne',
+      headingColumnTwo: 'headingColumnTwo',
+      headingColumnThree: 'headingColumnThree'
     },
-    prepare({ heading }) {
+    prepare ({headingColumnOne, headingColumnTwo, headingColumnThree}) {
       return {
-        title: `${heading}`,
-        subtitle: 'Text section'
+        title: [headingColumnOne, headingColumnTwo, headingColumnThree].join(', '),
+        subtitle: 'Three Columns section'
       }
     }
   }

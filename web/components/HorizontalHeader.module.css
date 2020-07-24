@@ -139,6 +139,10 @@
     line-height: 1;
     padding-bottom: 1rem;
 
+    @nest &[data-is-active=true] {
+      font-weight: 800;
+    }
+
     @nest &[data-is-active=true]::before {
       content: '';
       height: 2px;
