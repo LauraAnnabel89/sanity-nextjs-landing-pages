@@ -28,6 +28,13 @@ body,
   height: 100%;
 }
 
+a,
+a:link,
+a:visited {
+  color: #000;
+  color: var(--color-black);
+}
+
 /* :global(.content) {
   min-height: calc(100% - 84px - 218px);
 } */

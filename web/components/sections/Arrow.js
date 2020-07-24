@@ -1,19 +1,19 @@
 /** @jsx jsx */
-import React from "react";
-import { css, jsx } from "@emotion/core";
+import React from 'react'
+import {css, jsx} from '@emotion/core'
 
-const Arrow = ({ direction, handleClick }) => (
+const Arrow = ({direction, handleClick}) => (
   <div
     onClick={handleClick}
     css={css`
       display: flex;
       position: absolute;
       top: 0;
-      ${direction === "right" ? `right: 25px` : `left: 25px`};
+      ${direction === 'right' ? `right: 25px` : `left: 25px`};
       height: 100%;
       width: 50%;
       justify-content: center;
-      cursor: ${direction === "left" ? "w-resize" : "e-resize"};
+      cursor: ${direction === 'left' ? 'w-resize' : 'e-resize'};
       align-items: center;
       transition: transform ease-in 0.1s;
       &:hover {
@@ -21,15 +21,15 @@ const Arrow = ({ direction, handleClick }) => (
       }
       img {
         width: 100%;
-        transform: translateX(${direction === "left" ? "-2" : "2"}px);
+        transform: translateX(${direction === 'left' ? '-2' : '2'}px);
         &:focus {
           outline: 0;
         }
       }
     `}
   >
-    {direction === "right" ? <div /> : <div />}
+    {direction === 'right' ? <div /> : <div />}
   </div>
-);
+)
 
-export default Arrow;
+export default Arrow

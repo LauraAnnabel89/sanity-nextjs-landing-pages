@@ -35,7 +35,8 @@ export default {
         {type: 'textSectionThreeColumns'},
         {type: 'legalSection'},
         {type: 'video'},
-        {type: 'videoGrid'}
+        {type: 'videoGrid'},
+        {type: 'contactsSection'}
       ]
     },
     {
@@ -57,7 +58,7 @@ export default {
       type: 'boolean',
       title: 'Invert Navigation menu colors',
       description: 'By switching this on the navigation bar at the top will be black instead of white, this is useful for pages with only legal copy on'
-    }    
+    }
   ],
 
   preview: {

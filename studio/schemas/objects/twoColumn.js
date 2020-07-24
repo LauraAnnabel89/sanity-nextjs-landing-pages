@@ -25,7 +25,7 @@ export default {
     },
     prepare ({title, media}) {
       return {
-        title: title || 'Untitled Two Columns Section',
+        title: title || `${media.length} Images` || 'Empty Two Columns Section',
         subtitle: 'Two Column Images',
         media
       }

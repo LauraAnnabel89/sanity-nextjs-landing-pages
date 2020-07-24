@@ -1,3 +1,4 @@
+export {default as ContactsSection} from './ContactsSection'
 export {default as FourColumn} from './FourColumn'
 export {default as Hero} from './Hero'
 export {default as HeroSingle} from './HeroSingle'

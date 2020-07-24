@@ -1,26 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
-import SimpleBlockContent from "../SimpleBlockContent";
-import styles from "./TextSection.module.css";
+import React from 'react'
+import PropTypes from 'prop-types'
+import SimpleBlockContent from '../SimpleBlockContent'
+import styles from './TextSection.module.css'
 
-function TextSection(props) {
-  const { heading, label, text } = props;
+function TextSection (props) {
+  const {heading, label, text, textAlign = 'center', fontWeight = 'normal'} = props
 
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${textAlign && styles[`align-${textAlign}`]} ${fontWeight && styles[`weight-${fontWeight}`]}`}>
       <section className={styles.article}>
         {label && <div className={styles.label}>{label}</div>}
         {heading && <h2 className={styles.heading}>{heading}</h2>}
         {text && <SimpleBlockContent blocks={text} />}
       </section>
     </div>
-  );
+  )
 }
 
 TextSection.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
-  text: PropTypes.arrayOf(PropTypes.object),
-};
+  text: PropTypes.arrayOf(PropTypes.object)
+}
 
-export default TextSection;
+export default TextSection

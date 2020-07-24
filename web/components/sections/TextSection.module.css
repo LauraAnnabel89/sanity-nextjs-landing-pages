@@ -4,17 +4,59 @@
 .root {
   padding: 1rem 0;
 
-  text-align: center;
-
   @media (--media-min-medium) {
     padding: 1rem 0;
+  }
+
+  @nest &:first-child {
+    padding-top: 8.5rem;
+  }
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.weight-normal {
+  font-weight: inherit;
+}
+
+.weight-thin {
+  @nest & h1 {
+    font-weight: 300 !important;
+  }
+  @nest & h2 {
+    font-weight: 300 !important;
+  }
+  @nest & h3 {
+    font-weight: 300 !important;
+  }
+  @nest & h4 {
+    font-weight: 300 !important;
+  }
+  @nest & p {
+    font-weight: 300 !important;
+  }
+}
+
+.weight-bold {
+  @nest & p {
+    font-weight: 600 !important;  
   }
 }
 
 .article {
   width: 100%;
   font-family: var(--font-family-gilroy);
-  max-width: var(--width-text-medium);
+  max-width: var(--width-text-large);
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;

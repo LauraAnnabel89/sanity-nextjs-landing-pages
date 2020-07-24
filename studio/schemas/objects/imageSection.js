@@ -5,7 +5,7 @@ export default {
   of: [
     {
       type: 'image',
-      options: { hotspot: true }
+      options: {hotspot: true}
     }
   ],
   fields: [
@@ -19,9 +19,9 @@ export default {
     select: {
       media: 'image'
     },
-    prepare({ heading, media }) {
+    prepare ({heading, media}) {
       return {
-        title: `Image: ${heading}`,
+        title: heading ? `Image: ${heading}` : 'Image',
         subtitle: 'Image section',
         media
       }
