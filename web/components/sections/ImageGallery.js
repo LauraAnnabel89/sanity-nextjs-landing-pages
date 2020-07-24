@@ -12,7 +12,7 @@ import {useRouter} from 'next/router'
 const builder = imageUrlBuilder(client)
 
 const ImageGallery = (props) => {
-  const {images, back} = props
+  const {images, back, name} = props
   const router = useRouter()
 
   const returnHash = router.query.slug.replace('/', '-')
@@ -150,7 +150,7 @@ const ImageGallery = (props) => {
 
       <div className={`${styles.infoBar} ${showSlider ? styles.show : styles.hide}`}>
         <p className={styles.infoCaption}>
-          Locations / <span>{activeSlide + 1} of {images.length} {images[activeSlide].slug} {images[activeSlide].caption}</span>
+          Locations / <span>{activeSlide + 1} of {images.length} {images[activeSlide].slug} {name || images[activeSlide].caption}</span>
         </p>
         <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
           Show Thumbnails

@@ -49,6 +49,7 @@
   font-size: var(--font-micro-size);
   font-family: var(--font-family-gilroy);
   padding-top: 1rem;
+  padding-left: 0.5rem;
 }
 
 .footerlogo {
@@ -102,6 +103,7 @@
   border: none;
   outline: none !important;
   cursor: pointer;
+  padding-right: 0.5rem;
 }
 
 .flexContainer {
