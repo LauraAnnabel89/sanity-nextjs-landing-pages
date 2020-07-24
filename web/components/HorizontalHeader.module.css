@@ -52,20 +52,6 @@
   }
 }
 
-.inverted {
-  @nest & a {
-    color: #202123 !important;
-  }
-
-  @nest & svg path {
-    fill: #202123 !important;
-  }
-
-  @nest & .navItem > a[data-is-active=true]::before {
-    background-color: #202123 !important;
-  }
-}
-
 .logo {
   display: block;
 }
@@ -138,7 +124,7 @@
     transition: color 250ms ease;
     line-height: 1;
     padding-bottom: 1rem;
-    color: var(--color-white, #fff);
+    color: var(--color-white, #fff) !important;
 
     @nest &[data-is-active=true] {
       font-weight: 800;
@@ -159,6 +145,7 @@
       text-align: right;
       line-height: 2.5rem;
       padding: 0 0.5rem;
+      color: var(--color-white, #fff);
 
       @nest &[data-is-active=true]::before {
         bottom: 0;
@@ -171,6 +158,20 @@
 
 .navItem a:hover {
   color: var(--color-light-grey);
+}
+
+.inverted {
+  @nest & a {
+    color: #202123 !important;
+  }
+
+  @nest & svg path {
+    fill: #202123 !important;
+  }
+
+  @nest & .navItem > a[data-is-active=true]::before {
+    background-color: #202123 !important;
+  }
 }
 
 .showNavButton {
