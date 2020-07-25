@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './ImageGrid.module.css'
@@ -9,12 +9,17 @@ const builder = imageUrlBuilder(client)
 
 function ImageGrid (props) {
   const {image, limitGrid = 'responsive', pages} = props
+  const [visible, setVisible] = useState(12)
 
   if (pages && pages.length > 0) {
     return (
       <div className={styles.root}>
         <div className={`${styles.content} ${styles[`grid-${limitGrid}`]}`}>
-          {pages.map((item) => {
+          {pages.map((item, index) => {
+            if (index >= visible) {
+              return null
+            }
+
             const {resolved, _key} = item
             const {slug, page} = resolved
 
@@ -45,6 +50,14 @@ function ImageGrid (props) {
             )
           })}
         </div>
+
+        {
+          visible < pages.length ? (
+            <div className={styles.buttonContainer}>
+              <button className={styles.button} onClick={() => { setVisible(visible + 12) }}>+ Load more work</button>
+            </div>
+          ) : null
+        }
       </div>
     )
   }
