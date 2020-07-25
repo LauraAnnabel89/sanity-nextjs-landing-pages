@@ -12,15 +12,14 @@ import {useRouter} from 'next/router'
 const builder = imageUrlBuilder(client)
 
 const ImageGallery = (props) => {
-  const {images, back, name} = props
+  const {images, name} = props
   const router = useRouter()
 
   const [base] = router.query.slug.split('/')
-
   const title = base.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
 
   const returnHash = router.query.slug.replace('/', '-')
-  const returnUrl = `${back}#${returnHash}`
+  const returnUrl = `/${base}#${returnHash}`
 
   const [state, setState] = useState({
     translate: 0,
@@ -99,7 +98,10 @@ const ImageGallery = (props) => {
           />
         ) : (
           <Link
-            href={returnUrl}
+            href={{
+              pathname: '/LandingPage',
+              query: {slug: base}
+            }}
             as={returnUrl}
           >
             <a>
