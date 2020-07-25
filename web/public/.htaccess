@@ -1,14 +1,12 @@
-Options -MultiViews
-
 # BEGIN Nextjs Routing
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^ index.html [QSA,L]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /$1 [L,R=301]
 </IfModule>
 # END Nextjs Routing
 
-## CACHING ##
+## EXPIRES CACHING ##
 <IfModule mod_expires.c>
   FileETag MTime Size
   AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript
@@ -30,4 +28,4 @@ Options -MultiViews
   ExpiresByType image/gif "access 1 year"
   ExpiresDefault "access 1 month"
 </IfModule>
-## CACHING ##
+## EXPIRES CACHING ##

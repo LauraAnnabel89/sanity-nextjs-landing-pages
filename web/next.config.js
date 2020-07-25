@@ -40,19 +40,18 @@ const exportPathMap = () => {
     const {routes = []} = res
     const nextRoutes = {
       // Routes imported from sanity
-      ...routes.filter(({slug}) => slug.current).reduce(reduceRoutes, {}),
-      '/custom-page': {page: '/CustomPage'}
+      ...routes.filter(({slug}) => slug.current).reduce(reduceRoutes, {})
     }
     return nextRoutes
   })
 }
 
 module.exports = withCSS({
-  // transpileModules: ["react-slick", "slick-carousel"],
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: 1,
     localIdentName: isProduction ? '[hash:base64:5]' : '[name]__[local]___[hash:base64:5]'
   },
+  exportTrailingSlash: true,
   exportPathMap
 })
