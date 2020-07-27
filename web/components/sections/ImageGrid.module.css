@@ -70,7 +70,7 @@
     @media (--media-min-navbar) {
       width: calc(100% / 3);
     }
-  }  
+  }
 }
 
 .grid-5,
@@ -80,12 +80,24 @@
       width: calc(100% / 4);
     }
   }
+
+  @nest & button {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4 - 1.5rem - 3px);
+    }
+  }  
 }
 
 .grid-5 {
   @nest & a {
     @media (--media-min-xx-large) {
       width: calc(100% / 5);
+    }
+  }
+
+  @nest & button {
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5 - 1.5rem - 3px);
     }
   }
 }
@@ -100,6 +112,16 @@
       width: calc(100% / 5);
     }  
   }
+
+  @nest & button {
+    @media (--media-min-x-large) {
+      width: calc(100% / 4 - 1.5rem - 3px);
+    }
+
+    @media (--media-min-xx-large) {
+      width: calc(100% / 5 - 1.5rem - 3px);
+    }  
+  }  
 }
 
 .imageContainer {
@@ -151,10 +173,16 @@
 }
 
 .buttonContainer {
-  padding: 2.5rem 0;
+  position: relative;
+  margin: 1.5rem;
+  padding: 1.5rem 0;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
 }
 
 .button {
+  width: calc(100%  - 1.5rem - 3px);
   background-color: var(--color-white);
   border: 3px solid var(--color-black);
   color: var(--color-black);
@@ -170,6 +198,13 @@
     background-color: var(--color-black);
     border: 3px solid var(--color-black);
     color: var(--color-white);
+  }
+
+  @media (--media-min-medium) {
+    width: calc((100% / 2) - 1.5rem - 3px);
+  }    
+  @media (--media-min-navbar) {
+    width: calc((100% / 3) - 1.5rem - 3px);
   }
 
   @nest &:focus {

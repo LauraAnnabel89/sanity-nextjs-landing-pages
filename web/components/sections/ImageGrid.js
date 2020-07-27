@@ -52,10 +52,9 @@ function ImageGrid (props) {
             )
           })}
         </div>
-
         {
           visible < pages.length ? (
-            <div className={styles.buttonContainer}>
+            <div className={`${styles.buttonContainer} ${styles[`grid-${limitGrid}`]}`}>
               <button className={styles.button} onClick={() => { setVisible(visible + NUM_ITEMS) }}>+ Load more work</button>
             </div>
           ) : null
