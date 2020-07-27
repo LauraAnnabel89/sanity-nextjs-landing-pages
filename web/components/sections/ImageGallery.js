@@ -16,7 +16,8 @@ const ImageGallery = (props) => {
   const router = useRouter()
 
   const [base] = router.query.slug.split('/')
-  const title = base.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
+
+  // const title = base.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
 
   const returnHash = router.query.slug.replace('/', '-')
   const returnUrl = `/${base}#${returnHash}`
@@ -156,7 +157,7 @@ const ImageGallery = (props) => {
 
       <div className={`${styles.infoBar} ${showSlider ? styles.show : styles.hide}`}>
         <p className={styles.infoCaption}>
-          {title} / <span>{activeSlide + 1} of {images.length} {images[activeSlide].slug} {name} {images[activeSlide].caption}</span>
+          {name} / <span>{activeSlide + 1} of {images.length} {images[activeSlide].slug} {images[activeSlide].caption}</span>
         </p>
         <span onClick={hide} className={`${styles.infoThumbnails} ${styles.fakeLink}`}>
           Show Thumbnails

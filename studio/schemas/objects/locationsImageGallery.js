@@ -6,7 +6,7 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Location name'
+      title: 'Name'
     },
     {
       name: 'image',

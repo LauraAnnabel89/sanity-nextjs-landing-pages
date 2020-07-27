@@ -154,7 +154,7 @@ class LandingPage extends Component {
             noindex: disallowRobots
           }}
         />
-        {content && <RenderSections sections={content} />}
+        {content && <RenderSections sections={content} page={{config, slug, title}} />}
       </Layout>
     )
   }
