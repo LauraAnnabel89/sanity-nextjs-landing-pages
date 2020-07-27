@@ -8,8 +8,10 @@ import Link from 'next/link'
 const builder = imageUrlBuilder(client)
 
 function ImageGrid (props) {
+  const NUM_ITEMS = 20
+
   const {image, limitGrid = 'responsive', pages} = props
-  const [visible, setVisible] = useState(12)
+  const [visible, setVisible] = useState(NUM_ITEMS)
 
   if (pages && pages.length > 0) {
     return (
@@ -54,7 +56,7 @@ function ImageGrid (props) {
         {
           visible < pages.length ? (
             <div className={styles.buttonContainer}>
-              <button className={styles.button} onClick={() => { setVisible(visible + 12) }}>+ Load more work</button>
+              <button className={styles.button} onClick={() => { setVisible(visible + NUM_ITEMS) }}>+ Load more work</button>
             </div>
           ) : null
         }

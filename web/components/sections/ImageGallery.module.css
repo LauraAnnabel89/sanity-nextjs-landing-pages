@@ -36,10 +36,10 @@
 
 .infoCaption {
   margin: 0;
+  text-transform: capitalize;
 
   @nest & span {
     color: var(--color-grey);
-    text-transform: capitalize;
   }
 }
 
