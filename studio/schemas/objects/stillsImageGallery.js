@@ -6,7 +6,8 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Name'
+      title: 'Name',
+      description: 'The name will appear on the bottom left corner of the gallery window, if left blank the CMS will attempt to fetch the page title instead'
     },
     {
       name: 'image',
