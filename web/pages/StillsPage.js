@@ -76,8 +76,6 @@ class LandingPage extends Component {
       ]
       : []
 
-    console.log(this.props)
-
     return (
       <Layout slug={slug} config={config} headerInvert={headerInvert}>
         <NextSeo

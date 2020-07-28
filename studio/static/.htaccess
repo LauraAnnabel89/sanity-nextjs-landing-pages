@@ -1,7 +1,9 @@
 # BEGIN Sanity Routing
-<IfModule mod_rewrite.c>
+<ifModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ /$1 [L,R=301]
-</IfModule>
+  RewriteRule (.*) /index.html [QSA,L]
+</ifModule>
 # END Sanity Routing
