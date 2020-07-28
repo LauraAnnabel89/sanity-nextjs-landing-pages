@@ -17,7 +17,7 @@ function ContactsSection (props) {
             <h3 className={styles.contactTitle}>
               <span>{contact.title}</span>
             </h3>
-            <p className={styles.contactName}>{contact.name}</p>
+            <p className={styles.contactName}>{contact.name}&nbsp;</p>
             <a href={`tel:${contact.number}`} className={styles.contactNumber}>{contact.number}</a>
             <a href={`mailto:${contact.email}`} className={styles.contactEmail}>{contact.email}</a>
           </div>

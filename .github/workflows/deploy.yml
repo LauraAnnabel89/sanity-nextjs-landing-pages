@@ -19,6 +19,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.9.0'
+    - name: Cache builds and folders
+      uses: actions/cache@v2
+      with:
+        path: |
+          ${{ github.workspace }}/.next/cache
+          ${{ github.workspace }}/**/node_modules
+          ${{ github.workspace }}/node_modules
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}        
     - name: Clean install modules
       run: npm ci
     - name: Run build

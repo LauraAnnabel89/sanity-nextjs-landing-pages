@@ -1,0 +1,12 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.root {
+  height: 100%;
+  width: 100vw;
+
+  @media (--media-min-large) {
+    padding: 2.5rem;
+  }
+}
+

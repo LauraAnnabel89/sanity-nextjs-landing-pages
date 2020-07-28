@@ -1,15 +1,10 @@
 /** @jsx jsx */
 // import React from 'react'
 import {jsx} from '@emotion/core'
+import styles from './ImageSlide.module.css'
 
 const ImageSlide = ({content}) => (
-  <div
-    style={{
-      height: '100%',
-      width: '100vw',
-      padding: '2.5rem'
-    }}
-  >
+  <div className={styles.root}>
     <div
       style={{
         height: '100%',
