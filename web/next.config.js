@@ -14,7 +14,11 @@ const query = `
       title,
       _createdAt,
       _updatedAt
-  }}
+    }
+  },
+  "stills": *[_type == "stills"] {
+    ...,
+  },
 }
 `
 const reduceRoutes = (obj, route) => {
@@ -37,11 +41,12 @@ const reduceRoutes = (obj, route) => {
 
 const exportPathMap = () => {
   return client.fetch(query).then((res) => {
-    const {routes = []} = res
+    const {routes = [], stills = []} = res
 
     const nextRoutes = {
       // Routes imported from sanity
-      ...routes.filter((route) => typeof route.slug !== 'undefined').filter(({slug}) => slug.current).reduce(reduceRoutes, {})
+      ...routes.filter((route) => typeof route.slug !== 'undefined').filter(({slug}) => slug.current).reduce(reduceRoutes, {}),
+      ...stills.filter((route) => typeof route.slug !== 'undefined').filter(({slug}) => slug.current).reduce(reduceRoutes, {})
     }
     return nextRoutes
   })

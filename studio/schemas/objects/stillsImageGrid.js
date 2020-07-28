@@ -12,7 +12,7 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'route'}
+            {type: 'stills'}
           ]
         }
       ]
