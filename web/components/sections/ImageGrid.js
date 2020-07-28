@@ -41,7 +41,7 @@ function ImageGrid (props) {
               <Link
                 key={_key}
                 href={{
-                  pathname: '/LandingPage',
+                  pathname: '/StillsPage',
                   query: {slug: slug.current}
                 }}
                 as={`/${slug.current}`}

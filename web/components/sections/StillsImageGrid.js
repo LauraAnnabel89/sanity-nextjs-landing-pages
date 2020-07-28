@@ -4,7 +4,6 @@ import ImageGrid from './ImageGrid'
 
 function StillsImageGrid (props) {
   const {image, limitGrid = 'responsive', pages} = props
-  console.log(image, limitGrid, pages)
 
   if (!image && !pages) {
     return null

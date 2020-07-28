@@ -22,20 +22,35 @@ const query = `
 }
 `
 const reduceRoutes = (obj, route) => {
-  const {page = {}, slug = {}} = route
+  const {page = {}, slug = {}, _type} = route
   const {_createdAt, _updatedAt} = page
   const {includeInSitemap, disallowRobot} = route
   const path = route['slug']['current'] === '/' ? '/' : `/${route['slug']['current']}`
-  obj[path] = {
-    query: {
-      slug: slug.current
-    },
-    includeInSitemap,
-    disallowRobot,
-    _createdAt,
-    _updatedAt,
-    page: '/LandingPage'
+
+  if (_type === 'stills') {
+    obj[path] = {
+      query: {
+        slug: slug.current
+      },
+      includeInSitemap,
+      disallowRobot,
+      _createdAt,
+      _updatedAt,
+      page: '/StillsPage'
+    }
+  } else {
+    obj[path] = {
+      query: {
+        slug: slug.current
+      },
+      includeInSitemap,
+      disallowRobot,
+      _createdAt,
+      _updatedAt,
+      page: '/LandingPage'
+    }
   }
+
   return obj
 }
 
