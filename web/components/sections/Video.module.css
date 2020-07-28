@@ -61,10 +61,14 @@
   position: absolute;
   z-index: -1;
   height: 100vmax !important;
-  width: calc(100vmax / 9 * 16) !important;
+  width: calc(200vmax / 9 * 16) !important;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  @media (--media-min-medium) {
+    width: calc(100vmax / 9 * 16) !important;
+  }
 }
 
 .windowWrapper {

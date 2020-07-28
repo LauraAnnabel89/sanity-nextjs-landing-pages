@@ -29,7 +29,7 @@ function Layout (props) {
   return (
     <>
       <Head>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover, user-scalable=no' />
       </Head>
       <div className='container'>
         <HorizontalHeader title={title} navItems={mainNavigation} logo={logo} headerInvert={headerInvert} />

@@ -2,7 +2,7 @@
 @import "../styles/custom-properties.css";
 
 .root {
-  position: fixed;
+  position: absolute;
   color: var(--color-white, #fff);
   display: flex;
   margin: 0 auto;
@@ -71,11 +71,9 @@
   display: block;
   top: 100%;
   width: 100%;
-  transform: translateX(100%);
+  transform: translateY(-100%);
   background-color: transparent;
   color: var(--color-white, #fff);
-  min-height: 100vh;
-  height: 100%;
   width: 100vw;
   z-index: 40;
   top: 0;
@@ -84,19 +82,16 @@
   justify-content: flex-start;
   align-items: flex-end;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   transition: transform 150ms ease-out;
 
   @media (--media-min-navbar) {
-    transform: translateX(0%);
-    transform: translateY(-100%);
+    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
     padding: 2rem 1rem 2rem 150px;
-    min-height: auto;
-    height: auto;
   }
 
   @supports (padding-top: env(safe-area-inset-top)) {
@@ -104,11 +99,7 @@
   }
 
   @nest .root[data-show-nav="true"] & {
-    transform: translateX(0%);
-
-    @media (--media-min-navbar) {
-      transform: translateY(0%);
-    }
+    transform: translateY(0%);
   }
 }
 
@@ -123,14 +114,23 @@
     position: relative;
     transition: color 250ms ease;
     line-height: 1;
+    margin-bottom: 0.25rem;
     padding-bottom: 1rem;
     color: var(--color-white, #fff) !important;
+
+    @media (--media-min-navbar) {
+      width: 100%;
+      text-align: right;
+      line-height: 2.5rem;
+      padding: 0 0.5rem;
+      color: var(--color-white, #fff);
+    }
 
     @nest &::before {
       content: '';
       height: 2px;
       position: absolute;
-      bottom: 0;
+      bottom: 0.5rem;
       left: 50%;
       right: 50%;
       background-color: #fff;
@@ -140,16 +140,25 @@
         left 150ms ease-out,
         right 150ms ease-out,
         opacity 150ms ease-out;
-    }
+
+        @media (--media-min-navbar) {
+          bottom: 0;
+        }
+      }
 
     @nest &:hover {
       color: var(--color-light-grey);
       position: relative;
 
       @nest &::before {
-        left: 0.5rem;
-        right: 0.5rem;
+        left: 0;
+        right: 0;
         opacity: 1;
+
+        @media (--media-min-navbar) {
+          left: 0.5rem;
+          right: 0.5rem;          
+        }
       }  
     }
 
@@ -157,25 +166,15 @@
       font-weight: 800;
 
       @nest &::before {
-        left: 0.5rem;
-        right: 0.5rem;
+        left: 0;
+        right: 0;
         opacity: 1;
+
+        @media (--media-min-navbar) {
+          left: 0.5rem;
+          right: 0.5rem;
+        }
       }  
-    }
-
-
-    @media (--media-min-navbar) {
-      width: 100%;
-      text-align: right;
-      line-height: 2.5rem;
-      padding: 0 0.5rem;
-      color: var(--color-white, #fff);
-
-      @nest &[data-is-active=true]::before {
-        bottom: 0;
-        left: 0.5rem;
-        right: 0.5rem;
-      }      
     }
   }
 }
@@ -195,7 +194,7 @@
 }
 
 .showNavButton {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 1001;
@@ -208,6 +207,7 @@
   align-items: center;
 
   @media (--media-min-navbar) {
+    position: absolute;
     height: 6.5rem;
   }
 }
