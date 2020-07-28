@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Document types
 import page from './documents/page'
+import still from './documents/still'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
 
@@ -14,6 +15,7 @@ import contactsSection from './objects/contactsSection'
 import cta from './objects/cta'
 import embedHTML from './objects/embedHTML'
 import figure from './objects/figure'
+import figureGallery from './objects/figureGallery'
 import fourColumn from './objects/fourColumn'
 import hero from './objects/hero'
 import heroSingle from './objects/heroSingle'
@@ -47,6 +49,7 @@ export default createSchema({
     cta,
     embedHTML,
     figure,
+    figureGallery,
     fourColumn,
     hero,
     heroSingle,
@@ -58,6 +61,7 @@ export default createSchema({
     locationsImageGallery,
     mailchimp,
     page,
+    still,
     portableText,
     route,
     simplePortableText,

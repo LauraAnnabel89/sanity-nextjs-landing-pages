@@ -23,17 +23,17 @@ function ImageGrid (props) {
             }
 
             const {resolved, _key} = item
-            const {slug, page} = resolved
+            const {slug, title, openGraphImage} = resolved
 
             const RenderItem = () => (
               <div key={`${_key}-image`} className={styles.imageContainer}>
                 <img
-                  src={builder.image(page.resolved.openGraphImage).auto('format').width(980).height(Math.ceil(980 / 16 * 9)).crop('entropy').fit('crop').url()}
+                  src={builder.image(openGraphImage).auto('format').width(980).height(Math.ceil(980 / 16 * 9)).crop('entropy').fit('crop').url()}
                   className={styles.image}
-                  alt={page.resolved.title}
+                  alt={title}
                   loading='lazy'
                 />
-                <p className={styles.caption}>{page.resolved.title}</p>
+                <p className={styles.caption}>{title}</p>
               </div>
             )
 
