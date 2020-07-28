@@ -5,7 +5,7 @@
 	     url('/static/fonts/Gilroy-Light.woff') format('woff'), url('/static/fonts/Gilroy-Light.ttf')  format('truetype'), url('/static/fonts/Gilroy-Light.svg#Gilroy-Light') format('svg');
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -14,7 +14,7 @@
 	     url('/static/fonts/Gilroy-Regular.woff') format('woff'), url('/static/fonts/Gilroy-Regular.ttf')  format('truetype'), url('/static/fonts/Gilroy-Regular.svg#Gilroy-Regular') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -23,7 +23,7 @@
 	     url('/static/fonts/Gilroy-Medium.woff') format('woff'), url('/static/fonts/Gilroy-Medium.ttf')  format('truetype'), url('/static/fonts/Gilroy-Medium.svg#Gilroy-Medium') format('svg');
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -32,7 +32,7 @@
 	     url('/static/fonts/Gilroy-Bold.woff') format('woff'), url('/static/fonts/Gilroy-Bold.ttf')  format('truetype'), url('/static/fonts/Gilroy-Bold.svg#Gilroy-Bold') format('svg');
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 :root {

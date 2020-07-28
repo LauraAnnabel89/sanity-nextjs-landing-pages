@@ -38,7 +38,7 @@
 
 .content {
   position: relative;
-  margin: 1.5rem;
+  margin: 1.5rem auto;
   width: 90vw;
 
   @nest & figcaption {
@@ -174,7 +174,7 @@
 
 .buttonContainer {
   position: relative;
-  margin: 1.5rem;
+  margin: 1.5rem auto;
   padding: 1.5rem 0;
   width: 90vw;
   display: flex;

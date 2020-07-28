@@ -37,7 +37,7 @@
 
 .content {
   position: relative;
-  margin: 1.5rem;
+  margin: 1.5rem auto;
   width: 90vw;
 
   @nest & figcaption {
@@ -170,11 +170,16 @@
   position: fixed;
   bottom: 0;
   z-index: 1001;
+  flex-direction: column;
+  text-transform: uppercase;
+
+  @media (--media-min-medium) {
+    flex-direction: row;
+  }
 }
 
 .infoCaption {
   margin: 0;
-  text-transform: capitalize;
 
   @nest & span {
     color: var(--color-grey);

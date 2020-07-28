@@ -85,6 +85,18 @@
   text-transform: uppercase;
   font-weight: normal;
   width: object-fit;
+  position: relative;
+  padding: 0.5rem 0;
+
+  @nest &::after {
+    content: '';
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 .label + .heading {

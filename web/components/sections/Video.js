@@ -1,8 +1,5 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
-import screenfull from 'screenfull'
-import {findDOMNode} from 'react-dom'
-import {isString} from 'lodash'
 import styles from './Video.module.css'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../../client'
@@ -15,14 +12,12 @@ export default class Video extends React.Component {
 
   player = null;
 
-  componentDidMount () {}
-
   ref = (player) => {
     this.player = player
   };
 
   render () {
-    const {poster, url, autoplay = false, muted, loop, ratio, windowed, caption} = this.props
+    const {poster, url, autoplay = false, windowed, caption} = this.props
     const {playing} = this.state
     if (!url) return null
 
@@ -49,6 +44,7 @@ export default class Video extends React.Component {
       PLAYER_OPTIONS.vimeo.playerOptions.loop = true
       PLAYER_OPTIONS.vimeo.playerOptions.controls = false
       PLAYER_OPTIONS.vimeo.preload = true
+      PLAYER_OPTIONS.vimeo.false = true
     }
 
     function urlFor (source) {

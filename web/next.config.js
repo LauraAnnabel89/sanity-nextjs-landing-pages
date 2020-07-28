@@ -38,9 +38,10 @@ const reduceRoutes = (obj, route) => {
 const exportPathMap = () => {
   return client.fetch(query).then((res) => {
     const {routes = []} = res
+
     const nextRoutes = {
       // Routes imported from sanity
-      ...routes.filter(({slug}) => slug.current).reduce(reduceRoutes, {})
+      ...routes.filter((route) => typeof route.slug !== 'undefined').filter(({slug}) => slug.current).reduce(reduceRoutes, {})
     }
     return nextRoutes
   })
