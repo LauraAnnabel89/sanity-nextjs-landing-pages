@@ -1,5 +1,4 @@
 [[redirects]]
   from = "/*"
-  to = "https://studio.dawnproduction.com/"
-  status = 301
-  force = true
+  to = "/"
+  status = 200
