@@ -24,10 +24,10 @@ function Footer (props) {
         <a href='https://www.instagram.com/dawnmoretti/?hl=en' target='_blank'>
           <img src='/static/images/instagram.jpg' alt='Instagram Logo' />
         </a>
-        <a href='https://www.linkedin.com/in/dawn-moretti-95208714'>
+        <a href='https://www.linkedin.com/dawn-production'>
           <img src='/static/images/linkedin.jpg' alt='LinkedIn Logo' />
         </a>
-        <a href='#'>
+        <a href='https://www.facebook.com/DAWNProductionUK'>
           <img src='/static/images/facebook.jpg' alt='Facebook Logo' />
         </a>        
       </div>
