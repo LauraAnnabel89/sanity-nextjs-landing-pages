@@ -118,6 +118,34 @@
   border: none;
   outline: none !important;
   cursor: pointer;
+
+  position: fixed;
+  z-index: 1000;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  transform: translateY(200%);  
+  transition: transform 150ms ease-out;
+
+  @media (--media-min-medium) {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  @nest &.arrowUpShow {
+    transform: translateY(0);  
+  }
+
+  @nest & svg {
+    width: 15px !important;
+
+    @media (--media-min-medium) {
+      width: auto !important;
+    }
+  }
+
+  @nest & svg path {
+    fill: #666;
+  }
 }
 
 .flexContainer {

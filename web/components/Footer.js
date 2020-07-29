@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import {withRouter} from 'next/router'
@@ -11,6 +11,28 @@ import Mailchimp from './sections/Mailchimp'
 
 function Footer (props) {
   const {navItems, text, router, image, alt, caption, asset, sociallogos} = props
+
+  const [showScroll, setShowScroll] = useState(false)
+  const isServer = typeof window === 'undefined'
+
+  if (!isServer) {
+    const checkScrollTop = () => {
+      if (window.pageYOffset <= window.innerHeight) {
+        setShowScroll(false)
+        return
+      }
+
+      const threshold = (document.body.scrollHeight * 0.65) - window.innerHeight - 10
+
+      if (!showScroll && window.pageYOffset > threshold) {
+        setShowScroll(true)
+      } else if (showScroll && window.pageYOffset <= threshold) {
+        setShowScroll(false)
+      }
+    }
+
+    window.addEventListener('scroll', checkScrollTop)
+  }
 
   return (
     <div className={styles.root}>
@@ -29,7 +51,7 @@ function Footer (props) {
         </a>
         <a href='https://www.facebook.com/DAWNProductionUK'>
           <img src='/static/images/facebook.jpg' alt='Facebook Logo' />
-        </a>        
+        </a>
       </div>
       <nav>
         <ul className={styles.items}>
@@ -67,7 +89,7 @@ function Footer (props) {
       <div className={styles.flexContainer}>
         <div className={styles.copyright}>&copy; DAWN Production 2020</div>
         <button
-          className={styles.arrowUp}
+          className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
           onClick={() => {
             window.scrollTo({top: 0, behavior: 'smooth'})
           }}
