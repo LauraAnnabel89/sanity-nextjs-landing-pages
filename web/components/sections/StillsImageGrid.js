@@ -1,16 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import ImageGrid from './ImageGrid'
+import groq from 'groq'
+import client from '../../client'
 
 function StillsImageGrid (props) {
-  const {image, limitGrid = 'responsive', pages} = props
+  const [stills, setStills] = useState([])
 
-  if (!image && !pages) {
+  useEffect(() => {
+    const stillsPageQuery = groq`
+      *[_type == "stills"]{
+        slug,
+        title,
+        openGraphImage,
+        "_key": _id
+      }
+      `
+    client.fetch(stillsPageQuery).then((res) => {
+      setStills(res)
+      console.log(res)
+    })
+  }, [setStills])
+
+  if (stills.length === 0) {
     return null
   }
 
   return (
-    <ImageGrid pages={pages} image={image} limitGrid={limitGrid} />
+    <ImageGrid pages={stills} />
   )
 }
 

@@ -22,8 +22,7 @@ function ImageGrid (props) {
               return null
             }
 
-            const {resolved, _key} = item
-            const {slug, title, openGraphImage} = resolved
+            const {slug, title, openGraphImage, _key} = item
 
             const RenderItem = () => (
               <div key={`${_key}-image`} className={styles.imageContainer}>

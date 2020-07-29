@@ -1,7 +1,14 @@
 export default {
-  type: 'string',
+  type: 'object',
   name: 'stillsImageGrid',
   title: 'Stills Image Grid',
+  fields: [
+    {
+      type: 'boolean',
+      name: 'fetch',
+      title: 'Enable to pull automatically all stills pages'
+    }
+  ],
   preview: {
     select: {
       media: 'image'
