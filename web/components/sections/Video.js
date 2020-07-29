@@ -24,13 +24,13 @@ export default class Video extends React.Component {
     const PLAYER_OPTIONS = {
       vimeo: {
         playerOptions: {
-          byline: false,
-          portrait: false,
-          title: false,
+          byline: 0,
+          portrait: 0,
+          title: 0,
           color: '#ffffff',
           background: 0,
           autoplay: 0,
-          loop: false,
+          loop: 0,
           controls: true,
           preload: true,
           volume: 1
@@ -39,12 +39,13 @@ export default class Video extends React.Component {
     }
 
     if (autoplay === true) {
-      PLAYER_OPTIONS.vimeo.playerOptions.background = true
-      PLAYER_OPTIONS.vimeo.playerOptions.autoplay = true
-      PLAYER_OPTIONS.vimeo.playerOptions.loop = true
-      PLAYER_OPTIONS.vimeo.playerOptions.controls = false
-      PLAYER_OPTIONS.vimeo.preload = true
-      PLAYER_OPTIONS.vimeo.false = true
+      PLAYER_OPTIONS.vimeo.playerOptions.background = 1
+      PLAYER_OPTIONS.vimeo.playerOptions.autoplay = 1
+      PLAYER_OPTIONS.vimeo.playerOptions.loop = 1
+      PLAYER_OPTIONS.vimeo.playerOptions.controls = 0
+      PLAYER_OPTIONS.vimeo.preload = 1
+      PLAYER_OPTIONS.vimeo.false = 1
+      PLAYER_OPTIONS.vimeo.playsinline = 1
     }
 
     function urlFor (source) {
@@ -73,6 +74,7 @@ export default class Video extends React.Component {
             config={PLAYER_OPTIONS}
             width='100%'
             height='100%'
+            playsinline={autoplay}
           />
           {windowed ? '' : <h1 className={styles.title}>{caption}</h1>}
         </div>
