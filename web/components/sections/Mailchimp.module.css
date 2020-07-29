@@ -9,6 +9,14 @@
     padding: 1.5rem 0;
     margin: 3.5rem 0 1.5rem;
   }
+
+  @nest & .msg-alert p {
+    text-align: center;
+
+    @media (--media-min-medium) {
+      text-align: left; 
+    }
+  }
 }
 
 .container {

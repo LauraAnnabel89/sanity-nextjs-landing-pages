@@ -29,13 +29,13 @@ export default function Mailchimp (props) {
                 color: '#000'
               },
               successMsg: {
-                color: '#009432'
+                color: '#000'
               },
               duplicateMsg: {
-                color: '#EE5A24'
+                color: '#000'
               },
               errorMsg: {
-                color: 'red'
+                color: '#000'
               }
             }}
             messages={{
