@@ -11,6 +11,8 @@
   @nest &:first-child {
     padding-top: 8.5rem;
   }
+
+  padding-bottom: 0;
 }
 
 .align-center {

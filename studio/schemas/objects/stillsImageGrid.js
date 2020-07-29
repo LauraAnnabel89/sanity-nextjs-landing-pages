@@ -1,30 +1,14 @@
 export default {
-  type: 'object',
+  type: 'string',
   name: 'stillsImageGrid',
   title: 'Stills Image Grid',
-  fields: [
-    {
-      name: 'pages',
-      title: 'Link to pages',
-      weak: true,
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'stills'}
-          ]
-        }
-      ]
-    }
-  ],
   preview: {
     select: {
       media: 'image'
     },
     prepare ({title, internalLink, caption, media}) {
       return {
-        title,
+        title: 'Stills Image Grid',
         caption,
         internalLink,
         subtitle: 'Stills Image Grid',

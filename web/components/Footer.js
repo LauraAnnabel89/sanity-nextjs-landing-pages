@@ -43,13 +43,13 @@ function Footer (props) {
         <SimpleBlockContent blocks={text} />
       </div>
       <div className={styles.sociallogos}>
-        <a href='https://www.instagram.com/dawnmoretti/?hl=en' target='_blank'>
+        <a target='_blank' rel='nofollow' href='https://www.instagram.com/dawnmoretti/?hl=en'>
           <img src='/static/images/instagram.jpg' alt='Instagram Logo' />
         </a>
-        <a href='https://www.linkedin.com/dawn-production'>
+        <a target='_blank' rel='nofollow' href='https://www.linkedin.com/company/dawn-production'>
           <img src='/static/images/linkedin.jpg' alt='LinkedIn Logo' />
         </a>
-        <a href='https://www.facebook.com/DAWNProductionUK'>
+        <a target='_blank' rel='nofollow' href='https://www.facebook.com/DAWNProductionUK'>
           <img src='/static/images/facebook.jpg' alt='Facebook Logo' />
         </a>
       </div>
