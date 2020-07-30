@@ -20,6 +20,8 @@
   margin: 0 auto;
   overflow: hidden;
   top: 0;
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
 
   @nest & .slider-inner-arrow svg {
     @media (--media-min-large) {
