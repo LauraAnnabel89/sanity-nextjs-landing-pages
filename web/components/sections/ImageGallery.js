@@ -126,14 +126,16 @@ const ImageGallery = (props) => {
         <div className={styles.imageGridContainer}>
           {images.map((image, index) => (
             <div key={image._key} className={styles.imageContainer} onClick={() => show(index)}>
-              <img
-                src={builder.image(image).auto('format').width(480).url()}
-                className={styles.image}
-                alt={image.caption}
-                key={index}
-                loading='lazy'
-              />
-              <p className={styles.caption}>{image.caption}</p>
+              <div className={styles.imageContainerInner}>
+                <img
+                  src={builder.image(image).auto('format').width(480).url()}
+                  className={styles.image}
+                  alt={image.caption}
+                  key={index}
+                  loading='lazy'
+                />
+                <p className={styles.caption}>{image.caption}</p>
+              </div>
             </div>
           ))}
         </div>

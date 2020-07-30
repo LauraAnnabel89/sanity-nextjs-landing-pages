@@ -13,7 +13,7 @@ function ContactsSection (props) {
     <div className={styles.root}>
       <div className={styles.content}>
         {contacts.map((contact) => (
-          <div className={styles.contact}>
+          <div key={contact._key} className={styles.contact}>
             <h3 className={styles.contactTitle}>
               <span>{contact.title}</span>
             </h3>

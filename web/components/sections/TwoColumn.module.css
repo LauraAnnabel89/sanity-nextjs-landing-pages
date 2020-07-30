@@ -35,20 +35,19 @@
 .content {
   position: relative;
   margin: 0 1.5rem;
-  max-width: 70em;
-  max-width: 90vw;
+  width: 90vw;
 
   @nest & figcaption {
     width: 100%;
-    box-sizing: border-box;
   }
 
   @media (--media-min-medium) {
     margin: 0 auto;
+    padding: 0 1rem;
     padding-top: 1rem;
     grid-template-columns: 1fr 1fr;
     display: grid;
-    grid-gap: 1em;
+    grid-gap: 1.5rem;
 
     @nest & figcaption {
       position: absolute;

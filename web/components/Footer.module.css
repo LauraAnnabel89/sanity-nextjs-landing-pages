@@ -5,13 +5,12 @@
   color: var(--color-black, #333);
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
-  padding: 2rem 1.5rem;
-  width: 100%;
+  padding: 2rem 0;
+  width: 90vw;
   margin: 0 auto;
 
   @media (--media-min-medium) {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    padding: 2rem 1.5rem;
   }
 }
 
