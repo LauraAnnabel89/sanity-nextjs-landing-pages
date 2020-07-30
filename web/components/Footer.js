@@ -22,11 +22,12 @@ function Footer (props) {
         return
       }
 
-      const threshold = (document.body.scrollHeight * 0.65) - window.innerHeight - 10
+      const minThreshold = (document.body.scrollHeight * 0.5) - window.innerHeight - 10
+      const maxThreshold = document.body.scrollHeight - window.innerHeight - 200
 
-      if (!showScroll && window.pageYOffset > threshold) {
+      if (!showScroll && window.pageYOffset > minThreshold && window.pageYOffset < maxThreshold) {
         setShowScroll(true)
-      } else if (showScroll && window.pageYOffset <= threshold) {
+      } else if (showScroll && (window.pageYOffset <= minThreshold || window.pageYOffset >= maxThreshold)) {
         setShowScroll(false)
       }
     }
@@ -75,21 +76,23 @@ function Footer (props) {
             })}
         </ul>
       </nav>
-      <div className={styles.membershiplogos}>
-        <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
-        <img style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
-        <img src='/static/images/aop.png' alt='AOP' />
-        <img src='/static/images/apa.png' alt='APA' />
-        <img style={{paddingBottom: 7}} src='/static/images/b.png' alt='B Logo' />
-        <img src='/static/images/lebook.png' alt='Le Book' />
-        <img src='/static/images/albert.png' alt='Albert' />
-        <img src='/static/images/adgreen.png' alt='Adgreen' />
-      </div>
 
       <div className={styles.flexContainer}>
         <div className={styles.copyright}>&copy; DAWN Production 2020</div>
+
+        <div className={styles.membershiplogos}>
+          <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
+          <img style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
+          <img src='/static/images/aop.png' alt='AOP' />
+          <img src='/static/images/apa.png' alt='APA' />
+          <img style={{paddingBottom: 7}} src='/static/images/b.png' alt='B Logo' />
+          <img src='/static/images/lebook.png' alt='Le Book' />
+          <img src='/static/images/albert.png' alt='Albert' />
+          <img src='/static/images/adgreen.png' alt='Adgreen' />
+        </div>
+
         <button
-          className={`${styles.arrowUp} ${showScroll ? styles.arrowUpShow : ''}`}
+          className={styles.arrowUp}
           onClick={() => {
             window.scrollTo({top: 0, behavior: 'smooth'})
           }}
@@ -98,6 +101,14 @@ function Footer (props) {
         </button>
       </div>
 
+      <button
+        className={`${styles.arrowUpFloat} ${showScroll ? styles.arrowUpShow : ''}`}
+        onClick={() => {
+          window.scrollTo({top: 0, behavior: 'smooth'})
+        }}
+      >
+        <InlineSVG src='/static/images/arrow.svg' alt='Go back up' />
+      </button>
     </div>
   )
 }

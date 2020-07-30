@@ -64,7 +64,6 @@
 .copyright {
   font-size: var(--font-micro-size);
   font-family: var(--font-family-gilroy);
-  padding-top: 1rem;
 }
 
 .footerlogo {
@@ -93,6 +92,7 @@
 .membershiplogos {
   display: block;
   text-align: center;
+  order: -1;
   
   @nest & img {
     margin: 0 5px;
@@ -103,17 +103,44 @@
   }
 
   @media (--media-min-medium) {
+    @nest & img {
+      margin: 0 5px;
+      height: 55px;
+    }  
+  }
 
+  @media (--media-min-navbar) {
+    order: initial;
+
+    @nest & img {
+      margin: 0 7px;
+      height: 60px;
+    }  
+  }
+
+  @media (--media-min-x-large) {
     @nest & img {
       margin: 0 10px;
       height: 70px;
-      width: auto;
-      display: inline;
     }  
   }  
 }
 
 .arrowUp {
+  background: transparent;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @media (--media-min-navbar) {
+    position: static;
+  }
+}
+
+.arrowUpFloat {
   background: transparent;
   border: none;
   outline: none !important;
@@ -148,7 +175,15 @@
   }
 }
 
+
 .flexContainer {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  @media (--media-min-navbar) {
+    flex-direction: row;
+  }
 }
