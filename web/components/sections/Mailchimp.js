@@ -40,7 +40,7 @@ export default function Mailchimp (props) {
             }}
             messages={{
               sending: 'Sending...',
-              success: 'Thank you for subscribing!',
+              success: 'Thanks for subscribing!',
               error: 'An unexpected internal error has occurred.',
               empty: 'You must write an e-mail.',
               duplicate: 'Already subscribed',

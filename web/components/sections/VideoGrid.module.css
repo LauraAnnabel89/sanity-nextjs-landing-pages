@@ -207,7 +207,7 @@
   box-sizing: border-box;
   position: absolute;
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   height: 100%;
   width: 100%;
   display: flex;
@@ -217,11 +217,13 @@
   left: 0;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   color: var(--color-white);
   text-transform: uppercase;
 
   @media (--media-min-medium) {
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
     max-width: calc(var(--width-small) - 3rem);
   }
 
