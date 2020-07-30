@@ -18,7 +18,6 @@ function StillsImageGrid (props) {
       `
     client.fetch(stillsPageQuery).then((res) => {
       setStills(res)
-      console.log(res)
     })
   }, [setStills])
 

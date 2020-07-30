@@ -13,12 +13,19 @@
 }
 
 .imageSlider {
-  position: relative;
-  height: calc(100vh - 11rem);
+  position: fixed;
+  height: 100vh;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  top: 0;
+
+  @nest & .slider-inner-arrow svg {
+    @media (--media-min-large) {
+      display: none;
+    }
+  }
 }
 
 .infoBar {
@@ -34,6 +41,8 @@
   color: var(--color-black);
   text-transform: uppercase;
   flex-direction: column;
+  position: fixed;
+  bottom: 0;
 
   @media (--media-min-large) {
     flex-direction: row;
@@ -58,15 +67,15 @@
 .header {
   color: var(--color-grey);
   text-align: right;
-  width: 100%;
-  cursor: pointer;
   font-size: 1.5em;
   font-weight: 300;
   cursor: pointer;
   margin: 0 auto;
   padding: 1.5rem;
-  padding-bottom: 1rem;
-  z-index: 1000;
+  z-index: 1100;
+  position: fixed;
+  top: 0;
+  right: 0;
 
   @nest & > a {
     color: inherit;
@@ -82,7 +91,6 @@
 
   @media (--media-min-large) {
     padding: 2.5rem;
-    padding-bottom: 2rem;
   }
 }
 
@@ -110,8 +118,8 @@
 
 .imageGridContainer {
   position: relative;
-  margin: 1.5rem;
-  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 
   @nest & figcaption {
     width: 100%;
@@ -120,6 +128,7 @@
 
   @media (--media-min-medium) {
     margin: 0 auto;
+    padding: 0 1.5rem;
     padding-top: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -190,12 +199,11 @@
 }
 
 .imageContainer {
-  margin: 1.5rem auto;
+  margin: 1rem auto;
   position: relative;
 
   @media (--media-min-medium) {
-    margin: 1em auto;
-    padding: 0;
+    margin: 1.5rem;
     position: relative;
   }
 }

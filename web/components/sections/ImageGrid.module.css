@@ -125,7 +125,7 @@
 }
 
 .imageContainer {
-  margin: 1.5rem;
+  margin: 1.5rem 0;
   padding: 0;
   position: relative;
 
@@ -144,7 +144,7 @@
   box-sizing: border-box;
   position: absolute;
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   height: 100%;
   width: 100%;
   display: flex;
@@ -153,13 +153,19 @@
   top: 0;
   left: 0;
   transition: all 0.3s ease-in-out;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   color: var(--color-white);
   text-transform: uppercase;
+
+  @media (--media-min-medium) {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
 
   @nest &:hover {
     opacity: 1;
   }
+
 }
 
 .captionBox {
