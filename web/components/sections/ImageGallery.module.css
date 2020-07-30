@@ -14,7 +14,7 @@
 
 .imageSlider {
   position: fixed;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -193,7 +193,7 @@
 .imageGrid {
   position: relative;
   width: 100%;
-  padding-top: 2.5rem;
+  padding-top: 4.5rem;
 }
 
 .imageContainer {
