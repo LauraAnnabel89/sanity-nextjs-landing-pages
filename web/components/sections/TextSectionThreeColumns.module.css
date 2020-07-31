@@ -3,11 +3,12 @@
 
 .root {
   padding: 1rem 0;
-
+  padding-bottom: 2rem;
   text-align: center;
 
   @media (--media-min-medium) {
     padding: 1rem 0;
+    padding-bottom: 2rem;
   }
 }
 
