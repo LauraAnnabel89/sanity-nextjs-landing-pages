@@ -110,6 +110,7 @@
 
   @media (--media-min-navbar) {
     order: initial;
+    padding-right: 2rem;
 
     @nest & img {
       margin: 0 7px;
@@ -118,6 +119,8 @@
   }
 
   @media (--media-min-x-large) {
+    padding-right: 8rem;
+
     @nest & img {
       margin: 0 10px;
       height: 70px;

@@ -81,7 +81,7 @@ function Footer (props) {
         <div className={styles.copyright}>&copy; DAWN Production 2020</div>
 
         <div className={styles.membershiplogos}>
-          <img src='/static/images/prodparadise.jpeg' alt='Member of Production Paradise' />
+          <img src='/static/images/prod-paradise.png' alt='Member of Production Paradise' />
           <img style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
           <img src='/static/images/aop.png' alt='AOP' />
           <img src='/static/images/apa.png' alt='APA' />

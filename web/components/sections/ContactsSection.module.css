@@ -29,7 +29,7 @@
     box-sizing: border-box;
   }
 
-  @media (--media-min-medium) {
+  @media (--media-min-navbar) {
     margin: 0 auto;
     padding-top: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
@@ -72,18 +72,30 @@
 
 .contactName {
   margin: 0.25rem 0;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
+
+  @media (--media-min-navbar) {
+    font-size: 1.15rem;
+  }
 }
 
 .contactNumber {
   display: block;
   margin: 0.25rem 0;
   text-decoration: none;
-  font-size: 1.15rem;
+  font-size: 1rem;
+
+  @media (--media-min-navbar) {
+    font-size: 1.15rem;
+  }
 }
 
 .contactEmail {
   display: block;
   margin-top: 2rem;
-  font-size: 1.15rem;
+  font-size: 1rem;
+
+  @media (--media-min-navbar) {
+    font-size: 1.15rem;
+  }
 }
