@@ -45,13 +45,13 @@ function Footer (props) {
       </div>
       <div className={styles.sociallogos}>
         <a target='_blank' rel='nofollow' href='https://www.instagram.com/dawnmoretti/?hl=en'>
-          <img src='/static/images/instagram.jpg' alt='Instagram Logo' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/instagram.jpg' alt='Instagram Logo' />
         </a>
         <a target='_blank' rel='nofollow' href='https://www.linkedin.com/company/dawn-production'>
-          <img src='/static/images/linkedin.jpg' alt='LinkedIn Logo' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/linkedin.jpg' alt='LinkedIn Logo' />
         </a>
         <a target='_blank' rel='nofollow' href='https://www.facebook.com/DAWNProductionUK'>
-          <img src='/static/images/facebook.jpg' alt='Facebook Logo' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/facebook.jpg' alt='Facebook Logo' />
         </a>
       </div>
       <nav>
@@ -81,14 +81,14 @@ function Footer (props) {
         <div className={styles.copyright}>&copy; DAWN Production 2020</div>
 
         <div className={styles.membershiplogos}>
-          <img src='/static/images/prod-paradise.png' alt='Member of Production Paradise' />
-          <img style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
-          <img src='/static/images/aop.png' alt='AOP' />
-          <img src='/static/images/apa.png' alt='APA' />
-          <img style={{paddingBottom: 7}} src='/static/images/b.png' alt='B Logo' />
-          <img src='/static/images/lebook.png' alt='Le Book' />
-          <img src='/static/images/albert.png' alt='Albert' />
-          <img src='/static/images/adgreen.png' alt='Adgreen' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/prod-paradise.png' alt='Member of Production Paradise' />
+          <img draggable={false} onDragStart={() => false} style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/aop.png' alt='AOP' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/apa.png' alt='APA' />
+          <img draggable={false} onDragStart={() => false} style={{paddingBottom: 7}} src='/static/images/b.png' alt='B Logo' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/lebook.png' alt='Le Book' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/albert.png' alt='Albert' />
+          <img draggable={false} onDragStart={() => false} src='/static/images/adgreen.png' alt='Adgreen' />
         </div>
 
         <button

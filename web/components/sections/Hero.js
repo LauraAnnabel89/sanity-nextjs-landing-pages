@@ -45,7 +45,7 @@ function Hero (props) {
         </h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
         {images.map((image, index) => (
-          <img
+          <img draggable={false} onDragStart={() => false}
             id={index}
             src={builder.image(image).url()}
             alt={heading}

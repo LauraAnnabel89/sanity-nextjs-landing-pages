@@ -127,7 +127,7 @@ const ImageGallery = (props) => {
           {images.map((image, index) => (
             <div key={image._key} className={styles.imageContainer} onClick={() => show(index)}>
               <div className={styles.imageContainerInner}>
-                <img
+                <img draggable={false} onDragStart={() => false}
                   src={builder.image(image).auto('format').width(480).url()}
                   className={styles.image}
                   alt={image.caption}

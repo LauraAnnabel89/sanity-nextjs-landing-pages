@@ -64,7 +64,7 @@ class HorizontalHeader extends Component {
       return <SVG src={logo.asset.url} className={styles.logo} />
     }
 
-    return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />
+    return <img draggable={false} onDragStart={() => false} src={logo.asset.url} alt={logo.title} className={styles.logo} />
   };
 
   render () {
@@ -118,7 +118,7 @@ class HorizontalHeader extends Component {
               })}
           </ul>
           <div
-            onClick={this.handleMenuToggle}  
+            onClick={this.handleMenuToggle}
             className={styles.showNavButton}
           >
             <HamburgerMenu

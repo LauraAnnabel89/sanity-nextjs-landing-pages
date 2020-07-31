@@ -22,7 +22,7 @@ function FourColumn (props) {
       <div className={styles.content}>
         {images.map((image) => (
           <figure className={styles.imageContainer}>
-            <img
+            <img draggable={false} onDragStart={() => false}
               src={builder.image(image).auto('format').width(480).url()}
               className={styles.image}
               alt={heading}

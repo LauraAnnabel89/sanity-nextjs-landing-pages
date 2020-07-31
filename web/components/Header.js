@@ -66,7 +66,7 @@ class Header extends Component {
       return <SVG src={logo.asset.url} className={styles.logo} />
     }
 
-    return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />
+    return <img draggable={false} onDragStart={() => false} src={logo.asset.url} alt={logo.title} className={styles.logo} />
   };
 
   render () {
@@ -90,7 +90,7 @@ class Header extends Component {
             as='/'
           >
             <a>
-              <img src='/static/images/dawn.svg' alt='Dawn Production' />
+              <img draggable={false} onDragStart={() => false} src='/static/images/dawn.svg' alt='Dawn Production' />
             </a>
           </Link>
         </div>
@@ -122,7 +122,7 @@ class Header extends Component {
               })}
           </ul>
           <div
-            onClick={this.handleMenuToggle}  
+            onClick={this.handleMenuToggle}
             className={styles.showNavButton}
           >
             <HamburgerMenu

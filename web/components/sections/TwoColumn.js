@@ -22,7 +22,7 @@ function TwoColumn (props) {
       <div className={styles.content}>
         {images.map((image, index) => (
           <figure className={styles.imageContainer} key={index}>
-            <img
+            <img draggable={false} onDragStart={() => false}
               src={builder.image(image).auto('format').width(980).url()}
               className={styles.image}
               alt={heading}

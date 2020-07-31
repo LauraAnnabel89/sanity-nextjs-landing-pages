@@ -22,7 +22,7 @@ function ThreeColumn (props) {
       <div className={styles.content}>
         {images.map((image) => (
           <figure className={styles.imageContainer}>
-            <img
+            <img draggable={false} onDragStart={() => false}
               src={builder.image(image).auto('format').width(980).url()}
               className={styles.image}
               alt={heading}

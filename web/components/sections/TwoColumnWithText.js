@@ -19,7 +19,7 @@ function TwoColumnWithText (props) {
     <div className={styles.root}>
       <div className={styles.content}>
         <div className={styles.imageContainer} style={{order: reverseOrder && '2'}}>
-          <img
+          <img draggable={false} onDragStart={() => false}
             src={builder.image(props.image).auto('format').width(980).url()}
             className={styles.image}
             alt={props.heading}

@@ -26,7 +26,7 @@ function ImageGrid (props) {
 
             const RenderItem = () => (
               <div key={`${_key}-image`} className={styles.imageContainer}>
-                <img
+                <img draggable={false} onDragStart={() => false}
                   src={builder.image(openGraphImage).auto('format').width(980).height(Math.ceil(980 / 16 * 9)).crop('entropy').fit('crop').url()}
                   className={styles.image}
                   alt={title}
@@ -76,7 +76,7 @@ function ImageGrid (props) {
 
           const RenderItem = () => (
             <div key={`${_key}-image`} className={styles.imageContainer}>
-              <img
+              <img draggable={false} onDragStart={() => false}
                 src={builder.image(item).auto('format').width(980).height(Math.ceil(980 / 16 * 9)).url()}
                 className={styles.image}
                 alt={caption}

@@ -16,7 +16,7 @@ function ImageSection (props) {
   return (
     <div className={styles.root}>
       <figure className={styles.content}>
-        <img
+        <img draggable={false} onDragStart={() => false}
           src={builder.image(image).auto('format').width(1980).url()}
           className={styles.image}
           alt={image.caption}
