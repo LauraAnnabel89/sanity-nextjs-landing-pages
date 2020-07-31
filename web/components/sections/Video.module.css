@@ -19,6 +19,7 @@
   line-height: calc(57 / 49);
   position: absolute;
   top: 0;
+  opacity: 0;
   height: 100%;
   width: 100%;
   display: flex;
@@ -33,10 +34,20 @@
   text-transform: uppercase;
   margin-top: 0;
   font-size: 2.15rem;
+  animation: titleFadeIn 250ms linear forwards 1000ms; 
 
   @media (--media-min-medium) {
     font-size: 3.15rem;
     line-height: var(--font-title1-line-height);
+  }
+}
+
+@keyframes titleFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -60,27 +71,19 @@
 .wrapper iframe {
   position: absolute;
   z-index: -1;
-  height: 100vmax !important;
-  width: calc(200vmax / 9 * 16) !important;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @media (--media-min-medium) {
-    width: calc(100vmax / 9 * 16) !important;
+  @media (min-aspect-ratio: 28/13) {
+    width: 100vmax;
+    height: calc(100vmax / 28 * 13) !important;
   }
 
-  /* 
-  To tweak better. Is the video really 16:9?
-  @media (min-aspect-ratio: 16/9) {
-    width: 100vw !important;
-    height: calc(100vw / 9 * 16) !important;  
+  @media (max-aspect-ratio: 28/13) {
+    height: 100vmax !important;
+    width: calc(100vmax / 13 * 28) !important;
   }
-
-  @media (max-aspect-ratio: 16/9) {
-    width: calc(100vh / 9 * 16) !important;  
-    height: 100vh !important;
-  } */
 }
 
 .windowWrapper {
