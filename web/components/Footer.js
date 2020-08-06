@@ -58,13 +58,12 @@ function Footer (props) {
         <ul className={styles.items}>
           {navItems &&
             navItems.map((item) => {
-              const isActive =
-                router.pathname === '/LandingPage' && router.query.slug === item.slug.current
+              const isActive = router.asPath.substring(1) === item.slug.current
               return (
                 <li key={item._id} className={styles.item}>
                   <Link
                     href={{
-                      pathname: '/LandingPage',
+                      pathname: '/[...slug]',
                       query: {slug: item.slug.current}
                     }}
                     as={`/${item.slug.current}`}
@@ -126,7 +125,7 @@ Footer.propTypes = {
   router: PropTypes.shape({
     pathname: PropTypes.string,
     query: PropTypes.shape({
-      slug: PropTypes.string
+      slug: PropTypes.array
     })
   })
 }

@@ -13,7 +13,7 @@ class HorizontalHeader extends Component {
     router: PropTypes.shape({
       pathname: PropTypes.string,
       query: PropTypes.shape({
-        slug: PropTypes.string
+        slug: PropTypes.array
       }),
       events: PropTypes.any
     }),
@@ -61,7 +61,7 @@ class HorizontalHeader extends Component {
     }
 
     if (logo.asset.extension === 'svg') {
-      return <SVG src={logo.asset.url} className={styles.logo} />
+      return <InlineSVG src={logo.asset.url} className={styles.logo} />
     }
 
     return <img draggable={false} onDragStart={() => false} src={logo.asset.url} alt={logo.title} className={styles.logo} />
@@ -96,13 +96,12 @@ class HorizontalHeader extends Component {
             {navItems &&
               navItems.map((item) => {
                 const {slug, title, _id} = item
-                const isActive =
-                  router.pathname === '/LandingPage' && router.query.slug === slug.current
+                const isActive = router.asPath.substring(1) === slug.current
                 return (
                   <li key={_id} className={styles.navItem}>
                     <Link
                       href={{
-                        pathname: '/LandingPage',
+                        pathname: '/[...slug]',
                         query: {slug: slug.current}
                       }}
                       as={`/${slug.current}`}

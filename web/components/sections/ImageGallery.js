@@ -100,7 +100,7 @@ const ImageGallery = (props) => {
         ) : (
           <Link
             href={{
-              pathname: '/LandingPage',
+              pathname: '/[...slug]',
               query: {slug: base}
             }}
             as={returnUrl}

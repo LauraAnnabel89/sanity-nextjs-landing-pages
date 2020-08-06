@@ -14,7 +14,7 @@ function Figure ({node}) {
     return undefined
   }
 
-  const isActive = router.pathname === '/LandingPage' && router.query.slug === item.slug.current
+  const isActive = router.pathname === '/[...slug]' && router.query.slug === item.slug.current
   return (
     <figure className={styles.content}>
       <Link
