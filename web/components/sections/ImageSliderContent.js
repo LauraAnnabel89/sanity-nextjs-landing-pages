@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
+import styles from './ImageSliderContent.module.css'
 
 const ImageSliderContent = (props) => (
   <div
+    className={styles.root}
     style={{
       transform: `translateX(-${props.translate}vw)`,
-      height: `100%`,
-      width: `${props.width}vw`,
-      display: 'flex'
+      width: `${props.width}vw`
     }}
   >
     {props.children || null}

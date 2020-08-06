@@ -1,0 +1,8 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.root {
+  height: 100%;
+  display: flex;
+  transition: transform 150ms ease-out;
+}
