@@ -81,14 +81,31 @@ function Footer (props) {
         <div className={styles.copyright}>&copy; DAWN Production 2020</div>
 
         <div className={styles.membershiplogos}>
-          <img draggable={false} onDragStart={() => false} src='/static/images/prod-paradise.png' alt='Member of Production Paradise' />
-          <img draggable={false} onDragStart={() => false} style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
-          <img draggable={false} onDragStart={() => false} src='/static/images/aop.png' alt='AOP' />
-          <img draggable={false} onDragStart={() => false} src='/static/images/apa.png' alt='APA' />
-          <img draggable={false} onDragStart={() => false} style={{paddingBottom: 7}} src='/static/images/b.png' alt='B Logo' />
-          <img draggable={false} onDragStart={() => false} src='/static/images/lebook.png' alt='Le Book' />
-          <img draggable={false} onDragStart={() => false} src='/static/images/albert.png' alt='Albert' />
-          <img draggable={false} onDragStart={() => false} src='/static/images/adgreen.png' alt='Adgreen' />
+
+          <a target='_blank' rel='nofollow' href='https://productionparadise.com/'>
+            <img draggable={false} onDragStart={() => false} src='/static/images/prod-paradise.png' alt='Member of Production Paradise' />
+          </a>
+          <a target='_blank' rel='nofollow' href='https://erjjiostudios.com/'>
+            <img draggable={false} onDragStart={() => false} style={{paddingTop: 5, paddingBottom: 0}} src='/static/images/erjjjo.png' alt='Certified Green Website' />
+          </a>
+          <a target='_blank' rel='nofollow' href='https://www.the-aop.org/'>
+            <img draggable={false} onDragStart={() => false} src='/static/images/aop.png' alt='AOP' />
+          </a>
+          <a target='_blank' rel='nofollow' href='https://www.a-p-a.net/'>
+            <img draggable={false} onDragStart={() => false} src='/static/images/apa.png' alt='APA' />
+          </a>
+          <a target='_blank' rel='nofollow' href='https://www.lbbonline.com/'>
+            <img draggable={false} onDragStart={() => false} style={{paddingBottom: 7}} src='/static/images/b.png' alt='B Logo' />
+          </a>
+          <a target='_blank' rel='nofollow' href='https://www.lebook.com/'>
+            <img draggable={false} onDragStart={() => false} src='/static/images/lebook.png' alt='Le Book' />
+          </a>
+          <a target='_blank' rel='nofollow' href='https://wearealbert.org/'>
+            <img draggable={false} onDragStart={() => false} src='/static/images/albert.png' alt='Albert' />
+          </a>
+          <a target='_blank' rel='nofollow' href='https://www.weareadgreen.org/'>
+            <img draggable={false} onDragStart={() => false} src='/static/images/adgreen.png' alt='Adgreen' />
+          </a>
         </div>
 
         <button
