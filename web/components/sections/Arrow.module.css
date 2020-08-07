@@ -1,0 +1,25 @@
+@import "../../styles/custom-media.css";
+@import "../../styles/custom-properties.css";
+
+.root {
+  display: none;
+
+  @media (--media-min-medium) {
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    transition: transform ease-in 0.1s;
+    z-index: 1000;
+
+    @nest & svg {
+      width: 1.5rem;
+
+      @nest &:focus {
+        outline: 0;
+      }
+    }
+  }
+}

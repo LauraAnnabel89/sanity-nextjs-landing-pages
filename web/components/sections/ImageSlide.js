@@ -7,12 +7,7 @@ const ImageSlide = ({content}) => (
   <div className={styles.root}>
     <div
       style={{
-        height: '100%',
-        width: '100%',
-        backgroundImage: `url(${content})`,
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center'
+        backgroundImage: `url(${content})`
       }}
     />
   </div>

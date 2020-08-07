@@ -8,6 +8,7 @@ import client from '../../client'
 import Link from 'next/link'
 import HamburgerMenu from 'react-hamburger-menu'
 import {useRouter} from 'next/router'
+import ReactSwipe from 'react-swipe'
 
 const builder = imageUrlBuilder(client)
 
@@ -17,62 +18,32 @@ const ImageGallery = (props) => {
 
   const [base] = router.query.slug.split('/')
 
-  // const title = base.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
+  let reactSwipeEl
 
   const returnHash = router.query.slug.replace('/', '-')
   const returnUrl = `/${base}#${returnHash}`
 
-  const [state, setState] = useState({
-    translate: 0,
-    transition: 0.45,
-    activeSlide: 0
-  })
-
+  const [activeSlide, setActiveSlide] = useState(0)
   const [showSlider, setShowSlider] = useState(true)
   const [showGrid, setShowGrid] = useState(false)
 
-  const {translate, transition, activeSlide} = state
-
   const nextSlide = () => {
-    if (activeSlide === images.length - 1) {
-      return setState({
-        ...state,
-        translate: 0,
-        activeSlide: 0
-      })
-    }
-
-    setState((state) => ({
-      ...state,
-      activeSlide: state.activeSlide + 1,
-      translate: (state.activeSlide + 1) * 100
-    }))
+    reactSwipeEl.next()
   }
 
   const prevSlide = () => {
-    if (activeSlide === 0) {
-      return setState({
-        ...state,
-        translate: (images.length - 1) * 100,
-        activeSlide: images.length - 1
-      })
-    }
+    reactSwipeEl.prev()
+  }
 
-    setState((state) => ({
-      ...state,
-      activeSlide: state.activeSlide - 1,
-      translate: (state.activeSlide - 1) * 100
-    }))
+  const slideCallback = () => {
+    const index = reactSwipeEl.getPos()
+    setActiveSlide(index)
   }
 
   const show = (index, caption) => {
+    reactSwipeEl.slide(index, 0)
     setShowGrid(false)
     setShowSlider(true)
-    setState({
-      ...state,
-      activeSlide: index,
-      translate: index * 100
-    })
   }
 
   const hide = () => {
@@ -143,15 +114,21 @@ const ImageGallery = (props) => {
 
       <div className={`${styles.imageGalleryContainer} ${showSlider ? styles.show : styles.hide}`}>
         <div className={styles.imageSlider}>
-          <ImageSliderContent
-            translate={translate}
-            transition={transition}
-            width={100 * images.length}
+          <ReactSwipe
+            className='carousel'
+            swipeOptions={{
+              startSlide: activeSlide,
+              continuous: true,
+              transitionEnd: slideCallback
+            }}
+            ref={el => (reactSwipeEl = el)}
           >
             {images.map((image, index, caption) => (
-              <ImageSlide key={image + index} content={builder.image(image).auto('format').width(2000).url()} />
+              <div key={image + index}>
+                <ImageSlide content={builder.image(image).auto('format').width(2000).url()} />
+              </div>
             ))}
-          </ImageSliderContent>
+          </ReactSwipe>
           <Arrow direction='left' handleClick={prevSlide} />
           <Arrow direction='right' handleClick={nextSlide} />
         </div>

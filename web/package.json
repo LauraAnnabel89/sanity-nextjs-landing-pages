@@ -47,9 +47,11 @@
     "react-responsive-carousel": "^3.2.7",
     "react-slick": "^0.26.1",
     "react-slidez": "0.0.31",
+    "react-swipe": "^6.0.4",
     "react-transition-group": "^4.4.1",
     "screenfull": "^5.0.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "swipe-js-iso": "^2.1.5"
   },
   "devDependencies": {
     "@babel/runtime-corejs2": "^7.10.2",
