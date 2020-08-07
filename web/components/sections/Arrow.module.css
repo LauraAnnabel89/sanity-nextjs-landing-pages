@@ -4,7 +4,7 @@
 .root {
   display: none;
 
-  @media (--media-min-medium) {
+  @media (hover: hover) {
     display: flex;
     position: fixed;
     top: 0;

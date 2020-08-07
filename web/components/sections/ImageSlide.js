@@ -1,16 +1,38 @@
 /** @jsx jsx */
-// import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {jsx} from '@emotion/core'
 import styles from './ImageSlide.module.css'
 
-const ImageSlide = ({content}) => (
-  <div className={styles.root}>
+const ImageSlide = ({content}) => {
+  const [height, setHeight] = useState('100vh')
+
+  if (typeof window !== 'undefined') {
+    useEffect(() => {
+      setHeight(window.innerHeight)
+    }, [setHeight])
+
+    const onResize = () => {
+      setHeight(window.innerHeight)
+    }
+
+    window.addEventListener('resize', onResize, false)
+    window.addEventListener('orientationchange', onResize, false)
+  }
+
+  return (
     <div
+      className={styles.root}
       style={{
-        backgroundImage: `url(${content})`
+        height
       }}
-    />
-  </div>
-)
+    >
+      <div
+        style={{
+          backgroundImage: `url(${content})`
+        }}
+      />
+    </div>
+  )
+}
 
 export default ImageSlide

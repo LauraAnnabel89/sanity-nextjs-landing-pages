@@ -42,6 +42,7 @@ const ImageGallery = (props) => {
 
   const show = (index, caption) => {
     reactSwipeEl.slide(index, 0)
+    setActiveSlide(index)
     setShowGrid(false)
     setShowSlider(true)
   }
