@@ -35,9 +35,12 @@
 }
 
 .column {
+  min-width: 100%;
+
   @media (--media-min-medium) {
     min-width: auto;
   }
+
   @media (--media-min-navbar) {
     min-width: 230px;
     margin-left: 0.2rem;
@@ -63,17 +66,35 @@
 }
 
 .copy {
-  height: 470px;
-  overflow-y: scroll;
+  @media (--media-min-medium) {
+    height: 470px;
+    overflow-y: scroll;
+  }
+
+  @nest & > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+
+    @media (--media-min-medium) {
+      display: block;
+    }
+  }
 }
 
 .copy p {
+  width: 50%;
   padding: 0;
   margin: 0;
   font-size: var(--font-micro-size);
   text-transform: uppercase;
   text-align: left;
   padding-right: 1.5rem;
+
+  @media (--media-min-medium) {
+    width: 100%;
+  }
 }
 
 .label {
@@ -95,6 +116,11 @@
   padding: 0.5rem 0;
   margin-top: 1rem;
   padding-top: 0;
+  text-align: left;
+
+  @media (--media-min-medium) {
+    text-align: center;
+  }
 
   @nest &::after {
     /* content: ''; */

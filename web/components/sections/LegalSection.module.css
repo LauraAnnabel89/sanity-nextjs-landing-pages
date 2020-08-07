@@ -91,10 +91,12 @@
 }
 
 .scrollable {
-  max-height: calc(100vh - 13rem);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #000 #fff;
+  @media (--media-min-medium) {
+    max-height: calc(100vh - 13rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #000 #fff;
+  }
 
   @nest &::-webkit-scrollbar {
     width: 11px;
