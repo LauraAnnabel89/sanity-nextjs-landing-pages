@@ -119,7 +119,7 @@ const ImageGallery = (props) => {
             className='carousel'
             swipeOptions={{
               startSlide: activeSlide,
-              continuous: true,
+              continuous: images.length > 2,
               transitionEnd: slideCallback
             }}
             ref={el => (reactSwipeEl = el)}
