@@ -57,19 +57,22 @@ export default class Video extends React.Component {
         background: `url("${urlFor(poster).width(1980).auto('format').url()}")`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%'
+        backgroundPosition: '50% 50%',
+        position: 'relative',
+        zIndex: 1001
       }
       : {}
 
-    const Play = () => (
-      <div style={style} className={styles.playButtonContainer} onClick={() => { this.setState({playing: true}) }}>
-        <div className={styles.playButton} />
-      </div>
-    )
+    // const Play = () => (
+    //   <div style={style} className={styles.playButtonContainer} onClick={() => { this.setState({playing: true}) }}>
+    //     <div className={styles.playButton} />
+    //   </div>
+    // )
 
     return (
       <div className={windowed ? styles.windowContainer : styles.container} style={!playing && !windowed ? style : {}}>
         <div className={windowed ? styles.windowWrapper : styles.wrapper}>
+          {/* {windowed && !playing ? <Play /> : null} */}
           <ReactPlayer
             url={url}
             ref={this.ref}
@@ -82,10 +85,9 @@ export default class Video extends React.Component {
             width='100%'
             height='100%'
             playsinline={autoplay}
-            style={{visibility: `${windowed && !playing ? 'hidden' : 'visible'}`}}
+            // style={{opacity: `${windowed && !playing ? '0' : '1'}`}}
           />
           {windowed && caption ? '' : <h1 className={styles.title}>{caption}</h1>}
-          {windowed && !playing ? <Play /> : null}
         </div>
       </div>
     )
