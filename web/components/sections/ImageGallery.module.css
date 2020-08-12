@@ -4,6 +4,7 @@
 .root {
   position: relative;
   background: white;
+  z-index: 5000;
 
   @media (--media-min-large) {
     display: flex;
@@ -72,7 +73,7 @@
   cursor: pointer;
   margin: 0 auto;
   padding: 1.5rem;
-  z-index: 1100;
+  z-index: 5001;
   position: fixed;
   top: 0;
   right: 0;
