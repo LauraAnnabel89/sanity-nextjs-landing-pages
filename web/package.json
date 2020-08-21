@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export && node exportSitemap.js",
+    "build:production": "next build",
     "format": "prettier-eslint --write \"**/*.js\" \"!.next/**\" \"!node_modules/**\" \"!out/**\"",
     "lint": "eslint .",
     "start": "next start"
