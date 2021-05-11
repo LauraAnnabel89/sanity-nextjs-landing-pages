@@ -27,7 +27,7 @@
     "gatsby-image-background-slider": "0.0.2",
     "gatsby-plugin-modal-routing": "^1.1.0",
     "groq": "^0.140.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "next": "^9.3.2",
     "next-fonts": "^1.1.0",
     "next-routes": "^1.4.2",
