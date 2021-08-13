@@ -28,7 +28,7 @@
     "gatsby-plugin-modal-routing": "^1.1.0",
     "groq": "^0.140.0",
     "lodash": "^4.17.11",
-    "next": "^9.3.2",
+    "next": "^11.1.0",
     "next-fonts": "^1.1.0",
     "next-routes": "^1.4.2",
     "next-seo": "^1.11.2",
